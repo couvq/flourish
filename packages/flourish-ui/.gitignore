@@ -1,3 +1,6 @@
+# transpiled js files
+lib
+
 # Logs
 logs
 *.log
