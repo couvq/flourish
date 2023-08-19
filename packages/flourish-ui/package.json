@@ -1,12 +1,22 @@
 {
-  "name": "flourish-ui",
+  "name": "@couvq/flourish-ui",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/couvq"
+  },
   "private": false,
   "description": "React component library for the Flourish design system.",
   "author": {
     "name": "Quentin Couvelaire"
   },
+  "keywords": [
+    "react",
+    "component library",
+    "design system",
+    "flourish",
+    "flourish-ui"
+  ],
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",

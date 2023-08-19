@@ -2,6 +2,9 @@
 lib
 types
 
+### npm publishing
+.npmrc
+
 # Logs
 logs
 *.log
