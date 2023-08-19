@@ -4,12 +4,11 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 
 // To handle css files
-import postcss from "rollup-plugin-postcss";
+import styles from "rollup-plugin-styles";
 
-import terser from '@rollup/plugin-terser';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import image from '@rollup/plugin-image';
-
+import terser from "@rollup/plugin-terser";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import image from "@rollup/plugin-image";
 
 const packageJson = require("./package.json");
 
@@ -33,17 +32,17 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
-      
+      styles({
+        mode: "inject",
+      }),
       terser(),
-      image()
+      image(),
     ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts.default()],
-
-    external: [/\.css$/], // telling rollup anything that is .css aren't part of type exports 
+    external: [/\.(sass|scss|css)$/] /* ignore style files */,
   },
-]
+];
