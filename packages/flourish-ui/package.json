@@ -16,16 +16,17 @@
     "flourish-ui"
   ],
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "type": "module",
   "scripts": {
-    "build": "eslint src --ext .ts,.tsx && jest && rollup -c --bundleConfigAsCjs",
+    "build": "npm run lint && npm run test && rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{js,jsx,ts,tsx}' --write",
     "lint": "eslint src --ext .ts,.tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "flourish-release": "npm run build && npm version patch && npm publish"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
