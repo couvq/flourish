@@ -1,13 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Links from '../Links'
-import TypographyPage from '../TypographyPage'
+import { routes } from '../../routes'
 
 const RouteContainer = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Links />} />
-        <Route path="/typography" element={<TypographyPage />} />
+        {routes.map((routeEntry) => (
+          <Route
+            key={routeEntry.path}
+            path={routeEntry.path}
+            element={routeEntry.element}
+          />
+        ))}
       </Routes>
     </BrowserRouter>
   )
