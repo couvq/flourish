@@ -26,7 +26,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "flourish-release": "npm run build && npm version patch && npm publish"
+    "flourish-release": "npm i --force && npm run build && npm version patch && npm publish"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
