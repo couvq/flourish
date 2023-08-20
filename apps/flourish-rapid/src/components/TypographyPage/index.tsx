@@ -1,9 +1,12 @@
 import { Typography } from '@couvq/flourish-ui'
+import ExamplePage from '../ExamplePage'
 
 const TypographyPage = () => {
   return (
     <>
-      <Typography>Hello world</Typography>
+      <ExamplePage>
+        <Typography>Hello world</Typography>
+      </ExamplePage>
     </>
   )
 }

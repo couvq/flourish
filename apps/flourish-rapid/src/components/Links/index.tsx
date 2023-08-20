@@ -10,11 +10,13 @@ const Links = () => {
           flexDirection: 'column'
         }}
       >
-        {routes.map((routeEntry) => (
-          <Link key={routeEntry.path} to={routeEntry.path}>
-            {routeEntry.label}
-          </Link>
-        ))}
+        {routes.map((routeEntry) =>
+          routeEntry.label !== 'Home page' ? (
+            <Link key={routeEntry.path} to={routeEntry.path}>
+              {routeEntry.label}
+            </Link>
+          ) : null
+        )}
       </div>
     </>
   )
