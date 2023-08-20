@@ -1,7 +1,11 @@
-import React from 'react'
+import RouteContainer from './components/RouteContainer'
 
 const App = () => {
-  return <>Hello world!</>
+  return (
+    <>
+      <RouteContainer />
+    </>
+  )
 }
 
 export default App
