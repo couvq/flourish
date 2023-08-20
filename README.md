@@ -1,2 +1,4 @@
 ### flourish
-The code monorepo for the flourish design system
+Monorepo for the flourish design system.
+
+`npm i @couvq/flourish-ui`
