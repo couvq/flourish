@@ -11,7 +11,7 @@ interface TypographyProps {
 export const Typography = ({
   children,
   variant = 'p'
-}: TypographyProps): React.ReactNode => (
+}: TypographyProps) => (
   <>
     {variant === 'h1' ? <h1 className="flourish-h1">{children}</h1> : null}
     {variant === 'h2' ? <h2 className="flourish-h2">{children}</h2> : null}
