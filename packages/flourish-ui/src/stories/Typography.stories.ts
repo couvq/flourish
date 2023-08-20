@@ -25,55 +25,55 @@ type Story = StoryObj<typeof meta>;
 export const h1: Story = {
   args: {
     variant: 'h1',
-    children: 'Heading level 1'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const h2: Story = {
   args: {
     variant: 'h2',
-    children: 'Heading level 2'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const h3: Story = {
   args: {
     variant: 'h3',
-    children: 'Heading level 3'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const h4: Story = {
   args: {
     variant: 'h4',
-    children: 'Heading level 4'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const h5: Story = {
   args: {
     variant: 'h5',
-    children: 'Heading level 5'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const h6: Story = {
   args: {
     variant: 'h6',
-    children: 'Heading level 6'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const p: Story = {
   args: {
     variant: 'p',
-    children: 'paragraph'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };
 
 export const caption: Story = {
   args: {
     variant: 'caption',
-    children: 'caption'
+    children: 'The quick brown fox jumps over the lazy dog.'
   }
 };

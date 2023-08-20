@@ -8,10 +8,7 @@ interface TypographyProps {
   children: React.ReactNode
 }
 
-export const Typography = ({
-  children,
-  variant = 'p'
-}: TypographyProps) => (
+export const Typography = ({ children, variant = 'p' }: TypographyProps) => (
   <>
     {variant === 'h1' ? <h1 className="flourish-h1">{children}</h1> : null}
     {variant === 'h2' ? <h2 className="flourish-h2">{children}</h2> : null}
@@ -21,7 +18,7 @@ export const Typography = ({
     {variant === 'h6' ? <h6 className="flourish-h6">{children}</h6> : null}
     {variant === 'p' ? <p className="flourish-body">{children}</p> : null}
     {variant === 'caption' ? (
-      <caption className="flourish-caption">{children}</caption>
+      <p className="flourish-caption">{children}</p>
     ) : null}
   </>
 )
