@@ -12,7 +12,7 @@ export const Typography = ({ children, variant = "p" }: TypographyProps) => {
   return (
     <>
       {variant === "h1" ? <h1 className="flourish-h1">{children}</h1> : null}
-      {variant === "h2" ? <h2 className="flourish-h1">{children}</h2> : null}
+      {variant === "h2" ? <h2 className="flourish-h2">{children}</h2> : null}
       {variant === "h3" ? <h3 className="flourish-h3">{children}</h3> : null}
       {variant === "h4" ? <h4 className="flourish-h4">{children}</h4> : null}
       {variant === "h5" ? <h5 className="flourish-h5">{children}</h5> : null}
