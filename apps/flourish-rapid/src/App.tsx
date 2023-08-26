@@ -1,5 +1,4 @@
-import RouteContainer from './components/RouteContainer'
-
+import RouteContainer from '@components/RouteContainer'
 const App = () => {
   return (
     <>

@@ -1,10 +1,12 @@
+import { Typography } from 'flourish-ui'
 import { Link } from 'react-router-dom'
 
 interface ExamplePageProps {
-  children: React.ReactNode
+  children: React.ReactNode,
+  exampleName: string
 }
 
-const ExamplePage = ({ children }: ExamplePageProps) => {
+const ExamplePage = ({ children, exampleName }: ExamplePageProps) => {
   return (
     <>
       <div
@@ -13,6 +15,7 @@ const ExamplePage = ({ children }: ExamplePageProps) => {
         }}
       >
         <Link to="/">Go back to components</Link>
+        <Typography variant='h1'>{exampleName}</Typography>
         {children}
       </div>
     </>
