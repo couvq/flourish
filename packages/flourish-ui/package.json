@@ -1,12 +1,13 @@
 {
-  "name": "@couvq/flourish-ui",
+  "name": "flourish-ui",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/couvq"
+    "registry": "https://registry.npmjs.org/"
   },
   "private": false,
   "description": "React component library for the Flourish design system.",
   "author": {
-    "name": "Quentin Couvelaire"
+    "name": "Quentin Couvelaire",
+    "email": "quentincouvelaire@gmail.com"
   },
   "keywords": [
     "react",
@@ -16,8 +17,13 @@
     "flourish-ui"
   ],
   "license": "MIT",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/couvq/flourish",
+    "directory": "packages/flourish-ui"
+  },
   "scripts": {
     "clean": "rm -rf node_modules dist",
     "build": "npm run lint && npm run test && rollup -c --bundleConfigAsCjs",
@@ -27,7 +33,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "flourish-release": "npm i --force && npm run build && npm version patch && npm publish"
+    "flourish-release": "npm i --force && npm run build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
