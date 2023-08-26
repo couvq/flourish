@@ -2,7 +2,7 @@
 Tokens package for the Flourish design system.
 
 ## How our tokens work
-* High level - We use Figma Tokens Studio to create tokens, these are used in our Figma and then synced to our tokens package in code. This way, we maintain a single source of truth for our tokens, and changes in the tokens studio plugin will automatically reflect in Figma as well as in our code.
+* High level - We use [Figma Tokens Studio](https://tokens.studio/) to create tokens, these are used in our Figma and then synced to our tokens package in code. This way, we maintain a single source of truth for our tokens, and changes in the tokens studio plugin will automatically reflect in Figma as well as in our code.
 * Steps:
   1. Change a token value in the Figma Tokens Studio plugin, this will update any place in our Figma where that particular token value is used. 
   2. Commit this token change to our github repo.
