@@ -1,17 +1,41 @@
 {
   "name": "flourish-tokens",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "./build/scss/_tokens.scss",
+  "files": [
+    "./build/scss/_tokens.scss"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "private": false,
+  "description": "Tokens library for the Flourish design system.",
+  "author": {
+    "name": "Quentin Couvelaire",
+    "email": "quentincouvelaire@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "component library",
+    "design system",
+    "flourish",
+    "flourish-ui"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/couvq/flourish",
+    "directory": "packages/flourish-tokens"
+  },
   "scripts": {
     "clean": "rm -rf build",
-    "build": "token-transformer tokens.json output.json && npx style-dictionary build"
+    "build": "token-transformer tokens.json output.json && npx style-dictionary build",
+    "flourish-tokens-release": "npm run build && npm version patch && npm publish --access public"
   },
   "dependencies": {
     "token-transformer": "*"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "style-dictionary": "^3.8.0"
   }
