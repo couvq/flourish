@@ -1,4 +1,4 @@
-import { Typography } from '@couvq/flourish-ui'
+import { Typography } from 'flourish-ui'
 import ExamplePage from '../ExamplePage'
 
 const TypographyPage = () => {
