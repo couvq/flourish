@@ -1,0 +1,18 @@
+{
+  "f-color-bg-light": {
+    "value": "#FBFAF5",
+    "type": "color",
+    "description": "Light mode background color"
+  },
+  "f-color-bg-dark": {
+    "value": "#232B2B",
+    "type": "color",
+    "description": "Dark mode background color"
+  },
+  "tokenSetOrder": {
+    "0": {
+      "value": "global",
+      "type": "other"
+    }
+  }
+}
