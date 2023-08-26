@@ -1,6 +1,6 @@
 {
   "name": "flourish-tokens",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "./tokens/css/_tokens.css",
   "style": "./tokens/css/_tokens.css",
   "files": [
