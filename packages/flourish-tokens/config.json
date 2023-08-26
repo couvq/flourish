@@ -10,6 +10,16 @@
           "format": "scss/variables"
         }
       ]
+    },
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "build/css/",
+      "files": [
+        {
+          "destination": "_tokens.css",
+          "format": "css/variables"
+        }
+      ]
     }
   }
 }
