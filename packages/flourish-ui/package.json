@@ -26,14 +26,14 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules dist",
-    "build": "npm run lint && npm run test && rollup -c --bundleConfigAsCjs",
+    "build": "npm i && npm run lint && npm run test && rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{js,jsx,ts,tsx}' --write",
     "lint": "eslint src --ext .ts,.tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "flourish-release": "npm i --force && npm run build && npm version patch && npm publish --access public"
+    "flourish-release": "npm run build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
