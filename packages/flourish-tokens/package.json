@@ -1,9 +1,10 @@
 {
   "name": "flourish-tokens",
-  "version": "1.0.0",
-  "main": "./build/scss/_tokens.scss",
+  "version": "1.0.5",
+  "main": "./tokens/css/_tokens.css",
+  "style": "./tokens/css/_tokens.css",
   "files": [
-    "./build/scss/_tokens.scss"
+    "./tokens/css/_tokens.css"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -29,7 +30,7 @@
     "directory": "packages/flourish-tokens"
   },
   "scripts": {
-    "clean": "rm -rf build",
+    "clean": "rm -rf tokens",
     "build": "token-transformer tokens.json output.json && npx style-dictionary build",
     "flourish-tokens-release": "npm run build && npm version patch && npm publish --access public"
   },
