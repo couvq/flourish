@@ -27,6 +27,14 @@ body {
     background-color: var(--f-color-bg-dark);
 }
 ```
+note: Currently, we only vend our tokens as a css file - if you use scss in your project, your first step would be the same to import the styles globally. You would then use in your scss files like this:
+```
+body {
+    background-color: #{var(--variablename)};
+}
+```
+
+We have big plans for our tokens library - including options to vend our tokens as scss variables, javascript variables, and more. Make sure you stay up to date with flourish-tokens for exciting new updates! 
 
 ## How our tokens work
  ### High level Overview
