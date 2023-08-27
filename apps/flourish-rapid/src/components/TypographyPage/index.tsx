@@ -4,7 +4,7 @@ import ExamplePage from '@components/ExamplePage'
 
 interface TypographyExample {
   groupName: string
-  variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "caption"
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption'
 }
 
 const typographyExamples: TypographyExample[] = [
@@ -47,7 +47,10 @@ const TypographyPage = () => {
     <>
       <ExamplePage exampleName="Typography examples">
         {typographyExamples.map((typographyExample) => (
-          <ExampleGroup groupName={typographyExample.groupName}>
+          <ExampleGroup
+            key={typographyExample.groupName}
+            groupName={typographyExample.groupName}
+          >
             <Typography variant={typographyExample.variant}>
               The quick brown fox jumps over the lazy dog.
             </Typography>

@@ -1,43 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
+@import '../../index.scss';
 
-$prefix: f;
-
-.#{$prefix}-h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2.4888rem;
+.#{$prefix}typography-h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.4888rem;
 }
 
-.#{$prefix}-h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2.074rem;
+.#{$prefix}typography-h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.074rem;
 }
 
-.#{$prefix}-h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.7828rem;
+.#{$prefix}typography-h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.7828rem;
 }
 
-.#{$prefix}-h4 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.44rem;
+.#{$prefix}typography-h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.44rem;
 }
 
-.#{$prefix}-h5 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
+.#{$prefix}typography-h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
 }
 
-.#{$prefix}-h6 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+.#{$prefix}typography-h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
 }
 
-.#{$prefix}-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+.#{$prefix}typography-body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
 }
 
-.#{$prefix}-caption {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.694rem;
+.#{$prefix}typography-caption {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.694rem;
 }

@@ -36,6 +36,7 @@
     "flourish-release": "npm run build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
+    "flourish-tokens": "*",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -79,6 +80,7 @@
     "vite": "^4.4.5"
   },
   "peerDependencies": {
+    "flourish-tokens": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
