@@ -1,42 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
 @import '../../index.scss';
 
 .#{$prefix}typography-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2.4888rem;
+  font:
+    calc(#{var(--f-typography-fs-h1)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2.074rem;
+  font:
+    calc(#{var(--f-typography-fs-h2)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-h3 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.7828rem;
+  font:
+    calc(#{var(--f-typography-fs-h3)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-h4 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.44rem;
+  font:
+    calc(#{var(--f-typography-fs-h4)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-h5 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  font:
+    calc(#{var(--f-typography-fs-h5)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-h6 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font:
+    calc(#{var(--f-typography-fs-h6)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font:
+    calc(#{var(--f-typography-fs-p)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
 
 .#{$prefix}typography-caption {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.694rem;
+  font:
+    calc(#{var(--f-typography-fs-caption)} * 1px)
+      '#{var(--f-typography-font-primary)}',
+    sans-serif;
 }
