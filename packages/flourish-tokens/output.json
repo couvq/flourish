@@ -9,6 +9,51 @@
     "type": "color",
     "description": "Dark mode background color"
   },
+  "f-typography-fs-h1": {
+    "value": 36,
+    "type": "fontSizes",
+    "description": "Heading level 1 font size."
+  },
+  "f-typography-font-primary": {
+    "value": "Poppins",
+    "type": "fontFamilies",
+    "description": "Primary font for flourish design system"
+  },
+  "f-typography-fs-h2": {
+    "value": 32,
+    "type": "fontSizes",
+    "description": "Heading level 2 font size."
+  },
+  "f-typography-fs-h3": {
+    "value": 29,
+    "type": "fontSizes",
+    "description": "Heading level 3 font size."
+  },
+  "f-typography-fs-h4": {
+    "value": 26,
+    "type": "fontSizes",
+    "description": "Heading level 4 font size."
+  },
+  "f-typography-fs-h5": {
+    "value": 23,
+    "type": "fontSizes",
+    "description": "Heading level 5 font size."
+  },
+  "f-typography-fs-h6": {
+    "value": 20,
+    "type": "fontSizes",
+    "description": "Heading level 6 font size."
+  },
+  "f-typography-fs-p": {
+    "value": 16,
+    "type": "fontSizes",
+    "description": "Paragraph font size."
+  },
+  "f-typography-fs-caption": {
+    "value": 14,
+    "type": "fontSizes",
+    "description": "Caption font size."
+  },
   "tokenSetOrder": {
     "0": {
       "value": "global",

@@ -1,6 +1,6 @@
 {
   "name": "flourish-tokens",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "./tokens/css/_tokens.css",
   "style": "./tokens/css/_tokens.css",
   "files": [
@@ -17,10 +17,11 @@
   },
   "keywords": [
     "react",
-    "component library",
+    "tokens library",
     "design system",
+    "design tokens",
     "flourish",
-    "flourish-ui"
+    "flourish-tokens"
   ],
   "license": "MIT",
   "type": "module",
