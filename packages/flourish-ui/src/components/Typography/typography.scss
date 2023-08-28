@@ -1,57 +1,59 @@
 @import '../../index.scss';
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+@import url('https://fonts.cdnfonts.com/css/source-serif-pro');
 
 .#{$prefix}typography-h1 {
   font:
     calc(#{var(--f-typography-fs-h1)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-h2 {
   font:
     calc(#{var(--f-typography-fs-h2)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-h3 {
   font:
     calc(#{var(--f-typography-fs-h3)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-h4 {
   font:
     calc(#{var(--f-typography-fs-h4)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-h5 {
   font:
     calc(#{var(--f-typography-fs-h5)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-h6 {
   font:
     calc(#{var(--f-typography-fs-h6)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
 
 .#{$prefix}typography-body {
   font:
     calc(#{var(--f-typography-fs-p)} * 1px)
-      '#{var(--f-typography-font-primary)}',
-    sans-serif;
+      #{var(--f-typography-font-secondary)},
+    serif;
 }
 
 .#{$prefix}typography-caption {
   font:
     calc(#{var(--f-typography-fs-caption)} * 1px)
-      '#{var(--f-typography-font-primary)}',
+      #{var(--f-typography-font-primary)},
     sans-serif;
 }
