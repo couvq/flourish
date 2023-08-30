@@ -1,10 +1,8 @@
 {
   "name": "flourish-tokens",
-  "version": "1.0.8",
-  "main": "./tokens/css/_tokens.css",
-  "style": "./tokens/css/_tokens.css",
+  "version": "1.0.9",
   "files": [
-    "./tokens/css/_tokens.css"
+    "./tokens"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
