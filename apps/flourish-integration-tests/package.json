@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "run-playwright-tests": "npx playwright test",
-    "testrunner": "npx playwright test --ui"
+    "testrunner": "npx playwright test --ui",
+    "codegen": "npx playwright codegen"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
   "devDependencies": {
     "@playwright/test": "^1.37.1",
     "playwright": "^1.37.1"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.7.3"
   }
 }
