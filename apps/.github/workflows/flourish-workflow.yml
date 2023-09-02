@@ -1,0 +1,24 @@
+name: Workflow for flourish design system
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Build
+          run: npm run build
+
+        - name: Deploy flourish-rapid to Netlify
+          uses: jsmrcaga/action-netlify-deploy@v2.0.0
+          with:
+            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+            NETLIFY_SITE_ID: euphonious-ganache-a38bba
+            NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
+            NETLIFY_DEPLOY_TO_PROD: true
+            install_command: "npm install"
+            build_command: "npm run build"
+            build_directory: apps/flourish-rapid/dist
