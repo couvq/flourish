@@ -40,3 +40,26 @@ jobs:
         name: playwright-report
         path: ./apps/flourish-integration-tests/playwright-report
         retention-days: 3
+  publish-flourish-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - uses: dorny/paths-filter@v2
+        id: filter 
+        with:
+          filters: |
+            tokens: 
+              - './packages/flourish-tokens/**'
+        # run only if 'flourish-tokens' files were changed
+      - name: Publish flourish-tokens 
+        if: steps.filter.outputs.tokens == 'true'
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        run: npm run flourish-tokens-publish
+
+
+        
