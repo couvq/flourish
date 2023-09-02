@@ -21,4 +21,4 @@ jobs:
             NETLIFY_DEPLOY_TO_PROD: true
             install_command: "npm install"
             build_command: "npm run build"
-            build_directory: apps/flourish-rapid/dist
+            build_directory: ./apps/flourish-rapid/dist
