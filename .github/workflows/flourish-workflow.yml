@@ -62,6 +62,7 @@ jobs:
         # run only if 'flourish-tokens' files were changed
       - name: Publish flourish-tokens 
         if: steps.filter.outputs.tokens == 'true'
+        working-directory: ./packages/flourish-tokens
         run: npm run flourish-tokens-publish
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
