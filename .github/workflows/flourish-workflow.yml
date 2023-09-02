@@ -51,7 +51,7 @@ jobs:
         run: npm run build
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18.x'
           registry-url: "https://registry.npmjs.org/"
       - uses: dorny/paths-filter@v2
         id: filter 
@@ -63,7 +63,7 @@ jobs:
       - name: Publish flourish-tokens 
         if: steps.filter.outputs.tokens == 'true'
         working-directory: ./packages/flourish-tokens
-        run: npm run flourish-tokens-publish
+        run: npm run publish
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
