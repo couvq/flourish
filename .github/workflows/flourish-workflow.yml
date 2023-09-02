@@ -52,7 +52,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org/"
       - uses: dorny/paths-filter@v2
         id: filter 
         with:
@@ -62,9 +62,9 @@ jobs:
         # run only if 'flourish-tokens' files were changed
       - name: Publish flourish-tokens 
         if: steps.filter.outputs.tokens == 'true'
+        run: npm run flourish-tokens-publish
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-        run: npm run flourish-tokens-publish
 
 
         
