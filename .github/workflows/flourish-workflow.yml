@@ -16,4 +16,4 @@ jobs:
           env: 
             NETLIFY_SITE_ID: melodic-hamster-45acd5
             NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
-          run: npx netlify-cli deploy --dir="apps/flourish-rapid/dist" --prodIfUnlocked
+          run: npx netlify-cli deploy --dir="./apps/flourish-rapid/dist" --prodIfUnlocked
