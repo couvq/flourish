@@ -16,7 +16,7 @@ jobs:
           uses: jsmrcaga/action-netlify-deploy@v2.0.0
           with:
             NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
-            NETLIFY_SITE_ID: euphonious-ganache-a38bba
+            NETLIFY_SITE_ID: melodic-hamster-45acd5
             NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
             NETLIFY_DEPLOY_TO_PROD: true
             install_command: "npm install"
