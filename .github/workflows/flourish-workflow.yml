@@ -1,7 +1,7 @@
 name: Workflow for flourish design system
 on: [push]
 jobs:
-  build_and_deploy_flourish-rapid:
+  prepare-flourish-rapid:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
             netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
             build-dir: './apps/flourish-rapid/dist'
   integration-tests: 
-    needs: build_and_deploy_flourish-rapid
+    needs: prepare-flourish-rapid
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -32,8 +32,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run Playwright tests against flourish-ui
+      run: npm run run-playwright-tests
     - uses: actions/upload-artifact@v3
       if: always()
       with:

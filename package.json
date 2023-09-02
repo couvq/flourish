@@ -7,6 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "storybook": "turbo run storybook",
+    "run-playwright-tests": "turbo run run-playwright-tests",
     "build-dependency-graph": "turbo run build --graph"
   },
   "devDependencies": {
