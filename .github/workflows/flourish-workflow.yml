@@ -43,8 +43,9 @@ jobs:
   publish-flourish-tokens:
     needs: integration-tests
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./packages/flourish-tokens
+    defaults:
+      run:
+        working-directory: ./packages/flourish-tokens
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
