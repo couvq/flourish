@@ -7,7 +7,6 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "flourish-tokens-publish": {},
     "lint": {},
     "dev": {
       "dependsOn": ["^build"],
