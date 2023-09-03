@@ -8,8 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "storybook": "turbo run storybook",
     "run-playwright-tests": "turbo run run-playwright-tests",
-    "build-dependency-graph": "turbo run build --graph",
-    "flourish-tokens-publish": "turbo run flourish-tokens-publish"
+    "build-dependency-graph": "turbo run build --graph"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",

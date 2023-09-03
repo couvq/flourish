@@ -31,7 +31,7 @@
   "scripts": {
     "clean": "rm -rf tokens",
     "build": "token-transformer tokens.json output.json && npx style-dictionary build",
-    "flourish-tokens-publish": "npm run build && npm version patch && npm publish --access public"
+    "flourish-tokens-release": "npm version patch"
   },
   "dependencies": {
     "token-transformer": "*"
