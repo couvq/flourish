@@ -65,6 +65,31 @@ jobs:
         run: npm publish --access public
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+  publish-flourish-ui:
+    needs: publish-flourish-tokens
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: "https://registry.npmjs.org/"
+      - name: Check if flourish-ui version has been updated
+        id: check
+        uses: EndBug/version-check@v2
+        with:
+          file-name: ./packages/flourish-ui/package.json
+      - name: Publish flourish-ui
+        # run only if a new release was created
+        if: steps.check.outputs.changed == 'true'
+        working-directory: ./packages/flourish-tokens
+        run: npm publish --access public
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
 
         
