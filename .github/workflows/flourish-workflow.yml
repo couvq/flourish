@@ -53,13 +53,14 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: "https://registry.npmjs.org/"
-      - uses: EndBug/version-check@v2
+      - name: Check if flourish-tokens version has been updated
         id: check
+        uses: EndBug/version-check@v2
         with:
           file-name: ./packages/flourish-tokens/package.json
+      - name: Publish flourish-tokens 
         # run only if a new release was created
         if: steps.check.outputs.changed == 'true'
-      - name: Publish flourish-tokens 
         working-directory: ./packages/flourish-tokens
         run: npm publish --access public
         env: 
