@@ -33,7 +33,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "flourish-ui-release": "npm version patch"
+    "flourish-release": "npm version patch"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",

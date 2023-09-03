@@ -16,6 +16,9 @@
     "run-playwright-tests": {},
     "storybook": {
       "dependsOn": ["^build"]
+    },
+    "flourish-release": {
+      "dependsOn": ["^build"]
     }
   }
 }
