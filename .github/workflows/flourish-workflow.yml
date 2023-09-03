@@ -43,6 +43,8 @@ jobs:
   publish-flourish-tokens:
     needs: integration-tests
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./packages/flourish-tokens
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -53,16 +55,11 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: "https://registry.npmjs.org/"
-      - uses: dorny/paths-filter@v2
-        id: filter 
-        with:
-          filters: |
-            tokens: 
-              - './packages/flourish-tokens/**'
-        # run only if 'flourish-tokens' files were changed
+      - uses: justincy/github-action-npm-release@2.0.1
+        id: release
+        # run only if a new release was created
+        if: steps.release.outputs.released == 'true'
       - name: Publish flourish-tokens 
-        if: steps.filter.outputs.tokens == 'true'
-        working-directory: ./packages/flourish-tokens
         run: npm publish --access public
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
