@@ -1,6 +1,5 @@
-import { Typography } from 'flourish-ui'
-import ExampleGroup from '@components/ExampleGroup'
 import ExamplePage from '@components/ExamplePage'
+import { Typography } from 'flourish-ui'
 
 interface TypographyExample {
   groupName: string
@@ -47,14 +46,12 @@ const TypographyPage = () => {
     <>
       <ExamplePage exampleName="Typography examples">
         {typographyExamples.map((typographyExample) => (
-          <ExampleGroup
-            key={typographyExample.groupName}
-            groupName={typographyExample.groupName}
+          <Typography
+            key={typographyExample.variant}
+            variant={typographyExample.variant}
           >
-            <Typography variant={typographyExample.variant}>
-              The quick brown fox jumps over the lazy dog.
-            </Typography>
-          </ExampleGroup>
+            The quick brown fox jumps over the lazy dog.
+          </Typography>
         ))}
       </ExamplePage>
     </>
