@@ -3,49 +3,92 @@
 @import url('https://fonts.cdnfonts.com/css/source-serif-pro');
 
 .#{$prefix}typography-h1 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h1 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-h2 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h2 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-h3 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h3 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-h4 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h4 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-h5 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h5 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-h6 {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
     sans-serif;
 }
 
 .#{$prefix}typography-body {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-p * 1px) $f-typography-font-secondary,
     serif;
 }
 
 .#{$prefix}typography-caption {
+  color: $f-color-font-light;
   font:
     calc($f-typography-fs-caption * 1px) $f-typography-font-primary,
     sans-serif;
+}
+
+// dark mode font color change
+body.f-dark-mode {
+  .#{$prefix}typography-h1 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-h2 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-h3 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-h4 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-h5 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-h6 {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-body {
+    color: $f-color-font-dark;
+  }
+  
+  .#{$prefix}typography-caption {
+    color: $f-color-font-dark;
+  }
 }

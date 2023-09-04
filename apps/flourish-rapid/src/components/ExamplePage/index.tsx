@@ -1,5 +1,7 @@
 import { Typography } from 'flourish-ui'
 import { Link } from 'react-router-dom'
+import ThemeToggle from '../ThemeToggle'
+import './ExamplePage.scss'
 
 interface ExamplePageProps {
   children: React.ReactNode
@@ -15,6 +17,7 @@ const ExamplePage = ({ children, exampleName }: ExamplePageProps) => {
         }}
       >
         <Link to="/">Go back to components</Link>
+        <ThemeToggle />
         <Typography variant="h1">{exampleName}</Typography>
         {children}
       </div>

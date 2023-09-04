@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Sun, 03 Sep 2023 23:53:22 GMT
+ * Generated on Mon, 04 Sep 2023 15:04:26 GMT
  */
 
 :root {
-  --f-color-bg-light: #FBFAF5;
+  --f-color-bg-light: #fff;
   --f-color-bg-dark: #232B2B;
   --f-typography-fs-h1: 36;
   --f-typography-font-primary: Source Sans Pro;
@@ -18,5 +18,24 @@
   --f-typography-font-secondary: Source Serif Pro;
   --f-color-primary-light: #26a69a;
   --f-color-primary-dark: #1de9b6;
+  --f-spacing-0: 0;
+  --f-spacing-1: 1;
+  --f-spacing-2: 2;
+  --f-spacing-3: 4;
+  --f-spacing-4: 8;
+  --f-spacing-5: 12;
+  --f-spacing-6: 16;
+  --f-spacing-7: 20;
+  --f-spacing-8: 24;
+  --f-spacing-9: 32;
+  --f-spacing-10: 40;
+  --f-spacing-11: 48;
+  --f-spacing-12: 64;
+  --f-spacing-13: 80;
+  --f-spacing-14: 96;
+  --f-spacing-15: 112;
+  --f-spacing-16: 128;
+  --f-color-font-dark: #fff;
+  --f-color-font-light: #000;
   --token-set-order-0: global;
 }

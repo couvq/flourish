@@ -1,6 +1,6 @@
 {
   "f-color-bg-light": {
-    "value": "#FBFAF5",
+    "value": "#fff",
     "type": "color",
     "description": "Light mode background color"
   },
@@ -62,12 +62,107 @@
   "f-color-primary-light": {
     "value": "#26a69a",
     "type": "color",
-    "description": "Flourish primary color for light backgrounds."
+    "description": "Flourish primary color for light mode."
   },
   "f-color-primary-dark": {
     "value": "#1de9b6",
     "type": "color",
-    "description": "Flourish primary color for dark backgrounds."
+    "description": "Flourish primary color for dark mode."
+  },
+  "f-spacing-0": {
+    "value": 0,
+    "type": "spacing",
+    "description": "0px, 0rem"
+  },
+  "f-spacing-1": {
+    "value": 1,
+    "type": "spacing",
+    "description": "1px, 0.0625rem"
+  },
+  "f-spacing-2": {
+    "value": 2,
+    "type": "spacing",
+    "description": "2px, 0.125rem"
+  },
+  "f-spacing-3": {
+    "value": 4,
+    "type": "spacing",
+    "description": "4px, 0.25rem"
+  },
+  "f-spacing-4": {
+    "value": 8,
+    "type": "spacing",
+    "description": "8px, 0.5rem"
+  },
+  "f-spacing-5": {
+    "value": 12,
+    "type": "spacing",
+    "description": "12px, 0.75rem"
+  },
+  "f-spacing-6": {
+    "value": 16,
+    "type": "spacing",
+    "description": "16px, 1rem"
+  },
+  "f-spacing-7": {
+    "value": 20,
+    "type": "spacing",
+    "description": "20px, 1.25rem"
+  },
+  "f-spacing-8": {
+    "value": 24,
+    "type": "spacing",
+    "description": "24px, 1.5rem"
+  },
+  "f-spacing-9": {
+    "value": 32,
+    "type": "spacing",
+    "description": "32px, 2rem"
+  },
+  "f-spacing-10": {
+    "value": 40,
+    "type": "spacing",
+    "description": "40px, 2.5rem"
+  },
+  "f-spacing-11": {
+    "value": 48,
+    "type": "spacing",
+    "description": "48px, 3rem"
+  },
+  "f-spacing-12": {
+    "value": 64,
+    "type": "spacing",
+    "description": "64px, 4rem"
+  },
+  "f-spacing-13": {
+    "value": 80,
+    "type": "spacing",
+    "description": "80px, 5rem"
+  },
+  "f-spacing-14": {
+    "value": 96,
+    "type": "spacing",
+    "description": "96px, 6rem"
+  },
+  "f-spacing-15": {
+    "value": 112,
+    "type": "spacing",
+    "description": "112px, 7rem"
+  },
+  "f-spacing-16": {
+    "value": 128,
+    "type": "spacing",
+    "description": "128px, 8rem"
+  },
+  "f-color-font-dark": {
+    "value": "#fff",
+    "type": "color",
+    "description": "Text color for dark mode."
+  },
+  "f-color-font-light": {
+    "value": "#000",
+    "type": "color",
+    "description": "Text color for light mode."
   },
   "tokenSetOrder": {
     "0": {
