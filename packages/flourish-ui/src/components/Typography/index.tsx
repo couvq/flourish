@@ -1,5 +1,6 @@
 import React from 'react'
 import { Customizable, Testable } from '../../common-props'
+import { classMerge } from '../../utils'
 import './typography.scss'
 
 interface TypographyProps extends Testable, Customizable {
@@ -19,7 +20,7 @@ export const Typography = ({
   <>
     {variant === 'h1' ? (
       <h1
-        className={`f-typography-h1 ${className}`}
+        className={classMerge('f-typography-h1', className)}
         style={style}
         data-testid={testId}
       >
@@ -28,7 +29,7 @@ export const Typography = ({
     ) : null}
     {variant === 'h2' ? (
       <h2
-        className={`f-typography-h2 ${className}`}
+        className={classMerge('f-typography-h2', className)}
         style={style}
         data-testid={testId}
       >
@@ -37,7 +38,7 @@ export const Typography = ({
     ) : null}
     {variant === 'h3' ? (
       <h3
-        className={`f-typography-h3 ${className}`}
+        className={classMerge('f-typography-h3', className)}
         style={style}
         data-testid={testId}
       >
@@ -46,7 +47,7 @@ export const Typography = ({
     ) : null}
     {variant === 'h4' ? (
       <h4
-        className={`f-typography-h4 ${className}`}
+        className={classMerge('f-typography-h4', className)}
         style={style}
         data-testid={testId}
       >
@@ -55,7 +56,7 @@ export const Typography = ({
     ) : null}
     {variant === 'h5' ? (
       <h5
-        className={`f-typography-h5 ${className}`}
+        className={classMerge('f-typography-h5', className)}
         style={style}
         data-testid={testId}
       >
@@ -64,7 +65,7 @@ export const Typography = ({
     ) : null}
     {variant === 'h6' ? (
       <h6
-        className={`f-typography-h6 ${className}`}
+        className={classMerge('f-typography-h6', className)}
         style={style}
         data-testid={testId}
       >
@@ -73,7 +74,7 @@ export const Typography = ({
     ) : null}
     {variant === 'p' ? (
       <p
-        className={`f-typography-body ${className}`}
+        className={classMerge('f-typography-body', className)}
         style={style}
         data-testid={testId}
       >
@@ -82,7 +83,7 @@ export const Typography = ({
     ) : null}
     {variant === 'caption' ? (
       <p
-        className={`f-typography-caption ${className}`}
+        className={classMerge('f-typography-caption', className)}
         style={style}
         data-testid={testId}
       >

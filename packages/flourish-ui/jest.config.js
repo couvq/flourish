@@ -6,6 +6,8 @@ const config = {
   collectCoverage: true,
   collectCoverageFrom: [
     "src/components/**/*.{js,jsx,ts,tsx}",
+    // todo - uncomment this once Flex component is done and can add tests
+    // "src/layouts/**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
     "!**/stories/**",
   ],

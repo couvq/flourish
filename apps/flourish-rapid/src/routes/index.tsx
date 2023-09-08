@@ -1,3 +1,4 @@
+import FlexPage from '@/components/FlexPage'
 import Links from '../components/Links'
 import TypographyPage from '../components/TypographyPage'
 
@@ -17,5 +18,10 @@ export const routes: RouteEntry[] = [
     path: '/typography',
     label: 'Typography',
     element: <TypographyPage />
+  },
+  {
+    path: '/flex',
+    label: 'Flex',
+    element: <FlexPage />
   }
 ]

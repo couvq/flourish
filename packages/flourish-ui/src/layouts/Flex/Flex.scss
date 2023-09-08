@@ -1,0 +1,26 @@
+@import '../../index.scss';
+
+.#{$prefix}flex {
+    display: flex;
+}
+
+// direction classes
+.#{$prefix}flex-col {
+    flex-direction: column;
+}
+
+.#{$prefix}flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
+.#{$prefix}flex-row {
+    flex-direction: row;
+}
+
+.#{$prefix}flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+// todo - justify-content classes
+// todo - align-items classes
+// todo - gap classes
