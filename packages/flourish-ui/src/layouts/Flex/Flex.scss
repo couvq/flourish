@@ -21,6 +21,26 @@
     flex-direction: row-reverse;
 }
 
-// todo - justify-content classes
+// justify-content classes
+.#{$prefix}flex-jc-start {
+    justify-content: start;
+}
+
+.#{$prefix}flex-jc-center {
+    justify-content: center;
+}
+
+.#{$prefix}flex-jc-space-between {
+    justify-content: space-between;
+}
+
+.#{$prefix}flex-jc-space-around {
+    justify-content: space-around;
+}
+
+.#{$prefix}flex-jc-space-evenly {
+    justify-content: space-evenly;
+}
+
 // todo - align-items classes
 // todo - gap classes
