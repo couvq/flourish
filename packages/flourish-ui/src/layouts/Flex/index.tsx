@@ -16,15 +16,27 @@ enum JustifyContent {
   SPACE_EVENLY = 'space-evenly'
 }
 
+enum AlignItems {
+  STRETCH = 'stretch',
+  CENTER = 'center',
+  START = 'start',
+  END = 'end'
+}
+
 interface FlexProps {
-  /** The content of our flex-box wrapper. */
+  /** Content of flex-box wrapper. */
   children: React.ReactNode
-  /** Direction for our flex-box wrapper. */
+  /** Direction for flex-box wrapper. */
   direction?: 'row' | 'col' | 'row-reverse' | 'col-reverse'
-  /**  Space distribution and alignment of flex items along the main axis. */
-  justifyContent?: /** eslint-disable */
-  'start' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
-  /** eslint-disable */
+  /**  Alignment of flex items along the main axis. */
+  justifyContent?:
+    | 'start'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
+  /** Alignment of flex items along the cross axis. */
+  alignItems?: 'stretch' | 'center' | 'start' | 'end'
 }
 
 const getFlexDirectionClass = (direction?: string): string => {
@@ -59,12 +71,34 @@ const getFlexJustifyContentClass = (justifyContent?: string): string => {
   }
 }
 
-export const Flex = ({ children, direction, justifyContent }: FlexProps) => {
+const getFlexAlignItemsClass = (alignItems?: string): string => {
+  switch (alignItems) {
+    case AlignItems.STRETCH:
+      return 'f-flex-ai-stretch'
+    case AlignItems.CENTER:
+      return 'f-flex-ai-center'
+    case AlignItems.START:
+      return 'f-flex-ai-start'
+    case AlignItems.END:
+      return 'f-flex-ai-end'
+    default:
+      return 'f-flex-ai-stretch'
+  }
+}
+
+export const Flex = ({
+  children,
+  direction,
+  justifyContent,
+  alignItems
+}: FlexProps) => {
   return (
     <div
       className={`f-flex ${getFlexDirectionClass(
         direction
-      )} ${getFlexJustifyContentClass(justifyContent)}`}
+      )} ${getFlexJustifyContentClass(justifyContent)} ${getFlexAlignItemsClass(
+        alignItems
+      )}`}
     >
       {children}
     </div>

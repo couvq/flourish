@@ -42,5 +42,21 @@
     justify-content: space-evenly;
 }
 
-// todo - align-items classes
-// todo - gap classes
+// align-items classes
+.#{$prefix}flex-ai-stretch {
+    align-items: stretch;
+}
+
+.#{$prefix}flex-ai-center {
+    align-items: center;
+}
+
+.#{$prefix}flex-ai-start {
+    align-items: flex-start;
+}
+
+.#{$prefix}flex-ai-end {
+    align-items: flex-end;
+}
+
+// todo - gap classes, correspond to spacing tokens in rem

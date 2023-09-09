@@ -18,6 +18,8 @@ const justifyContentOptions: string[] = [
   'space-evenly'
 ]
 
+const alignItemsOptions: string[] = ['stretch', 'center', 'start', 'end']
+
 const Square = ({ children }: SquareProps) => (
   <div className="square">{children}</div>
 )
@@ -34,6 +36,10 @@ const FlexPage = () => {
     | 'space-evenly'
     | undefined
   >('start')
+  const [selectedAlignItems, setSelectedAlignItems] = useState<
+    'stretch' | 'center' | 'start' | 'end' | undefined
+  >('stretch')
+
   return (
     <>
       <ExamplePage exampleName="Flex examples">
@@ -71,9 +77,27 @@ const FlexPage = () => {
               </option>
             ))}
           </select>
+
+          <label htmlFor="ai-select">
+            <Typography>Align Items</Typography>
+          </label>
+          <select
+            name="ai"
+            id="ai-select"
+            value={selectedAlignItems}
+            // @ts-ignore
+            onChange={(e) => setSelectedAlignItems(e.target.value)}
+          >
+            {alignItemsOptions.map((option, i) => (
+              <option value={option} key={i}>
+                {option}
+              </option>
+            ))}
+          </select>
           <Flex
             direction={selectedDirection}
             justifyContent={selectedJustifyContent}
+            alignItems={selectedAlignItems}
           >
             {Array.from(Array(3).keys()).map((number, i) => (
               <Square key={i}>{number + 1}</Square>
