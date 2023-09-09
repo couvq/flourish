@@ -1,4 +1,6 @@
 import React from 'react'
+import { Customizable, Testable } from '../../common-props'
+import { classMerge } from '../../utils'
 import './Flex.scss'
 
 enum FlexDirection {
@@ -23,7 +25,7 @@ enum AlignItems {
   END = 'end'
 }
 
-interface FlexProps {
+interface FlexProps extends Testable, Customizable {
   /** Content of flex-box wrapper. */
   children: React.ReactNode
   /** Direction for flex-box wrapper. */
@@ -37,7 +39,7 @@ interface FlexProps {
     | 'space-evenly'
   /** Alignment of flex items along the cross axis. */
   alignItems?: 'stretch' | 'center' | 'start' | 'end'
-  /** Amount of space between each flex child, from 0-16. */
+  /** Amount of space between each flex item, from 0-16. */
   gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
 }
 
@@ -89,7 +91,7 @@ const getFlexAlignItemsClass = (alignItems?: string): string => {
 }
 
 const getFlexGapClass = (gap?: number): string => {
-  if (!gap) {
+  if (!gap || gap < 0) {
     return 'f-flex-gap-0'
   }
 
@@ -105,17 +107,23 @@ export const Flex = ({
   direction,
   justifyContent,
   alignItems,
-  gap
+  gap,
+  className,
+  style,
+  'data-testId': testId
 }: FlexProps) => {
   return (
     <div
-      className={`
-      f-flex 
-      ${getFlexDirectionClass(direction)} 
-      ${getFlexJustifyContentClass(justifyContent)} 
-      ${getFlexAlignItemsClass(alignItems)} 
-      ${getFlexGapClass(gap)}
-      `}
+      style={style}
+      data-testId={testId}
+      className={classMerge(
+        'f-flex',
+        className,
+        getFlexDirectionClass(direction),
+        getFlexJustifyContentClass(justifyContent),
+        getFlexAlignItemsClass(alignItems),
+        getFlexGapClass(gap)
+      )}
     >
       {children}
     </div>

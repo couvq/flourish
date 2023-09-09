@@ -1,7 +1,12 @@
 /**
- * Merges two className strings in the case that a className is given, if not it returns just the defaultString
+ * Merges any number of strings with a default string
  */
 export const classMerge = (
   defaultString: string,
-  className?: string
-): string => (className ? `${defaultString} ${className}` : defaultString)
+  ...args: Array<string | undefined>
+): string => {
+  for (let i = 0; i < args.length; i++) {
+    if (args[i]) defaultString += ` ${args[i]}`
+  }
+  return defaultString
+}

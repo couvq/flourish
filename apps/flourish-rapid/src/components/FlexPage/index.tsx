@@ -105,6 +105,10 @@ const FlexPage = () => {
             alignItems={selectedAlignItems}
             // @ts-ignore
             gap={gapValue}
+            style={{
+              border: '2px solid blue',
+              height: '500px'
+            }}
           >
             {Array.from(Array(3).keys()).map((number, i) => (
               <Square key={i}>{number + 1}</Square>
