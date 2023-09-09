@@ -1,3 +1,8 @@
 @import '~flourish-tokens/tokens/scss/_tokens.scss';
 
 $prefix: 'f-';
+
+@function toRem($pxValue) {
+    $remValue: calc($pxValue / 16) + rem; 
+    @return $remValue;
+}

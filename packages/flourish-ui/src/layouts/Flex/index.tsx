@@ -37,6 +37,8 @@ interface FlexProps {
     | 'space-evenly'
   /** Alignment of flex items along the cross axis. */
   alignItems?: 'stretch' | 'center' | 'start' | 'end'
+  /** Amount of space between each flex child, from 0-16. */
+  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
 }
 
 const getFlexDirectionClass = (direction?: string): string => {
@@ -86,19 +88,34 @@ const getFlexAlignItemsClass = (alignItems?: string): string => {
   }
 }
 
+const getFlexGapClass = (gap?: number): string => {
+  if (!gap) {
+    return 'f-flex-gap-0'
+  }
+
+  if (gap > 16) {
+    return 'f-flex-gap-16'
+  }
+
+  return `f-flex-gap-${gap}`
+}
+
 export const Flex = ({
   children,
   direction,
   justifyContent,
-  alignItems
+  alignItems,
+  gap
 }: FlexProps) => {
   return (
     <div
-      className={`f-flex ${getFlexDirectionClass(
-        direction
-      )} ${getFlexJustifyContentClass(justifyContent)} ${getFlexAlignItemsClass(
-        alignItems
-      )}`}
+      className={`
+      f-flex 
+      ${getFlexDirectionClass(direction)} 
+      ${getFlexJustifyContentClass(justifyContent)} 
+      ${getFlexAlignItemsClass(alignItems)} 
+      ${getFlexGapClass(gap)}
+      `}
     >
       {children}
     </div>

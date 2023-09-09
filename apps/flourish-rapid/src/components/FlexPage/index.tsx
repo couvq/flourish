@@ -39,6 +39,7 @@ const FlexPage = () => {
   const [selectedAlignItems, setSelectedAlignItems] = useState<
     'stretch' | 'center' | 'start' | 'end' | undefined
   >('stretch')
+  const [gapValue, setGapValue] = useState(0)
 
   return (
     <>
@@ -60,7 +61,6 @@ const FlexPage = () => {
               </option>
             ))}
           </select>
-
           <label htmlFor="jc-select">
             <Typography>Justify Content</Typography>
           </label>
@@ -77,7 +77,6 @@ const FlexPage = () => {
               </option>
             ))}
           </select>
-
           <label htmlFor="ai-select">
             <Typography>Align Items</Typography>
           </label>
@@ -94,10 +93,18 @@ const FlexPage = () => {
               </option>
             ))}
           </select>
+          <input
+            type="number"
+            value={gapValue}
+            // @ts-ignore
+            onChange={(e) => setGapValue(e.target.value)}
+          />
           <Flex
             direction={selectedDirection}
             justifyContent={selectedJustifyContent}
             alignItems={selectedAlignItems}
+            // @ts-ignore
+            gap={gapValue}
           >
             {Array.from(Array(3).keys()).map((number, i) => (
               <Square key={i}>{number + 1}</Square>

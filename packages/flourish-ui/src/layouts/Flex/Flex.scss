@@ -59,4 +59,71 @@
     align-items: flex-end;
 }
 
-// todo - gap classes, correspond to spacing tokens in rem
+// gap classes, correspond to spacing tokens in rem
+.#{$prefix}flex-gap-0 {
+    gap: toRem($f-spacing-0);
+}
+
+.#{$prefix}flex-gap-1 {
+    gap: toRem($f-spacing-1);
+}
+
+.#{$prefix}flex-gap-2 {
+    gap: toRem($f-spacing-2);
+}
+
+.#{$prefix}flex-gap-3 {
+    gap: toRem($f-spacing-3);
+}
+
+.#{$prefix}flex-gap-4 {
+    gap: toRem($f-spacing-4);
+}
+
+.#{$prefix}flex-gap-5 {
+    gap: toRem($f-spacing-5);
+}
+
+.#{$prefix}flex-gap-6 {
+    gap: toRem($f-spacing-6);
+}
+
+.#{$prefix}flex-gap-7 {
+    gap: toRem($f-spacing-7);
+}
+
+.#{$prefix}flex-gap-8 {
+    gap: toRem($f-spacing-8);
+}
+
+.#{$prefix}flex-gap-9 {
+    gap: toRem($f-spacing-9);
+}
+
+.#{$prefix}flex-gap-10 {
+    gap: toRem($f-spacing-10);
+}
+
+.#{$prefix}flex-gap-11 {
+    gap: toRem($f-spacing-11);
+}
+
+.#{$prefix}flex-gap-12 {
+    gap: toRem($f-spacing-12);
+}
+
+.#{$prefix}flex-gap-13 {
+    gap: toRem($f-spacing-13);
+}
+
+.#{$prefix}flex-gap-14 {
+    gap: toRem($f-spacing-14);
+}
+
+.#{$prefix}flex-gap-15 {
+    gap: toRem($f-spacing-15);
+}
+
+.#{$prefix}flex-gap-16 {
+    gap: toRem($f-spacing-16);
+}
