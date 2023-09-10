@@ -86,7 +86,7 @@ jobs:
       - name: Publish flourish-ui
         # run only if a new release was created
         if: steps.check.outputs.changed == 'true'
-        working-directory: ./packages/flourish-tokens
+        working-directory: ./packages/flourish-ui
         run: npm publish --access public
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
