@@ -31,6 +31,7 @@ const tabTo = async (
     { selector }
   );
   await page.keyboard.press("Tab");
+  await page.screenshot();
 
   const foundTarget = await page.evaluate(
     ({ selector, visited }) => {

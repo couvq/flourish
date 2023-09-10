@@ -46,5 +46,38 @@ test.describe("<Link /> integration tests", () => {
     expect(newPage.url()).toBe(href);
   });
 
-  // todo - functionaly a11y tests
+  test("tabbing to basic link and pressing enter key brings to url provided in href prop", async ({
+    browserName,
+    page,
+  }) => {
+    // todo - figure out why firefox and chrome do not allow keyboard functionality by default
+    test.skip(
+      browserName.toLowerCase() !== "chromium",
+      `Test only for chromium!`
+    );
+    await tabToElement(page, '[data-testId="basic-link"]');
+    await page.keyboard.press("Enter");
+    await page.screenshot();
+    expect(page.url()).toBe(href);
+  });
+
+  test("tabbing to external link and pressing enter key brings to url provided in href prop in a new tab", async ({
+    page,
+    context,
+    browserName,
+  }) => {
+    // todo - figure out why firefox and chrome do not allow keyboard functionality by default
+    test.skip(
+      browserName.toLowerCase() !== "chromium",
+      `Test only for chromium!`
+    );
+    const pagePromise = context.waitForEvent("page");
+    await tabToElement(page, '[data-testId="external-link"]');
+    await page.keyboard.press("Enter");
+    await page.screenshot();
+    const newPage = await pagePromise;
+    await newPage.waitForLoadState();
+    await newPage.screenshot();
+    expect(newPage.url()).toBe(href);
+  });
 });
