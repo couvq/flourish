@@ -1,6 +1,6 @@
 import { Typography } from 'flourish-ui'
 import { Link } from 'react-router-dom'
-import ThemeToggle from '../ThemeToggle'
+import ThemeToggle from '../../ThemeToggle'
 import './ExamplePage.scss'
 
 interface ExamplePageProps {

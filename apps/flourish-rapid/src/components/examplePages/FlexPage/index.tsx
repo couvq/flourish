@@ -1,7 +1,7 @@
-import ExamplePage from '@components/ExamplePage'
+import ExamplePage from '@/components/common-components/ExamplePage'
 import { Flex, Typography } from 'flourish-ui'
 import React, { useState } from 'react'
-import ExampleGroup from '../ExampleGroup'
+import ExampleGroup from '@/components/common-components/ExampleGroup'
 import './FlexPage.scss'
 
 interface SquareProps {

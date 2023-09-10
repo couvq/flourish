@@ -22,7 +22,7 @@ export const Typography = ({
       <h1
         className={classMerge('f-typography-h1', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h1>
@@ -31,7 +31,7 @@ export const Typography = ({
       <h2
         className={classMerge('f-typography-h2', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h2>
@@ -40,7 +40,7 @@ export const Typography = ({
       <h3
         className={classMerge('f-typography-h3', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h3>
@@ -49,7 +49,7 @@ export const Typography = ({
       <h4
         className={classMerge('f-typography-h4', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h4>
@@ -58,7 +58,7 @@ export const Typography = ({
       <h5
         className={classMerge('f-typography-h5', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h5>
@@ -67,7 +67,7 @@ export const Typography = ({
       <h6
         className={classMerge('f-typography-h6', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </h6>
@@ -76,7 +76,7 @@ export const Typography = ({
       <p
         className={classMerge('f-typography-body', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </p>
@@ -85,7 +85,7 @@ export const Typography = ({
       <p
         className={classMerge('f-typography-caption', className)}
         style={style}
-        data-testid={testId}
+        data-testId={testId}
       >
         {children}
       </p>

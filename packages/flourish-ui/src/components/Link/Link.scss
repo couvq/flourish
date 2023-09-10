@@ -1,0 +1,23 @@
+@import '../../index.scss';
+
+a {
+  color: $f-color-secondary-light;
+  font:
+    calc($f-typography-fs-p * 1px) $f-typography-font-secondary,
+    serif;
+}
+
+.#{$prefix}icon-external {
+    color: $f-color-secondary-light;
+    margin-left: toRem($f-spacing-3);
+}
+
+.#{$prefix}dark-mode {
+    a {
+        color: $f-color-secondary-dark;
+    }
+
+    .#{$prefix}icon-external {
+        color: $f-color-secondary-dark;
+    }
+}

@@ -1,4 +1,4 @@
-import ExamplePage from '@components/ExamplePage'
+import ExamplePage from '@/components/common-components/ExamplePage'
 import { Typography } from 'flourish-ui'
 
 interface TypographyExample {
