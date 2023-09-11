@@ -60,7 +60,7 @@
     "description": "Secondary font for the flourish design system, used for body text."
   },
   "f-color-primary-light": {
-    "value": "#26a69a",
+    "value": "#00796b",
     "type": "color",
     "description": "Flourish primary color for light mode."
   },
@@ -173,6 +173,36 @@
     "value": "#00e5ff",
     "type": "color",
     "description": "Flourish secondary color for dark mode."
+  },
+  "f-color-primary-light-hover": {
+    "value": "#004d40",
+    "type": "color",
+    "description": "Flourish primary color for light mode hover styles."
+  },
+  "f-color-primary-dark-hover": {
+    "value": "#64ffda",
+    "type": "color",
+    "description": "Flourish primary color for dark mode hover styles."
+  },
+  "f-color-disabled-light": {
+    "value": "#e0e0e0",
+    "type": "color",
+    "description": "Flourish disabled color for light mode."
+  },
+  "f-color-font-disabled": {
+    "value": "#757575",
+    "type": "color",
+    "description": "Flourish font color for disabled text."
+  },
+  "f-color-button-primary-focused-light": {
+    "value": "#fff",
+    "type": "color",
+    "description": "Flourish primary button focus ring color."
+  },
+  "f-color-disabled-dark": {
+    "value": "#424242",
+    "type": "color",
+    "description": "Flourish disabled color for dark mode."
   },
   "tokenSetOrder": {
     "0": {
