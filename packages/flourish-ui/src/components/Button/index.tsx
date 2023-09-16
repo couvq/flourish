@@ -1,0 +1,43 @@
+import React, { MouseEvent, ReactNode } from 'react'
+import { Customizable, Testable } from '../../common-props'
+import PrimaryBtn from './variants/PrimaryBtn'
+
+interface CommonButtonProps extends Testable, Customizable {
+  /** The content of the component. */
+  children: ReactNode
+  /** The button variant to use. */
+  variant?: 'primary' | 'secondary' | 'link'
+  /** Click event handler for the button. */
+  onClick?: (e: MouseEvent) => void
+  /** Adds an aria-label to the button to override the accessible name for screenreaders. */
+  label?: string
+}
+
+type ButtonProps = CommonButtonProps
+
+export const Button = ({
+  children,
+  variant = 'secondary',
+  onClick,
+  label,
+  className,
+  style,
+  'data-testId': testId
+}: ButtonProps) => {
+  return (
+    <>
+      {variant === 'primary' ? (
+        <PrimaryBtn
+          onClick={onClick}
+          label={label}
+          className={className}
+          style={style}
+          data-testId={testId}
+        >
+          {children}
+        </PrimaryBtn>
+      ) : null}
+      {variant === 'secondary' ? <div>secondary</div> : null}
+    </>
+  )
+}

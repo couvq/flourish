@@ -1,129 +1,130 @@
 @import '../../index.scss';
 
 .#{$prefix}flex {
-    display: flex;
+  display: flex;
+  width: max-content;
 }
 
 // direction classes
 .#{$prefix}flex-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .#{$prefix}flex-col-reverse {
-    flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 .#{$prefix}flex-row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .#{$prefix}flex-row-reverse {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 // justify-content classes
 .#{$prefix}flex-jc-start {
-    justify-content: start;
+  justify-content: start;
 }
 
 .#{$prefix}flex-jc-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .#{$prefix}flex-jc-space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .#{$prefix}flex-jc-space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .#{$prefix}flex-jc-space-evenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 // align-items classes
 .#{$prefix}flex-ai-stretch {
-    align-items: stretch;
+  align-items: stretch;
 }
 
 .#{$prefix}flex-ai-center {
-    align-items: center;
+  align-items: center;
 }
 
 .#{$prefix}flex-ai-start {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 .#{$prefix}flex-ai-end {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 // gap classes, correspond to spacing tokens in rem
 .#{$prefix}flex-gap-0 {
-    gap: toRem($f-spacing-0);
+  gap: toRem($f-spacing-0);
 }
 
 .#{$prefix}flex-gap-1 {
-    gap: toRem($f-spacing-1);
+  gap: toRem($f-spacing-1);
 }
 
 .#{$prefix}flex-gap-2 {
-    gap: toRem($f-spacing-2);
+  gap: toRem($f-spacing-2);
 }
 
 .#{$prefix}flex-gap-3 {
-    gap: toRem($f-spacing-3);
+  gap: toRem($f-spacing-3);
 }
 
 .#{$prefix}flex-gap-4 {
-    gap: toRem($f-spacing-4);
+  gap: toRem($f-spacing-4);
 }
 
 .#{$prefix}flex-gap-5 {
-    gap: toRem($f-spacing-5);
+  gap: toRem($f-spacing-5);
 }
 
 .#{$prefix}flex-gap-6 {
-    gap: toRem($f-spacing-6);
+  gap: toRem($f-spacing-6);
 }
 
 .#{$prefix}flex-gap-7 {
-    gap: toRem($f-spacing-7);
+  gap: toRem($f-spacing-7);
 }
 
 .#{$prefix}flex-gap-8 {
-    gap: toRem($f-spacing-8);
+  gap: toRem($f-spacing-8);
 }
 
 .#{$prefix}flex-gap-9 {
-    gap: toRem($f-spacing-9);
+  gap: toRem($f-spacing-9);
 }
 
 .#{$prefix}flex-gap-10 {
-    gap: toRem($f-spacing-10);
+  gap: toRem($f-spacing-10);
 }
 
 .#{$prefix}flex-gap-11 {
-    gap: toRem($f-spacing-11);
+  gap: toRem($f-spacing-11);
 }
 
 .#{$prefix}flex-gap-12 {
-    gap: toRem($f-spacing-12);
+  gap: toRem($f-spacing-12);
 }
 
 .#{$prefix}flex-gap-13 {
-    gap: toRem($f-spacing-13);
+  gap: toRem($f-spacing-13);
 }
 
 .#{$prefix}flex-gap-14 {
-    gap: toRem($f-spacing-14);
+  gap: toRem($f-spacing-14);
 }
 
 .#{$prefix}flex-gap-15 {
-    gap: toRem($f-spacing-15);
+  gap: toRem($f-spacing-15);
 }
 
 .#{$prefix}flex-gap-16 {
-    gap: toRem($f-spacing-16);
+  gap: toRem($f-spacing-16);
 }

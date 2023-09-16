@@ -1,0 +1,42 @@
+@import '../../../../index.scss';
+
+.#{$prefix}button-primary {
+  color: $f-color-font-dark;
+  font:
+    calc($f-typography-fs-p * 1px) $f-typography-font-primary,
+    sans-serif;
+  background-color: $f-color-primary-light;
+  padding: 5px calc($f-spacing-7 * 1px);
+  border-radius: calc($f-spacing-7 * 1px);
+}
+
+.#{$prefix}button-primary:hover {
+  cursor: pointer;
+  background-color: $f-color-primary-light-hover;
+}
+
+.focus-grow {
+  background-color: $f-color-button-primary-focused-light;
+}
+
+span.ripple {
+  background-color: $f-color-button-primary-focused-light;
+}
+
+// dark mode styles
+.#{$prefix}dark-mode .#{$prefix}button-primary {
+  background-color: $f-color-primary-dark;
+  color: $f-color-bg-dark;
+}
+
+.#{$prefix}dark-mode .#{$prefix}button-primary:hover {
+  background-color: $f-color-primary-dark-hover;
+}
+
+.#{$prefix}dark-mode .focus-grow {
+  background-color: $f-color-bg-dark;
+}
+
+.#{$prefix}dark-mode span.ripple {
+  background-color: $f-color-bg-dark;
+}

@@ -6,8 +6,10 @@ const config = {
   collectCoverage: true,
   collectCoverageFrom: [
     "src/components/**/*.{js,jsx,ts,tsx}",
+    // todo - remove once button component is built (ignored button and utils for now while I build the component)
+    "!src/components/Button/**/*.{js,jsx,ts,tsx}",
     "src/layouts/**/*.{js,jsx,ts,tsx}",
-    "src/utils/**/*.{js,jsx,ts,tsx}",
+    "!src/utils/**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
     "!**/stories/**",
   ],

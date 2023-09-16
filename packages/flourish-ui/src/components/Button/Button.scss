@@ -1,0 +1,11 @@
+@import '../../index.scss';
+
+.f-button {
+  all: unset;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
