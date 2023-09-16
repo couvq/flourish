@@ -1,0 +1,13 @@
+@import 'flourish-tokens/tokens/scss/tokens';
+
+.example-group {
+    border: 2px dashed $f-color-font-light;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.f-dark-mode {
+    .example-group {
+        border-color: $f-color-font-dark;
+    }
+}

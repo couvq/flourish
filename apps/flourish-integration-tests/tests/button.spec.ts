@@ -27,9 +27,9 @@ test.describe("<Button /> integration tests", () => {
   });
 
   test("can click primary button to increase count", async ({ page }) => {
-    await page.locator("button").filter({ hasText: "Primary button" }).click();
+    await page.locator('[data-testId="primary-button"]').click();
     expect(
-      page.locator("p").filter({ hasText: "Primary button pressed 1 times" })
+      page.locator('[data-testId="primary-button-count"]').filter({ hasText: "1" })
     ).toBeAttached();
   });
 
@@ -41,11 +41,11 @@ test.describe("<Button /> integration tests", () => {
       browserName.toLowerCase() !== "chromium",
       `Test only for chromium!`
     );
-    await tabToElement(page, '[data-testId="primary-button-example"]');
+    await tabToElement(page, '[data-testId="primary-button"]');
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(
-      page.locator("p").filter({ hasText: "Primary button pressed 1 times" })
+      page.locator('[data-testId="primary-button-count"]').filter({ hasText: "1" })
     ).toBeAttached();
   });
 });

@@ -1,4 +1,5 @@
 import { Typography } from 'flourish-ui'
+import './ExampleGroup.scss'
 
 interface ExampleGroupProps {
   children: React.ReactNode
@@ -7,11 +8,7 @@ interface ExampleGroupProps {
 
 const ExampleGroup = ({ children, groupName }: ExampleGroupProps) => {
   return (
-    <div style={{
-        border: '2px dashed #000',
-        padding: '1rem',
-        marginTop: '1rem'
-    }}>
+    <div className="example-group">
       <Typography variant="h2">{groupName}</Typography>
       {children}
     </div>

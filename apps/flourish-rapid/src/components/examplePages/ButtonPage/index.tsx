@@ -12,11 +12,11 @@ const ButtonPage = () => {
           <Button
             variant="primary"
             onClick={() => setPrimaryCount(primaryCount + 1)}
-            data-testId='primary-button-example'
+            data-testId='primary-button'
           >
-            Primary button
+            Button
           </Button>
-          <Typography>{`Primary button pressed ${primaryCount} times`}</Typography>
+          <Typography data-testId='primary-button-count'>{primaryCount}</Typography>
         </Flex>
       </ExampleGroup>
     </ExamplePage>
