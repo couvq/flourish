@@ -7,7 +7,7 @@ interface CommonButtonProps extends Testable, Customizable {
   /** The content of the component. */
   children: ReactNode
   /** The button variant to use. */
-  variant?: 'primary' | 'secondary' | 'link'
+  variant?: 'primary' | 'secondary'
   /** Click event handler for the button. */
   onClick?: (e: MouseEvent) => void
   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
