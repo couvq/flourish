@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { classMerge } from '..'
+import { classMerge, removeFocusGrowEffect } from '..'
 
 describe('utils test suite', () => {
   it('classMergeFunction works', () => {
@@ -9,4 +9,17 @@ describe('utils test suite', () => {
     const responseUndefinedInput = classMerge('default', undefined, undefined, undefined);
     expect(responseUndefinedInput).toBe('default');
   })
+
+  it('removeFocusGrowEffect function works', () => {
+    const button = document.createElement('button');
+    const focusGrow = document.createElement('span');
+    focusGrow.classList.add('focus-grow');
+    // @ts-ignore
+    button.addEventListener('blur', (e: FocusEvent) => removeFocusGrowEffect(e))
+    document.body.appendChild(button);
+    button.focus();
+    button.blur();
+    const focusGrowAfterBlur = document.querySelector('.focus-grow');
+    expect(focusGrowAfterBlur).not.toBeInTheDocument();
+  });
 })
