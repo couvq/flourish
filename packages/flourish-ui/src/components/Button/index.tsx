@@ -1,6 +1,7 @@
 import React, { MouseEvent, ReactNode } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import PrimaryBtn from './variants/PrimaryBtn'
+import SecondaryBtn from './variants/SecondaryBtn'
 
 interface CommonButtonProps extends Testable, Customizable {
   /** The content of the component. */
@@ -37,7 +38,17 @@ export const Button = ({
           {children}
         </PrimaryBtn>
       ) : null}
-      {variant === 'secondary' ? <div>secondary</div> : null}
+      {variant === 'secondary' ? (
+        <SecondaryBtn
+          onClick={onClick}
+          label={label}
+          className={className}
+          style={style}
+          data-testId={testId}
+        >
+          {children}
+        </SecondaryBtn>
+      ) : null}
     </>
   )
 }

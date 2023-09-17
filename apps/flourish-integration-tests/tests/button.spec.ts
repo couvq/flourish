@@ -48,4 +48,27 @@ test.describe("<Button /> integration tests", () => {
       page.locator('[data-testId="primary-button-count"]').filter({ hasText: "1" })
     ).toBeAttached();
   });
+
+  test("can click secondary button to increase count", async ({ page }) => {
+    await page.locator('[data-testId="secondary-button"]').click();
+    expect(
+      page.locator('[data-testId="secondary-button-count"]').filter({ hasText: "1" })
+    ).toBeAttached();
+  });
+
+  test("can tab to and press enter key on secondary button to increase count", async ({
+    page,
+    browserName
+  }) => {
+    test.skip(
+      browserName.toLowerCase() !== "chromium",
+      `Test only for chromium!`
+    );
+    await tabToElement(page, '[data-testId="secondary-button"]');
+    await page.keyboard.press("Enter");
+    await page.screenshot();
+    expect(
+      page.locator('[data-testId="secondary-button-count"]').filter({ hasText: "1" })
+    ).toBeAttached();
+  });
 });

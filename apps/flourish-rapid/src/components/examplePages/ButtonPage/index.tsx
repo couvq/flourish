@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 const ButtonPage = () => {
   const [primaryCount, setPrimaryCount] = useState(0)
+  const [secondaryCount, setSecondaryCount] = useState(0)
   return (
     <ExamplePage exampleName="Button examples">
       <ExampleGroup groupName="Primary button">
@@ -17,6 +18,18 @@ const ButtonPage = () => {
             Button
           </Button>
           <Typography data-testId='primary-button-count'>{primaryCount}</Typography>
+        </Flex>
+      </ExampleGroup>
+      <ExampleGroup groupName='Secondary button'>
+      <Flex direction="row" justifyContent="center" alignItems="center" gap={3}>
+          <Button
+            variant="secondary"
+            onClick={() => setSecondaryCount(secondaryCount + 1)}
+            data-testId='secondary-button'
+          >
+            Button
+          </Button>
+          <Typography data-testId='secondary-button-count'>{secondaryCount}</Typography>
         </Flex>
       </ExampleGroup>
     </ExamplePage>
