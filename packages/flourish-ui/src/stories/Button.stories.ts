@@ -17,6 +17,8 @@ const meta = {
   argTypes: {
     children: { control: 'text' },
     variant: { control: 'select', options: ['primary', 'secondary'] },
+    label: { control: 'text' },
+    disabled: { control: 'boolean'},
     onClick: { control: 'text' }
   }
 } satisfies Meta<typeof Button>

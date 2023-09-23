@@ -15,6 +15,12 @@
   background-color: $f-color-primary-light-hover;
 }
 
+.#{$prefix}button-primary:disabled {
+  cursor: default;
+  color: $f-color-font-disabled;
+  background-color: $f-color-disabled-light;
+}
+
 .focus-grow {
   background-color: $f-color-button-primary-focused-light;
 }
@@ -31,6 +37,12 @@ span.ripple {
 
 .#{$prefix}dark-mode .#{$prefix}button-primary:hover {
   background-color: $f-color-primary-dark-hover;
+}
+
+.#{$prefix}dark-mode .#{$prefix}button-primary:disabled {
+  cursor: default;
+  color: $f-color-font-disabled;
+  background-color: $f-color-disabled-dark;
 }
 
 .#{$prefix}dark-mode .focus-grow {

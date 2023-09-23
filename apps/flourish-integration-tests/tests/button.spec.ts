@@ -29,13 +29,15 @@ test.describe("<Button /> integration tests", () => {
   test("can click primary button to increase count", async ({ page }) => {
     await page.locator('[data-testId="primary-button"]').click();
     expect(
-      page.locator('[data-testId="primary-button-count"]').filter({ hasText: "1" })
+      page
+        .locator('[data-testId="primary-button-count"]')
+        .filter({ hasText: "1" })
     ).toBeAttached();
   });
 
   test("can tab to and press enter key on primary button to increase count", async ({
     page,
-    browserName
+    browserName,
   }) => {
     test.skip(
       browserName.toLowerCase() !== "chromium",
@@ -45,20 +47,24 @@ test.describe("<Button /> integration tests", () => {
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(
-      page.locator('[data-testId="primary-button-count"]').filter({ hasText: "1" })
+      page
+        .locator('[data-testId="primary-button-count"]')
+        .filter({ hasText: "1" })
     ).toBeAttached();
   });
 
   test("can click secondary button to increase count", async ({ page }) => {
     await page.locator('[data-testId="secondary-button"]').click();
     expect(
-      page.locator('[data-testId="secondary-button-count"]').filter({ hasText: "1" })
+      page
+        .locator('[data-testId="secondary-button-count"]')
+        .filter({ hasText: "1" })
     ).toBeAttached();
   });
 
   test("can tab to and press enter key on secondary button to increase count", async ({
     page,
-    browserName
+    browserName,
   }) => {
     test.skip(
       browserName.toLowerCase() !== "chromium",
@@ -68,7 +74,15 @@ test.describe("<Button /> integration tests", () => {
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(
-      page.locator('[data-testId="secondary-button-count"]').filter({ hasText: "1" })
+      page
+        .locator('[data-testId="secondary-button-count"]')
+        .filter({ hasText: "1" })
     ).toBeAttached();
+  });
+
+  test("primary button in disabled state is disabled", async ({ page }) => {
+    expect(
+      page.locator('[data-testId="primary-button-disabled"]')
+    ).toBeDisabled();
   });
 });

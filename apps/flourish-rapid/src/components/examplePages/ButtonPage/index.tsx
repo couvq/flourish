@@ -9,28 +9,52 @@ const ButtonPage = () => {
   return (
     <ExamplePage exampleName="Button examples">
       <ExampleGroup groupName="Primary button">
-        <Flex direction="row" justifyContent="center" alignItems="center" gap={3}>
+        <Flex
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          gap={3}
+        >
           <Button
             variant="primary"
             onClick={() => setPrimaryCount(primaryCount + 1)}
-            data-testId='primary-button'
+            data-testId="primary-button"
           >
             Button
           </Button>
-          <Typography data-testId='primary-button-count'>{primaryCount}</Typography>
+          <Typography data-testId="primary-button-count">
+            {primaryCount}
+          </Typography>
         </Flex>
       </ExampleGroup>
-      <ExampleGroup groupName='Secondary button'>
-      <Flex direction="row" justifyContent="center" alignItems="center" gap={3}>
+      <ExampleGroup groupName="Secondary button">
+        <Flex
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          gap={3}
+        >
           <Button
             variant="secondary"
             onClick={() => setSecondaryCount(secondaryCount + 1)}
-            data-testId='secondary-button'
+            data-testId="secondary-button"
           >
             Button
           </Button>
-          <Typography data-testId='secondary-button-count'>{secondaryCount}</Typography>
+          <Typography data-testId="secondary-button-count">
+            {secondaryCount}
+          </Typography>
         </Flex>
+      </ExampleGroup>
+      <ExampleGroup groupName="Primary button - disabled">
+        <Button
+          variant="primary"
+          onClick={() => setPrimaryCount(primaryCount + 1)}
+          data-testId="primary-button-disabled"
+          disabled
+        >
+          Button
+        </Button>
       </ExampleGroup>
     </ExamplePage>
   )

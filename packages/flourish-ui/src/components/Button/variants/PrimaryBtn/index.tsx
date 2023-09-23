@@ -16,12 +16,15 @@ interface PrimaryButtonProps extends Testable, Customizable {
   onClick?: (e: MouseEvent) => void
   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
   label?: string
+  /** Whether or not the button is disabled */
+  disabled?: boolean
 }
 
 const PrimaryBtn = ({
   children,
   onClick = (e: MouseEvent) => {},
   label,
+  disabled,
   className,
   style,
   'data-testId': testId
@@ -38,6 +41,7 @@ const PrimaryBtn = ({
       onClick(e)
     }}
     aria-label={label}
+    disabled={disabled}
   >
     {children}
   </button>

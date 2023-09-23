@@ -12,6 +12,8 @@ interface CommonButtonProps extends Testable, Customizable {
   onClick?: (e: MouseEvent) => void
   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
   label?: string
+  /** Whether or not the button is disabled */
+  disabled?: boolean
 }
 
 type ButtonProps = CommonButtonProps
@@ -21,6 +23,7 @@ export const Button = ({
   variant = 'secondary',
   onClick,
   label,
+  disabled,
   className,
   style,
   'data-testId': testId
@@ -31,6 +34,7 @@ export const Button = ({
         <PrimaryBtn
           onClick={onClick}
           label={label}
+          disabled={disabled}
           className={className}
           style={style}
           data-testId={testId}
