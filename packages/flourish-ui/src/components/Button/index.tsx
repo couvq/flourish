@@ -46,6 +46,7 @@ export const Button = ({
         <SecondaryBtn
           onClick={onClick}
           label={label}
+          disabled={disabled}
           className={className}
           style={style}
           data-testId={testId}

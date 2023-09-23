@@ -26,6 +26,13 @@
   border: 2px solid $f-color-primary-light-hover;
 }
 
+.#{$prefix}button-secondary:disabled {
+  cursor: default;
+  color: $f-color-disabled-light;
+  background-color: $f-color-bg-light;
+  border: 2px solid $f-color-disabled-light;
+}
+
 // dark mode styles
 .#{$prefix}dark-mode .#{$prefix}button-secondary {
   color: $f-color-primary-dark;
@@ -50,4 +57,11 @@
   color: $f-color-primary-dark-hover;
   background-color: rgb(100, 255, 218, 0.1);
   border: 2px solid $f-color-primary-dark-hover;
+}
+
+.#{$prefix}dark-mode .#{$prefix}button-secondary:disabled {
+  cursor: default;
+  color: $f-color-font-disabled;
+  background-color: $f-color-bg-dark;
+  border: 2px solid $f-color-font-disabled;
 }

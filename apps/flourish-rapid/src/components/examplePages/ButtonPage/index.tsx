@@ -35,7 +35,6 @@ const ButtonPage = () => {
           gap={3}
         >
           <Button
-            variant="secondary"
             onClick={() => setSecondaryCount(secondaryCount + 1)}
             data-testId="secondary-button"
           >
@@ -51,6 +50,15 @@ const ButtonPage = () => {
           variant="primary"
           onClick={() => setPrimaryCount(primaryCount + 1)}
           data-testId="primary-button-disabled"
+          disabled
+        >
+          Button
+        </Button>
+      </ExampleGroup>
+      <ExampleGroup groupName="Secondary button - disabled">
+        <Button
+          onClick={() => setSecondaryCount(primaryCount + 1)}
+          data-testId="secondary-button-disabled"
           disabled
         >
           Button

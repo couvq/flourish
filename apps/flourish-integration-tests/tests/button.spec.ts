@@ -85,4 +85,10 @@ test.describe("<Button /> integration tests", () => {
       page.locator('[data-testId="primary-button-disabled"]')
     ).toBeDisabled();
   });
+
+  test("secondary button in disabled state is disabled", async ({ page }) => {
+    expect(
+      page.locator('[data-testId="secondary-button-disabled"]')
+    ).toBeDisabled();
+  });
 });
