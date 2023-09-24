@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sat, 23 Sep 2023 16:10:51 GMT
+ * Generated on Sun, 24 Sep 2023 20:26:24 GMT
  */
 
 :root {
@@ -45,5 +45,7 @@
   --f-color-font-disabled: #757575;
   --f-color-button-primary-focused-light: #fff;
   --f-color-disabled-dark: #424242;
+  --f-border-rounded: 20;
+  --f-border-soft-corner: 5;
   --token-set-order-0: global;
 }

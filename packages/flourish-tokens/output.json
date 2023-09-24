@@ -204,6 +204,16 @@
     "type": "color",
     "description": "Flourish disabled color for dark mode."
   },
+  "f-border-rounded": {
+    "value": 20,
+    "type": "borderRadius",
+    "description": "Flourish rounded borders."
+  },
+  "f-border-soft-corner": {
+    "value": 5,
+    "type": "borderRadius",
+    "description": "Flourish soft corner borders."
+  },
   "tokenSetOrder": {
     "0": {
       "value": "global",
