@@ -3,7 +3,7 @@
 .#{$prefix}button-primary {
   color: $f-color-font-dark;
   font:
-    calc($f-typography-fs-p * 1px) $f-typography-font-primary,
+    calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
     sans-serif;
   background-color: $f-color-primary-light;
   padding: 5px calc($f-spacing-7 * 1px);

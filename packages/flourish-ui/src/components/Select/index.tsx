@@ -1,5 +1,13 @@
-import React, { ChangeEvent, useId } from 'react'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { ChangeEvent } from 'react'
 import { Customizable, Testable } from '../../common-props'
+import {
+    createRipple,
+    removeFocusGrowEffect,
+    toggleFocusGrowEffect
+} from '../../utils'
+import './Select.scss'
 
 interface SelectOption {
   /** Accessible name for the select option. */
@@ -21,6 +29,28 @@ interface SelectProps extends Testable, Customizable {
   onChange?: (e: ChangeEvent) => void
 }
 
+const toggleCaretIconRotateEffect = () => {
+  const caret = document.querySelector('.f-select-caret')
+  const containsRotateUp = caret?.classList.contains('rotate-caret-up')
+  const containsRotateDown = caret?.classList.contains('rotate-caret-down')
+
+  if (!containsRotateUp && !containsRotateDown) {
+    caret?.classList.add('rotate-caret-up')
+    return
+  }
+
+  if (containsRotateUp) {
+    caret?.classList.remove('rotate-caret-up')
+    caret?.classList.add('rotate-caret-down')
+    return
+  }
+
+  if (containsRotateDown) {
+    caret?.classList.remove('rotate-caret-down')
+    caret?.classList.add('rotate-caret-up')
+  }
+}
+
 export const Select = ({
   label,
   labelVisible,
@@ -30,26 +60,21 @@ export const Select = ({
   style,
   'data-testId': testId
 }: SelectProps) => {
-  const accessibleUniqId = useId()
   return (
     <>
-      {labelVisible ? (
-        <label htmlFor={`f-select-${accessibleUniqId}`}>{label}</label>
-      ) : null}
-      <select
-        aria-label={label}
-        id={`f-select-${accessibleUniqId}`}
-        onChange={onChange}
-        className={className}
-        style={style}
-        data-testId={testId}
+      <button
+        className="f-select"
+        onFocus={toggleFocusGrowEffect}
+        onBlur={removeFocusGrowEffect}
+        onMouseDown={(e) => e.preventDefault()}
+        onClick={(e) => {
+          createRipple(e)
+          toggleCaretIconRotateEffect()
+        }}
       >
-        {options.map((opt, i) => (
-          <option key={i} value={opt.value} disabled={opt.disabled}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+        {label}
+        <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
+      </button>
     </>
   )
 }
