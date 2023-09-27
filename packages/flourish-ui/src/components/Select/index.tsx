@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import {
-    createRipple,
-    removeFocusGrowEffect,
-    toggleFocusGrowEffect
+  createRipple,
+  removeFocusGrowEffect,
+  toggleFocusGrowEffect
 } from '../../utils'
 import './Select.scss'
 
@@ -51,6 +51,11 @@ const toggleCaretIconRotateEffect = () => {
   }
 }
 
+const toggleSelectOptionsOpen = () => {
+  const selectOptions = document.querySelector('.f-select-options')
+  selectOptions?.classList.toggle('f-closed')
+}
+
 export const Select = ({
   label,
   labelVisible,
@@ -62,19 +67,30 @@ export const Select = ({
 }: SelectProps) => {
   return (
     <>
-      <button
-        className="f-select"
-        onFocus={toggleFocusGrowEffect}
-        onBlur={removeFocusGrowEffect}
-        onMouseDown={(e) => e.preventDefault()}
-        onClick={(e) => {
-          createRipple(e)
-          toggleCaretIconRotateEffect()
-        }}
-      >
-        {label}
-        <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
-      </button>
+      <div className='f-select'>
+        <button
+          className="f-select-trigger"
+          onFocus={toggleFocusGrowEffect}
+          onBlur={removeFocusGrowEffect}
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={(e) => {
+            createRipple(e)
+            toggleCaretIconRotateEffect()
+            toggleSelectOptionsOpen()
+          }}
+        >
+          {label}
+          <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
+        </button>
+        <fieldset className="f-select-options f-closed">
+          <input type="radio" name="nato" id="alphaRadio" />
+          <label htmlFor="alphaRadio">Alpha testing very long content</label>
+          <input type="radio" name="nato" id="alphaRadio" />
+          <label htmlFor="alphaRadio">Alpha</label>
+          <input type="radio" name="nato" id="alphaRadio" />
+          <label htmlFor="alphaRadio">Alpha</label>
+        </fieldset>
+      </div>
     </>
   )
 }
