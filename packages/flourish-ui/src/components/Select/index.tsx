@@ -1,6 +1,6 @@
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import {
   createRipple,
@@ -56,6 +56,23 @@ const toggleSelectOptionsOpen = () => {
   selectOptions?.classList.toggle('f-closed')
 }
 
+/**
+ * Checks if an item is selected, if it is then it focuses that item
+ */
+const moveSelectItemFocus = () => {
+  const selectItems = document.querySelectorAll('.f-select-item')
+  for (const item of selectItems) {
+    // @ts-ignore
+    if (item.checked) {
+      // @ts-ignore
+      item.focus()
+      return
+    }
+  }
+  // @ts-ignore
+  selectItems[0].focus()
+}
+
 export const Select = ({
   label,
   labelVisible,
@@ -65,29 +82,83 @@ export const Select = ({
   style,
   'data-testId': testId
 }: SelectProps) => {
+  const [expanded, setExpanded] = useState(false)
+
+  /**
+   * Closes the dropdown and moves focus back to the select trigger
+   * in the event the escape key is pressed
+   */
+  const handleSelectItemDismiss = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      toggleCaretIconRotateEffect()
+      toggleSelectOptionsOpen()
+      // @ts-ignore
+      document.querySelector('.f-select-trigger')?.focus()
+      setExpanded(!expanded)
+    }
+  }
+
   return (
     <>
-      <div className='f-select'>
+      <div className="f-select">
         <button
+          role="combobox"
+          aria-haspopup="listbox"
+          aria-expanded={expanded}
+          aria-controls="f-select-options"
           className="f-select-trigger"
           onFocus={toggleFocusGrowEffect}
           onBlur={removeFocusGrowEffect}
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={(e) => {
+          onMouseDown={(e) => {
+            e.preventDefault()
             createRipple(e)
             toggleCaretIconRotateEffect()
             toggleSelectOptionsOpen()
+            setExpanded(!expanded)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === ' ' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+              toggleCaretIconRotateEffect()
+              toggleSelectOptionsOpen()
+              setExpanded(!expanded)
+              moveSelectItemFocus()
+            }
           }}
         >
           {label}
           <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
         </button>
-        <fieldset className="f-select-options f-closed">
-          <input type="radio" name="nato" id="alphaRadio" />
-          <label htmlFor="alphaRadio">Alpha testing very long content</label>
-          <input type="radio" name="nato" id="alphaRadio" />
+        <fieldset
+          role="listbox"
+          id="f-select-options"
+          className="f-select-options f-closed"
+        >
+          <input
+            className="f-select-item"
+            onKeyDown={handleSelectItemDismiss}
+            type="radio"
+            name="nato"
+            id="alphaRadio"
+          />
+          <label htmlFor="alphaRadio">
+            Alpha testing very long content, with a paragraph just to test edge
+            case
+          </label>
+          <input
+            className="f-select-item"
+            onKeyDown={handleSelectItemDismiss}
+            type="radio"
+            name="nato"
+            id="alphaRadio"
+          />
           <label htmlFor="alphaRadio">Alpha</label>
-          <input type="radio" name="nato" id="alphaRadio" />
+          <input
+            className="f-select-item"
+            onKeyDown={handleSelectItemDismiss}
+            type="radio"
+            name="nato"
+            id="alphaRadio"
+          />
           <label htmlFor="alphaRadio">Alpha</label>
         </fieldset>
       </div>

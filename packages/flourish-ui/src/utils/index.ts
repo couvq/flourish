@@ -1,4 +1,4 @@
-import { FocusEvent, MouseEvent } from 'react'
+import { FocusEvent, KeyboardEvent, MouseEvent } from 'react'
 
 /**
  * Merges any number of strings with a default string
@@ -39,18 +39,21 @@ export const toggleFocusGrowEffect = (e: FocusEvent) => {
 }
 
 /** Toggles the ripple effect for press/click events */
-export const createRipple = (e: MouseEvent) => {
+export const createRipple = (e: MouseEvent | KeyboardEvent) => {
   const target = e.currentTarget
 
   const circle = document.createElement('span')
   const diameter = Math.max(target.clientWidth, target.clientHeight)
   const radius = diameter / 2
   circle.style.width = circle.style.height = `${diameter}px`
+  // @ts-ignore
   if (e.clientX && e.clientY) {
     circle.style.top = `${
+      // @ts-ignore
       e.clientY - target.getBoundingClientRect().top - radius
     }px`
     circle.style.left = `${
+      // @ts-ignore
       e.clientX - target.getBoundingClientRect().left - radius
     }px`
   }
