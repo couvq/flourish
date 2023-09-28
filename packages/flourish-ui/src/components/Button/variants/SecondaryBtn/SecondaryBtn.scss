@@ -8,7 +8,7 @@
   background-color: $f-color-bg-light;
   padding: 5px calc($f-spacing-7 * 1px);
   border-radius: calc($f-spacing-7 * 1px);
-  border: 2px solid $f-color-primary-light;
+  box-shadow: 0px 0px 0px 2px $f-color-primary-light inset;
 
   .focus-grow {
     background-color: $f-color-primary-light;
@@ -23,14 +23,14 @@
   cursor: pointer;
   color: $f-color-primary-light-hover;
   background-color: rgb(0, 77, 64, 0.1);
-  border: 2px solid $f-color-primary-light-hover;
+  box-shadow: 0px 0px 0px 2px $f-color-primary-light-hover inset;
 }
 
 .#{$prefix}button-secondary:disabled {
   cursor: default;
   color: $f-color-disabled-light;
   background-color: $f-color-bg-light;
-  border: 2px solid $f-color-disabled-light;
+  box-shadow: 0px 0px 0px 2px $f-color-disabled-light inset;
 }
 
 // dark mode styles
@@ -42,7 +42,7 @@
   background-color: $f-color-bg-dark;
   padding: 5px calc($f-spacing-7 * 1px);
   border-radius: calc($f-spacing-7 * 1px);
-  border: 2px solid $f-color-primary-dark;
+  box-shadow: 0px 0px 0px 2px $f-color-primary-dark inset;
 
   .focus-grow {
     background-color: $f-color-primary-dark;
@@ -56,12 +56,12 @@
 .#{$prefix}dark-mode .#{$prefix}button-secondary:hover {
   color: $f-color-primary-dark-hover;
   background-color: rgb(100, 255, 218, 0.1);
-  border: 2px solid $f-color-primary-dark-hover;
+  box-shadow: 0px 0px 0px 2px $f-color-primary-dark-hover inset;
 }
 
 .#{$prefix}dark-mode .#{$prefix}button-secondary:disabled {
   cursor: default;
   color: $f-color-font-disabled;
   background-color: $f-color-bg-dark;
-  border: 2px solid $f-color-font-disabled;
+  box-shadow: 0px 0px 0px 2px $f-color-font-disabled inset;
 }
