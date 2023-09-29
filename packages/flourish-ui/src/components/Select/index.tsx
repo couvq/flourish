@@ -1,6 +1,12 @@
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  useState,
+  FocusEvent,
+  MouseEvent
+} from 'react'
 import { Customizable, Testable } from '../../common-props'
 import {
   createRipple,
@@ -13,14 +19,14 @@ interface SelectOption {
   /** Accessible name for the select option. */
   label: string
   /** Value of the select option. */
-  value?: string | number | readonly string[]
+  value?: string | number
   /** Whether or not the select option is disabled */
   disabled?: boolean
 }
 
 interface SelectProps extends Testable, Customizable {
-  /** Accessible name for the select component. */
-  label: string
+  /** Value for the select component. */
+  value: string | number
   /** Whether the select component label should be visible, or only used for screenreaders. */
   labelVisible?: boolean
   /** Options to choose from the select component. */
@@ -73,9 +79,14 @@ const moveSelectItemFocus = () => {
   selectItems[0].focus()
 }
 
+const toggleSelectItemFocusStyle = (e: FocusEvent | MouseEvent) => {
+  const target = e.currentTarget
+  // @ts-ignore
+  target?.parentNode?.classList?.toggle('f-select-item-wrapper-focus')
+}
+
 export const Select = ({
-  label,
-  labelVisible,
+  value,
   options,
   onChange = (e: ChangeEvent) => {},
   className,
@@ -125,7 +136,7 @@ export const Select = ({
             }
           }}
         >
-          {label}
+          {value}
           <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
         </button>
         <fieldset
@@ -133,33 +144,45 @@ export const Select = ({
           id="f-select-options"
           className="f-select-options f-closed"
         >
-          <input
-            className="f-select-item"
-            onKeyDown={handleSelectItemDismiss}
-            type="radio"
-            name="nato"
-            id="alphaRadio"
-          />
-          <label htmlFor="alphaRadio">
-            Alpha testing very long content, with a paragraph just to test edge
-            case
-          </label>
-          <input
-            className="f-select-item"
-            onKeyDown={handleSelectItemDismiss}
-            type="radio"
-            name="nato"
-            id="alphaRadio"
-          />
-          <label htmlFor="alphaRadio">Alpha</label>
-          <input
-            className="f-select-item"
-            onKeyDown={handleSelectItemDismiss}
-            type="radio"
-            name="nato"
-            id="alphaRadio"
-          />
-          <label htmlFor="alphaRadio">Alpha</label>
+          <div className="f-select-item-wrapper">
+            <input
+              className="f-select-item"
+              onKeyDown={handleSelectItemDismiss}
+              onFocus={toggleSelectItemFocusStyle}
+              onBlur={toggleSelectItemFocusStyle}
+              type="radio"
+              name="nato"
+              id="alphaRadio"
+            />
+            <label htmlFor="alphaRadio">
+              Alpha testing very long content, with a paragraph just to test
+              edge case
+            </label>
+          </div>
+          <div className="f-select-item-wrapper">
+            <input
+              className="f-select-item"
+              onKeyDown={handleSelectItemDismiss}
+              onFocus={toggleSelectItemFocusStyle}
+              onBlur={toggleSelectItemFocusStyle}
+              type="radio"
+              name="nato"
+              id="alphaRadio"
+            />
+            <label htmlFor="alphaRadio">Alpha</label>
+          </div>
+          <div className="f-select-item-wrapper">
+            <input
+              className="f-select-item"
+              onKeyDown={handleSelectItemDismiss}
+              onFocus={toggleSelectItemFocusStyle}
+              onBlur={toggleSelectItemFocusStyle}
+              type="radio"
+              name="nato"
+              id="alphaRadio"
+            />
+            <label htmlFor="alphaRadio">Alpha</label>
+          </div>
         </fieldset>
       </div>
     </>

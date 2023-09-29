@@ -15,8 +15,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    label: { control: 'text' },
-    labelVisible: { control: 'boolean' }
+    value: { control: 'text' }
   }
 } satisfies Meta<typeof Select>
 
@@ -26,7 +25,7 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const WithLabel: Story = {
   args: {
-    label: 'Choose a pet',
+    value: 'Choose a pet',
     labelVisible: true,
     options: [
       {

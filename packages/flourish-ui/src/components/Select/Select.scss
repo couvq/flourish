@@ -61,6 +61,13 @@
   }
 }
 
+.#{$prefix}select-trigger:hover {
+  cursor: pointer;
+  color: $f-color-primary-light-hover;
+  background-color: rgb(0, 77, 64, 0.1);
+  border: 2px solid $f-color-primary-light-hover;
+}
+
 .#{$prefix}select-options {
   box-sizing: border-box;
   position: absolute;
@@ -70,8 +77,9 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  border: 2px solid $f-color-primary-light;
-  border-radius: calc($f-border-soft-corner * 1px);
+  // border: 2px solid $f-color-primary-light;
+  border: none;
+  // border-radius: calc($f-border-soft-corner * 1px);
   margin-top: calc($f-spacing-4 * 1px);
   max-width: max-content;
   min-width: 120px;
@@ -81,9 +89,30 @@
   display: none;
 }
 
-.#{$prefix}select-trigger:hover {
-  cursor: pointer;
-  color: $f-color-primary-light-hover;
-  background-color: rgb(0, 77, 64, 0.1);
-  border: 2px solid $f-color-primary-light-hover;
+.#{$prefix}select-item {
+  appearance: none;
+}
+
+.#{$prefix}select-item-wrapper:first-of-type {
+  border-width: 2px 2px 0px 2px;
+  border-color: $f-color-primary-light;
+  border-style: solid;
+  border-radius: calc($f-border-soft-corner * 1px) calc($f-border-soft-corner * 1px) 0px 0px;
+}
+
+.#{$prefix}select-item-wrapper {
+  border-width: 0px 2px 0px 2px;
+  border-color: $f-color-primary-light;
+  border-style: solid;
+}
+
+.#{$prefix}select-item-wrapper:last-of-type {
+  border-width: 0px 2px 2px 2px;
+  border-color: $f-color-primary-light;
+  border-style: solid;
+  border-radius: 0px 0px calc($f-border-soft-corner * 1px) calc($f-border-soft-corner * 1px);
+}
+
+.#{$prefix}select-item-wrapper-focus {
+  border: 2px solid red!important;
 }
