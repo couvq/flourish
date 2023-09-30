@@ -1,14 +1,15 @@
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  useState,
   FocusEvent,
-  MouseEvent
+  KeyboardEvent,
+  MouseEvent,
+  useId,
+  useState
 } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import {
+  classMerge,
   createRipple,
   removeFocusGrowEffect,
   toggleFocusGrowEffect
@@ -19,20 +20,18 @@ interface SelectOption {
   /** Accessible name for the select option. */
   label: string
   /** Value of the select option. */
-  value?: string | number
+  value: string
   /** Whether or not the select option is disabled */
   disabled?: boolean
 }
 
 interface SelectProps extends Testable, Customizable {
   /** Value for the select component. */
-  value: string | number
-  /** Whether the select component label should be visible, or only used for screenreaders. */
-  labelVisible?: boolean
+  value: string
   /** Options to choose from the select component. */
   options: SelectOption[]
   /** Change event handler for the select component. */
-  onChange?: (e: ChangeEvent) => void
+  onChange?: (e: MouseEvent | FocusEvent, value: string) => void
 }
 
 const toggleCaretIconRotateEffect = () => {
@@ -66,7 +65,7 @@ const toggleSelectOptionsOpen = () => {
  * Checks if an item is selected, if it is then it focuses that item
  */
 const moveSelectItemFocus = () => {
-  const selectItems = document.querySelectorAll('.f-select-item')
+  const selectItems = document.querySelectorAll('.f-select-item-radio')
   for (const item of selectItems) {
     // @ts-ignore
     if (item.checked) {
@@ -79,21 +78,17 @@ const moveSelectItemFocus = () => {
   selectItems[0].focus()
 }
 
-const toggleSelectItemFocusStyle = (e: FocusEvent | MouseEvent) => {
-  const target = e.currentTarget
-  // @ts-ignore
-  target?.parentNode?.classList?.toggle('f-select-item-wrapper-focus')
-}
-
 export const Select = ({
   value,
   options,
-  onChange = (e: ChangeEvent) => {},
+  onChange = (e: MouseEvent | FocusEvent) => {},
   className,
   style,
   'data-testId': testId
 }: SelectProps) => {
   const [expanded, setExpanded] = useState(false)
+  const [selectedItemIndex, setSelectedItemIndex] = useState(0)
+  const a11yUniqId = useId()
 
   /**
    * Closes the dropdown and moves focus back to the select trigger
@@ -139,51 +134,49 @@ export const Select = ({
           {value}
           <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
         </button>
-        <fieldset
+        <div
           role="listbox"
           id="f-select-options"
           className="f-select-options f-closed"
         >
-          <div className="f-select-item-wrapper">
-            <input
-              className="f-select-item"
-              onKeyDown={handleSelectItemDismiss}
-              onFocus={toggleSelectItemFocusStyle}
-              onBlur={toggleSelectItemFocusStyle}
-              type="radio"
-              name="nato"
-              id="alphaRadio"
-            />
-            <label htmlFor="alphaRadio">
-              Alpha testing very long content, with a paragraph just to test
-              edge case
-            </label>
-          </div>
-          <div className="f-select-item-wrapper">
-            <input
-              className="f-select-item"
-              onKeyDown={handleSelectItemDismiss}
-              onFocus={toggleSelectItemFocusStyle}
-              onBlur={toggleSelectItemFocusStyle}
-              type="radio"
-              name="nato"
-              id="alphaRadio"
-            />
-            <label htmlFor="alphaRadio">Alpha</label>
-          </div>
-          <div className="f-select-item-wrapper">
-            <input
-              className="f-select-item"
-              onKeyDown={handleSelectItemDismiss}
-              onFocus={toggleSelectItemFocusStyle}
-              onBlur={toggleSelectItemFocusStyle}
-              type="radio"
-              name="nato"
-              id="alphaRadio"
-            />
-            <label htmlFor="alphaRadio">Alpha</label>
-          </div>
-        </fieldset>
+          {options.map((option, index) => (
+            <div
+              key={index}
+              className={classMerge(
+                options.length > 1 ? 'f-select-item' : 'f-select-item-single',
+                selectedItemIndex === index
+                  ? 'f-select-item-selected'
+                  : undefined
+              )}
+              onMouseDown={(e) => {
+                setSelectedItemIndex(index)
+                createRipple(e)
+
+                onChange(e, option.value)
+              }}
+              onFocus={(e) => {
+                setSelectedItemIndex(index)
+                onChange(e, option.value)
+              }}
+            >
+              <input
+                className="f-select-item-radio"
+                onKeyDown={handleSelectItemDismiss}
+                checked={selectedItemIndex === index}
+                value={option.value}
+                type="radio"
+                name="nato"
+                id={`${option.value}-${a11yUniqId}`}
+              />
+              <label
+                className="f-select-item-label"
+                htmlFor={`${option.value}-${a11yUniqId}`}
+              >
+                {option.label}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )

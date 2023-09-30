@@ -3,6 +3,7 @@ import Links from '../components/Links'
 import TypographyPage from '../components/examplePages/TypographyPage'
 import LinkPage from '@/components/examplePages/LinkPage'
 import ButtonPage from '@/components/examplePages/ButtonPage'
+import SelectPage from '@/components/examplePages/SelectPage'
 
 interface RouteEntry {
   path: string
@@ -35,5 +36,10 @@ export const routes: RouteEntry[] = [
     path: '/button',
     label: 'Button',
     element: <ButtonPage />
+  },
+  {
+    path: '/select',
+    label: 'Select',
+    element: <SelectPage />
   }
 ]

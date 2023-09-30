@@ -24,6 +24,7 @@
     "@typescript-eslint/no-confusing-void-expression": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/prefer-ts-expect-error": "off",
-    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off"
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   }
 }
