@@ -109,6 +109,7 @@ export const Select = ({
       <div className="f-select">
         <button
           role="combobox"
+          aria-label={value}
           aria-haspopup="listbox"
           aria-expanded={expanded}
           aria-controls="f-select-options"

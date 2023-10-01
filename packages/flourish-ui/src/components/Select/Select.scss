@@ -169,3 +169,77 @@
   border-radius: 0px 0px calc($f-border-soft-corner * 1px)
     calc($f-border-soft-corner * 1px);
 }
+
+// dark mode styles
+.#{$prefix}dark-mode {
+  .#{$prefix}select-trigger {
+    color: $f-color-primary-dark;
+    font:
+      calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
+      sans-serif;
+    background-color: $f-color-bg-dark;
+    border: 2px solid $f-color-primary-dark;
+
+    .focus-grow {
+      background-color: $f-color-primary-dark;
+    }
+
+    span.ripple {
+      background-color: $f-color-primary-dark;
+    }
+  }
+
+  .#{$prefix}select-trigger:hover {
+    color: $f-color-primary-dark-hover;
+    background-color: rgb(100, 255, 218, 0.1);
+    border: 2px solid $f-color-primary-dark-hover;
+  }
+
+  .#{$prefix}select-options {
+    background-color: $f-color-bg-dark;
+  }
+
+  .#{$prefix}select-item-single {
+    border: 2px solid $f-color-primary-dark;
+
+    color: $f-color-primary-dark;
+    background-color: $f-color-bg-dark;
+  }
+
+  .#{$prefix}select-item-single:hover {
+    color: $f-color-primary-dark-hover;
+    background-color: rgb(100, 255, 218, 0.1);
+  }
+
+  .#{$prefix}select-item:first-of-type {
+    border-color: $f-color-primary-dark;
+  }
+
+  .#{$prefix}select-item {
+    border-color: $f-color-primary-dark;
+    color: $f-color-primary-dark;
+    background-color: $f-color-bg-dark;
+  }
+
+  .#{$prefix}select-item:hover {
+    color: $f-color-primary-dark-hover;
+    background-color: rgb(100, 255, 218, 0.1);
+  }
+
+  .#{$prefix}select-item-selected {
+    color: $f-color-primary-dark-hover;
+    background-color: rgb(100, 255, 218, 0.1);
+
+    .focus-grow {
+      background-color: $f-color-primary-dark;
+    }
+
+    span.ripple {
+      background-color: $f-color-primary-dark;
+    }
+  }
+
+  .#{$prefix}select-item:last-of-type {
+    border-color: $f-color-primary-dark;
+  }
+}
