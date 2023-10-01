@@ -5,16 +5,16 @@ import { FocusEvent, MouseEvent, useState } from 'react'
 
 const options = [
   {
-    label: 'Dog',
-    value: 'Dog'
+    label: 'English',
+    value: 'English'
   },
   {
-    label: 'Cat',
-    value: 'Cat'
+    label: 'French',
+    value: 'French'
   },
   {
-    label: 'Horse',
-    value: 'Horse'
+    label: 'Spanish',
+    value: 'Spanish'
   }
 ]
 
@@ -30,7 +30,7 @@ const SelectPage = () => {
     <ExamplePage exampleName="Select examples">
       <ExampleGroup groupName="Basic select">
         <Select
-          value={selectedOption ?? 'Choose your pet'}
+          value={selectedOption ?? 'Select language'}
           options={options}
           onChange={handleChange}
         />

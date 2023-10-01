@@ -26,12 +26,12 @@ interface SelectOption {
 }
 
 interface SelectProps extends Testable, Customizable {
-  /** Value for the select component. */
+  /** Controls text content of the trigger for the component. */
   value: string
-  /** Options to choose from the select component. */
+  /** Options to select from the component. */
   options: SelectOption[]
-  /** Change event handler for the select component. */
-  onChange?: (e: MouseEvent | FocusEvent, value: string) => void
+  /** Change event handler for the component, can use to set a new value when selected. */
+  onSelect?: (e: MouseEvent | FocusEvent, value: string) => void
 }
 
 const toggleCaretIconRotateEffect = () => {
@@ -81,7 +81,7 @@ const moveSelectItemFocus = () => {
 export const Select = ({
   value,
   options,
-  onChange = (e: MouseEvent | FocusEvent) => {},
+  onSelect = (e: MouseEvent | FocusEvent) => {},
   className,
   style,
   'data-testId': testId
@@ -95,7 +95,7 @@ export const Select = ({
    * in the event the escape key is pressed
    */
   const handleSelectItemDismiss = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' || e.key === 'Enter') {
       toggleCaretIconRotateEffect()
       toggleSelectOptionsOpen()
       // @ts-ignore
@@ -151,12 +151,11 @@ export const Select = ({
               onMouseDown={(e) => {
                 setSelectedItemIndex(index)
                 createRipple(e)
-
-                onChange(e, option.value)
+                onSelect(e, option.value)
               }}
               onFocus={(e) => {
                 setSelectedItemIndex(index)
-                onChange(e, option.value)
+                onSelect(e, option.value)
               }}
             >
               <input
