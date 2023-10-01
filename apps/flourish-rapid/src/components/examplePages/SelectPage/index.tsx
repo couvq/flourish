@@ -15,6 +15,10 @@ const options = [
   {
     label: 'Spanish',
     value: 'Spanish'
+  },
+  {
+    label: 'Italian',
+    value: 'Italian'
   }
 ]
 
