@@ -21,7 +21,7 @@ const options = [
 const SelectPage = () => {
   const [selectedOption, setSelectedOption] = useState<any>(null)
 
-  const handleChange = (e: MouseEvent | FocusEvent, value: string) => {
+  const handleSelect = (e: MouseEvent | FocusEvent, value: string) => {
     e.preventDefault()
     setSelectedOption(value)
   }
@@ -32,7 +32,7 @@ const SelectPage = () => {
         <Select
           value={selectedOption ?? 'Select language'}
           options={options}
-          onChange={handleChange}
+          onSelect={handleSelect}
         />
       </ExampleGroup>
     </ExamplePage>
