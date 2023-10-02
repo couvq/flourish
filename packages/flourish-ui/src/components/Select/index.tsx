@@ -92,9 +92,9 @@ export const Select = ({
 
   /**
    * Closes the dropdown and moves focus back to the select trigger
-   * in the event the escape key is pressed
+   * in the event the escape or enter key is pressed
    */
-  const handleSelectItemDismiss = (e: KeyboardEvent) => {
+  const handleSelectItemDismissKey = (e: KeyboardEvent) => {
     if (e.key === 'Escape' || e.key === 'Enter') {
       toggleCaretIconRotateEffect()
       toggleSelectOptionsOpen()
@@ -102,6 +102,18 @@ export const Select = ({
       document.querySelector('.f-select-trigger')?.focus()
       setExpanded(!expanded)
     }
+  }
+
+  /**
+   * Closes the dropdown and moves focus back to the select trigger
+   * in the event the select item is clicked
+   */
+  const handleSelectItemDismissClick = (e: MouseEvent) => {
+    toggleCaretIconRotateEffect()
+    toggleSelectOptionsOpen()
+    // @ts-ignore
+    document.querySelector('.f-select-trigger')?.focus()
+    setExpanded(!expanded)
   }
 
   return (
@@ -122,6 +134,7 @@ export const Select = ({
             toggleCaretIconRotateEffect()
             toggleSelectOptionsOpen()
             setExpanded(!expanded)
+            moveSelectItemFocus()
           }}
           onKeyDown={(e) => {
             if (e.key === ' ' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
@@ -153,6 +166,7 @@ export const Select = ({
                 setSelectedItemIndex(index)
                 createRipple(e)
                 onSelect(e, option.value)
+                handleSelectItemDismissClick(e)
               }}
               onFocus={(e) => {
                 setSelectedItemIndex(index)
@@ -161,7 +175,7 @@ export const Select = ({
             >
               <input
                 className="f-select-item-radio"
-                onKeyDown={handleSelectItemDismiss}
+                onKeyDown={handleSelectItemDismissKey}
                 checked={selectedItemIndex === index}
                 value={option.value}
                 type="radio"
