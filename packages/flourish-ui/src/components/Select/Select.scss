@@ -91,6 +91,8 @@
   appearance: none;
   cursor: pointer;
   margin: 0;
+  width: 1;
+  height: 1;
 }
 
 .#{$prefix}select-item-label {
@@ -110,8 +112,10 @@
   background-color: $f-color-bg-light;
   padding: 5px calc($f-spacing-7 * 1px);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .#{$prefix}select-item-single:hover {
@@ -141,6 +145,12 @@
     sans-serif;
   background-color: $f-color-bg-light;
   padding: 5px calc($f-spacing-7 * 1px);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .#{$prefix}select-item:hover {
