@@ -9,6 +9,7 @@ import React, {
   useState
 } from 'react'
 import { Customizable, Testable } from '../../common-props'
+import { useClickOutsideEffect } from '../../hooks'
 import {
   classMerge,
   createRipple,
@@ -98,6 +99,19 @@ export const Select = ({
   const a11yUniqId = useId()
   const selectRef = useRef(null)
   const triggerRef = useRef(null)
+
+  /**
+   * Closes select options when click detected outside
+   * todo - focus not moving back on close with custom hook
+   */
+  const handleClickOutside = () => {
+    if (expanded) {
+      toggleCaretIconRotateEffect(a11yUniqId)
+      toggleSelectOptionsOpen(a11yUniqId)
+      setExpanded(false)
+    }
+  }
+  useClickOutsideEffect(selectRef, handleClickOutside, [expanded])
 
   /**
    * Closes the dropdown and moves focus back to the select trigger
