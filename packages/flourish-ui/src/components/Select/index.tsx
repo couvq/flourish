@@ -76,7 +76,7 @@ const moveSelectItemFocus = (uniqId: string) => {
   )
   for (const item of selectItems) {
     // @ts-ignore
-    if (item.checked) {
+    if (item.parentNode.classList.contains('f-select-item-selected')) {
       // @ts-ignore
       item.focus()
       return
@@ -188,8 +188,8 @@ export const Select = ({
               )}
               onMouseDown={(e) => {
                 setSelectedItemIndex(index)
-                createRipple(e)
                 onSelect(e, option.value)
+                createRipple(e)
                 handleSelectItemDismissClick(e)
               }}
               onFocus={(e) => {
@@ -200,7 +200,6 @@ export const Select = ({
               <input
                 className="f-select-item-radio"
                 onKeyDown={handleSelectItemDismissKey}
-                checked={selectedItemIndex === index}
                 value={option.value}
                 type="radio"
                 name="nato"
