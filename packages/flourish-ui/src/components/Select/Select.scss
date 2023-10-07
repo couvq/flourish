@@ -82,6 +82,7 @@
   border: 2px solid $f-color-primary-light;
   border-radius: calc($f-border-soft-corner * 1px);
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .#{$prefix}closed {
@@ -91,6 +92,8 @@
 .#{$prefix}select-item-radio {
   appearance: none;
   cursor: pointer;
+  outline: none;
+  width: 1px;
 }
 
 .#{$prefix}select-item-label {
