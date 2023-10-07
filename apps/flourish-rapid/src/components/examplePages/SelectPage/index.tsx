@@ -22,12 +22,54 @@ const options = [
   }
 ]
 
+const manyOptions = [
+  {
+    label: 'English',
+    value: 'English'
+  },
+  {
+    label: 'French',
+    value: 'French'
+  },
+  {
+    label: 'Spanish',
+    value: 'Spanish'
+  },
+  {
+    label: 'Italian',
+    value: 'Italian'
+  },
+  {
+    label: 'Portugese',
+    value: 'Portugese'
+  },
+  {
+    label: 'Arabic',
+    value: 'Arabic'
+  },
+  {
+    label: 'Hindi',
+    value: 'Hindi'
+  }
+]
+
 const SelectPage = () => {
-  const [selectedOption, setSelectedOption] = useState<any>(null)
+  const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const [manySelectedOption, setManySelectedOption] = useState<string | null>(
+    null
+  )
 
   const handleSelect = (e: MouseEvent | FocusEvent, value: string) => {
     e.preventDefault()
     setSelectedOption(value)
+  }
+
+  const handleManyOptionSelect = (
+    e: MouseEvent | FocusEvent,
+    value: string
+  ) => {
+    e.preventDefault()
+    setManySelectedOption(value)
   }
 
   return (
@@ -37,6 +79,13 @@ const SelectPage = () => {
           value={selectedOption ?? 'Select language'}
           options={options}
           onSelect={handleSelect}
+        />
+      </ExampleGroup>
+      <ExampleGroup groupName="Select with many options">
+        <Select
+          value={manySelectedOption ?? 'Select language'}
+          options={manyOptions}
+          onSelect={handleManyOptionSelect}
         />
       </ExampleGroup>
     </ExamplePage>

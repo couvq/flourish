@@ -5,6 +5,7 @@ import React, {
   KeyboardEvent,
   MouseEvent,
   useId,
+  useRef,
   useState
 } from 'react'
 import { Customizable, Testable } from '../../common-props'
@@ -34,8 +35,10 @@ interface SelectProps extends Testable, Customizable {
   onSelect?: (e: MouseEvent | FocusEvent, value: string) => void
 }
 
-const toggleCaretIconRotateEffect = () => {
-  const caret = document.querySelector('.f-select-caret')
+const toggleCaretIconRotateEffect = (uniqId: string) => {
+  const caret = document.querySelector(
+    `#f-select-${CSS.escape(uniqId)} .f-select-caret`
+  )
   const containsRotateUp = caret?.classList.contains('rotate-caret-up')
   const containsRotateDown = caret?.classList.contains('rotate-caret-down')
 
@@ -56,16 +59,20 @@ const toggleCaretIconRotateEffect = () => {
   }
 }
 
-const toggleSelectOptionsOpen = () => {
-  const selectOptions = document.querySelector('.f-select-options')
+const toggleSelectOptionsOpen = (uniqId: string) => {
+  const selectOptions = document.querySelector(
+    `#f-select-${CSS.escape(uniqId)} .f-select-options`
+  )
   selectOptions?.classList.toggle('f-closed')
 }
 
 /**
  * Checks if an item is selected, if it is then it focuses that item
  */
-const moveSelectItemFocus = () => {
-  const selectItems = document.querySelectorAll('.f-select-item-radio')
+const moveSelectItemFocus = (uniqId: string) => {
+  const selectItems = document.querySelectorAll(
+    `#f-select-${CSS.escape(uniqId)} .f-select-item-radio`
+  )
   for (const item of selectItems) {
     // @ts-ignore
     if (item.checked) {
@@ -89,6 +96,8 @@ export const Select = ({
   const [expanded, setExpanded] = useState(false)
   const [selectedItemIndex, setSelectedItemIndex] = useState(0)
   const a11yUniqId = useId()
+  const selectRef = useRef(null)
+  const triggerRef = useRef(null)
 
   /**
    * Closes the dropdown and moves focus back to the select trigger
@@ -96,10 +105,10 @@ export const Select = ({
    */
   const handleSelectItemDismissKey = (e: KeyboardEvent) => {
     if (e.key === 'Escape' || e.key === 'Enter') {
-      toggleCaretIconRotateEffect()
-      toggleSelectOptionsOpen()
+      toggleCaretIconRotateEffect(a11yUniqId)
+      toggleSelectOptionsOpen(a11yUniqId)
       // @ts-ignore
-      document.querySelector('.f-select-trigger')?.focus()
+      triggerRef.current.focus()
       setExpanded(!expanded)
     }
   }
@@ -109,17 +118,18 @@ export const Select = ({
    * in the event the select item is clicked
    */
   const handleSelectItemDismissClick = (e: MouseEvent) => {
-    toggleCaretIconRotateEffect()
-    toggleSelectOptionsOpen()
+    toggleCaretIconRotateEffect(a11yUniqId)
+    toggleSelectOptionsOpen(a11yUniqId)
     // @ts-ignore
-    document.querySelector('.f-select-trigger')?.focus()
+    triggerRef.current.focus()
     setExpanded(!expanded)
   }
 
   return (
     <>
-      <div className="f-select">
+      <div ref={selectRef} id={`f-select-${a11yUniqId}`} className="f-select">
         <button
+          ref={triggerRef}
           role="combobox"
           aria-label={value}
           aria-haspopup="listbox"
@@ -131,17 +141,17 @@ export const Select = ({
           onMouseDown={(e) => {
             e.preventDefault()
             createRipple(e)
-            toggleCaretIconRotateEffect()
-            toggleSelectOptionsOpen()
+            toggleCaretIconRotateEffect(a11yUniqId)
+            toggleSelectOptionsOpen(a11yUniqId)
             setExpanded(!expanded)
-            moveSelectItemFocus()
+            moveSelectItemFocus(a11yUniqId)
           }}
           onKeyDown={(e) => {
             if (e.key === ' ' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-              toggleCaretIconRotateEffect()
-              toggleSelectOptionsOpen()
+              toggleCaretIconRotateEffect(a11yUniqId)
+              toggleSelectOptionsOpen(a11yUniqId)
               setExpanded(!expanded)
-              moveSelectItemFocus()
+              moveSelectItemFocus(a11yUniqId)
             }
           }}
         >
