@@ -1,19 +1,28 @@
 import { Page } from "@playwright/test";
 
+export enum Key {
+  TAB = "Tab",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+}
+
 /**
- * Presses the tab key until the element with the given selector is in focus.
+ * Presses the key until the element with the given selector is in focus.
  * @param selector css selector for element you want to tab to
+ * @param key key to press for keyboard navigation, defaults to Tab if none specified
  */
-export const tabToElement = async (
+export const keyToElement = async (
   page: Page,
-  selector: string
+  selector: string,
+  key: Key = Key.TAB
 ): Promise<void> => {
-  await tabTo(page, selector);
+  await tabTo(page, selector, key);
 };
 
 const tabTo = async (
   page: Page,
   selector: string,
+  key: Key,
   visited: Element[] = []
 ): Promise<void> => {
   const validSelector = await page.evaluate(
@@ -30,7 +39,7 @@ const tabTo = async (
     },
     { selector }
   );
-  await page.keyboard.press("Tab");
+  await page.keyboard.press(key);
   await page.screenshot();
 
   const foundTarget = await page.evaluate(
@@ -59,5 +68,5 @@ const tabTo = async (
     { selector, visited }
   );
 
-  if (validSelector && !foundTarget) return tabTo(page, selector, visited);
+  if (validSelector && !foundTarget) return tabTo(page, selector, key, visited);
 };

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { baseUrl } from "./constants";
 import AxeBuilder from "@axe-core/playwright";
-import { tabToElement } from "./utils";
+import { keyToElement } from "./utils";
 
 const href = "https://www.amazon.com/b2b/appcenter";
 
@@ -55,7 +55,7 @@ test.describe("<Link /> integration tests", () => {
       browserName.toLowerCase() !== "chromium",
       `Test only for chromium!`
     );
-    await tabToElement(page, '[data-testId="basic-link"]');
+    await keyToElement(page, '[data-testId="basic-link"]');
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(page.url()).toBe(href);
@@ -72,7 +72,7 @@ test.describe("<Link /> integration tests", () => {
       `Test only for chromium!`
     );
     const pagePromise = context.waitForEvent("page");
-    await tabToElement(page, '[data-testId="external-link"]');
+    await keyToElement(page, '[data-testId="external-link"]');
     await page.keyboard.press("Enter");
     await page.screenshot();
     const newPage = await pagePromise;

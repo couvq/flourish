@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { baseUrl } from "./constants";
 import AxeBuilder from "@axe-core/playwright";
-import { tabToElement } from "./utils";
+import { keyToElement } from "./utils";
 
 test.describe("<Button /> integration tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -43,7 +43,7 @@ test.describe("<Button /> integration tests", () => {
       browserName.toLowerCase() !== "chromium",
       `Test only for chromium!`
     );
-    await tabToElement(page, '[data-testId="primary-button"]');
+    await keyToElement(page, '[data-testId="primary-button"]');
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(
@@ -70,7 +70,7 @@ test.describe("<Button /> integration tests", () => {
       browserName.toLowerCase() !== "chromium",
       `Test only for chromium!`
     );
-    await tabToElement(page, '[data-testId="secondary-button"]');
+    await keyToElement(page, '[data-testId="secondary-button"]');
     await page.keyboard.press("Enter");
     await page.screenshot();
     expect(

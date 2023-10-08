@@ -211,7 +211,7 @@ export const Select = ({
               }}
             >
               <input
-                data-testId={`${testId}-select-radio`}
+                data-testId={`${testId}-select-radio-${index}`}
                 className="f-select-item-radio"
                 onKeyDown={handleSelectItemDismissKey}
                 value={option.value}
