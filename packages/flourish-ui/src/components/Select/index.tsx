@@ -141,14 +141,21 @@ export const Select = ({
 
   return (
     <>
-      <div ref={selectRef} id={`f-select-${a11yUniqId}`} className="f-select">
+      <div
+        ref={selectRef}
+        id={`f-select-${a11yUniqId}`}
+        className={classMerge('f-select', className)}
+        style={style}
+        data-testId={testId}
+      >
         <button
+          data-testId={`${testId}-trigger`}
           ref={triggerRef}
           role="combobox"
           aria-label={value}
           aria-haspopup="listbox"
           aria-expanded={expanded}
-          aria-controls="f-select-options"
+          aria-controls={`f-select-options-${a11yUniqId}`}
           className="f-select-trigger"
           onFocus={toggleFocusGrowEffect}
           onBlur={removeFocusGrowEffect}
@@ -170,15 +177,21 @@ export const Select = ({
           }}
         >
           {value}
-          <FontAwesomeIcon className="f-select-caret" icon={faCaretDown} />
+          <FontAwesomeIcon
+            data-testid={`${testId}-caret`}
+            className="f-select-caret"
+            icon={faCaretDown}
+          />
         </button>
         <div
           role="listbox"
-          id="f-select-options"
+          id={`f-select-options-${a11yUniqId}`}
           className="f-select-options f-closed"
+          data-testId={`${testId}-select-options`}
         >
           {options.map((option, index) => (
             <div
+              data-testId={`${testId}-select-item-${index}`}
               key={index}
               className={classMerge(
                 options.length > 1 ? 'f-select-item' : 'f-select-item-single',
@@ -198,6 +211,7 @@ export const Select = ({
               }}
             >
               <input
+                data-testId={`${testId}-select-radio`}
                 className="f-select-item-radio"
                 onKeyDown={handleSelectItemDismissKey}
                 value={option.value}

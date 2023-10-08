@@ -79,6 +79,7 @@ const SelectPage = () => {
           value={selectedOption ?? 'Select language'}
           options={options}
           onSelect={handleSelect}
+          data-testId="basic-select"
         />
       </ExampleGroup>
       <ExampleGroup groupName="Select with many options">
@@ -86,6 +87,7 @@ const SelectPage = () => {
           value={manySelectedOption ?? 'Select language'}
           options={manyOptions}
           onSelect={handleManyOptionSelect}
+          data-testId="scrollable-select"
         />
       </ExampleGroup>
     </ExamplePage>
