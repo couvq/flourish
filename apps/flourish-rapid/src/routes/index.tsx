@@ -4,6 +4,7 @@ import TypographyPage from '../components/examplePages/TypographyPage'
 import LinkPage from '@/components/examplePages/LinkPage'
 import ButtonPage from '@/components/examplePages/ButtonPage'
 import SelectPage from '@/components/examplePages/SelectPage'
+import ModalPage from '@/components/examplePages/ModalPage'
 
 interface RouteEntry {
   path: string
@@ -41,5 +42,10 @@ export const routes: RouteEntry[] = [
     path: '/select',
     label: 'Select',
     element: <SelectPage />
+  },
+  {
+    path: '/modal',
+    label: 'Modal',
+    element: <ModalPage />
   }
 ]
