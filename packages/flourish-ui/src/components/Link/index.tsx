@@ -1,13 +1,13 @@
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { classMerge } from '../../utils'
 import './Link.scss'
 
 interface LinkProps extends Testable, Customizable {
   /** The content of the component. */
-  children: React.ReactNode
+  children: ReactNode
   /** Url the link should take the user to. */
   href: string
   /** Adds an aria-label to the link to override the accessible name for screenreaders. */
