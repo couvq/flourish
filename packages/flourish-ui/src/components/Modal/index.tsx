@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from 'react'
+import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { classMerge } from '../../utils'
 import './Modal.scss'
@@ -21,8 +21,23 @@ export const Modal = ({
   'data-testId': testId
 }: ModalProps) => {
   const modalRef = useRef<HTMLDialogElement>(null)
-  // @ts-ignore
-  show ? modalRef.current?.showModal() : modalRef.current?.close()
+
+  useEffect(() => {
+    // @ts-ignore
+    show ? modalRef.current?.showModal() : modalRef.current?.close()
+
+    const closeModalViaEscapeKey = (e) => {
+      if (e.key === 'Escape') {
+        // @ts-ignore
+        onClose(e)
+      }
+    }
+
+    modalRef.current?.addEventListener('keydown', closeModalViaEscapeKey)
+
+    return () =>
+      modalRef.current?.removeEventListener('keydown', closeModalViaEscapeKey)
+  }, [show])
 
   return (
     <dialog
@@ -36,9 +51,9 @@ export const Modal = ({
         autoFocus
         onClick={(e) => {
           // @ts-ignore
-          onClose(e)
-          // @ts-ignore
           modalRef.current?.close()
+          // @ts-ignore
+          onClose(e)
         }}
       >
         close
