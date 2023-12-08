@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
+import { useClickOutsideEffect } from '../../hooks'
 import { classMerge } from '../../utils'
 import './Modal.scss'
 
@@ -21,6 +22,14 @@ export const Modal = ({
   'data-testId': testId
 }: ModalProps) => {
   const modalRef = useRef<HTMLDialogElement>(null)
+  const modalContentRef = useRef(null)
+
+  const handleClickOutside = (e) => {
+    onClose(e)
+    // @ts-ignore
+    modalRef.current?.close()
+  }
+  useClickOutsideEffect(modalContentRef, handleClickOutside, [])
 
   useEffect(() => {
     // @ts-ignore
@@ -46,19 +55,21 @@ export const Modal = ({
       data-testId={testId}
       ref={modalRef}
     >
-      <button
-        // eslint-disable-next-line
-        autoFocus
-        onClick={(e) => {
-          // @ts-ignore
-          modalRef.current?.close()
-          // @ts-ignore
-          onClose(e)
-        }}
-      >
-        close
-      </button>
-      {children}
+      <div ref={modalContentRef} className="f-modal-content">
+        <button
+          // eslint-disable-next-line
+          autoFocus
+          onClick={(e) => {
+            // @ts-ignore
+            modalRef.current?.close()
+            // @ts-ignore
+            onClose(e)
+          }}
+        >
+          close
+        </button>
+        {children}
+      </div>
     </dialog>
   )
 }
