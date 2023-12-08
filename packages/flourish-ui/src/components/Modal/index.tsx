@@ -54,6 +54,7 @@ export const Modal = ({
       style={style}
       data-testId={testId}
       ref={modalRef}
+      aria-modal="true"
     >
       <div ref={modalContentRef} className="f-modal-content">
         <button
