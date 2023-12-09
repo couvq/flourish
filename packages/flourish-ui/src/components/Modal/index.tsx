@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { useClickOutsideEffect } from '../../hooks'
@@ -9,14 +11,17 @@ interface ModalProps extends Testable, Customizable {
   children: ReactNode
   /** Whether to open or close the modal. */
   show: boolean
-  /** Function to fire when the modal is closed via the close icon button in the top right corner. */
+  /** Fires when the modal is closed via the close icon button in the top right corner, or by pressing the escape key. */
   onClose: (e: MouseEvent) => void
+  /** Label of the close icon button for assistive technologies. */
+  dismissAriaLabel: string
 }
 
 export const Modal = ({
   children,
   show,
   onClose,
+  dismissAriaLabel,
   className,
   style,
   'data-testId': testId
@@ -66,8 +71,10 @@ export const Modal = ({
             // @ts-ignore
             onClose(e)
           }}
+          aria-label={dismissAriaLabel}
+          className="f-modal-dismiss-icon-btn"
         >
-          close
+          <FontAwesomeIcon icon={faXmark} />
         </button>
         {children}
       </div>

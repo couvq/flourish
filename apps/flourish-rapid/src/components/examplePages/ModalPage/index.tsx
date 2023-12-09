@@ -9,7 +9,7 @@ const ModalPage = () => {
     <ExamplePage exampleName="Modal examples">
       <ExampleGroup groupName="Basic Modal">
         <button onClick={() => setShow(true)}>open</button>
-        <Modal show={show} onClose={() => setShow(false)}>
+        <Modal show={show} onClose={() => setShow(false)} dismissAriaLabel="Close example modal">
           modal content
         </Modal>
       </ExampleGroup>

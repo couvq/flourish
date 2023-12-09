@@ -25,6 +25,12 @@
   background: $f-color-overlay-background;
 }
 
+.f-modal-dismiss-icon-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
+
 .#{$prefix}dark-mode .f-modal {
   background-color: $f-color-inverse-dark;
 }
