@@ -1,15 +1,11 @@
 import '@testing-library/jest-dom'
 import {
   createEvent,
-  fireEvent,
-  getByRole,
-  render,
-  screen,
-  waitFor
+  fireEvent, render,
+  screen
 } from '@testing-library/react'
 import React from 'react'
 import PrimaryBtn from '..'
-import userEvent from '@testing-library/user-event'
 
 describe('<PrimaryBtn />', () => {
   it('renders without error', () => {

@@ -28,11 +28,11 @@ const ModalPage = () => {
             }}
           >
             Your feedback helps us make more informed decisions for our
-            customers. As earth&apos;s most customer obsessed design system we value
-            customer feedback and use it to make flourish more delightful for
-            you.
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
           </Typography>
-          <Button onClick={() => alert('thanks for the feedback!')}>
+          <Button onClick={() => console.log('thanks for the feedback!')}>
             Submit feedback
           </Button>
         </Modal>

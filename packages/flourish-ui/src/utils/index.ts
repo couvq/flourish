@@ -66,4 +66,11 @@ export const createRipple = (e: MouseEvent | KeyboardEvent) => {
   }
 
   target.appendChild(circle)
+
+  // clean up ripple after animation is done (600ms)
+  setTimeout(() => {
+    document.querySelectorAll('.ripple').forEach((ripple) => {
+      ripple.remove()
+    })
+  }, 600)
 }
