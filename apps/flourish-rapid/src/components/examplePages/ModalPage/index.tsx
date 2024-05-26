@@ -28,7 +28,7 @@ const ModalPage = () => {
             }}
           >
             Your feedback helps us make more informed decisions for our
-            customers. As earth's most customer obsessed design system we value
+            customers. As earth&apos;s most customer obsessed design system we value
             customer feedback and use it to make flourish more delightful for
             you.
           </Typography>
