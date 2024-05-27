@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
   background-color: $f-color-bg-light;
   min-width: 450px;
-  min-height: 250px;
+  max-height: 50vh;
   border: none;
   padding: 0;
   border-radius: calc($f-border-rounded * 1px);
@@ -26,8 +26,7 @@
 }
 
 .f-modal-content {
-  padding: 1rem;
-  position: absolute;
+  padding: 1.75rem;
   width: 100%;
   height: 100%;
   border-radius: calc($f-border-rounded * 1px);
@@ -38,9 +37,9 @@
 }
 
 .f-modal-dismiss-icon-btn {
-  position: absolute;
+  position: sticky;
   top: 15px;
-  right: 15px;
+  float: right;
 }
 
 .#{$prefix}dark-mode .f-modal {

@@ -9,7 +9,7 @@ const ModalPage = () => {
   return (
     <ExamplePage exampleName="Modal examples">
       <ExampleGroup groupName="Basic Modal">
-        <button onClick={() => setShowBasicModal(true)}>open</button>
+        <Button onClick={() => setShowBasicModal(true)}>Open</Button>
         <Modal
           show={showBasicModal}
           onClose={() => setShowBasicModal(false)}
@@ -40,7 +40,7 @@ const ModalPage = () => {
       </ExampleGroup>
 
       <ExampleGroup groupName="Modal with scrollable content">
-        <button onClick={() => setShowScrollableModal(true)}>open</button>
+        <Button onClick={() => setShowScrollableModal(true)}>open</Button>
         <Modal
           show={showScrollableModal}
           onClose={() => setShowScrollableModal(false)}
@@ -53,6 +53,56 @@ const ModalPage = () => {
             }}
           >
             Leave us feedback
+          </Typography>
+          <Typography
+            style={{
+              marginBottom: '1rem'
+            }}
+          >
+            Your feedback helps us make more informed decisions for our
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
+          </Typography>
+          <Typography
+            style={{
+              marginBottom: '1rem'
+            }}
+          >
+            Your feedback helps us make more informed decisions for our
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
+          </Typography>
+          <Typography
+            style={{
+              marginBottom: '1rem'
+            }}
+          >
+            Your feedback helps us make more informed decisions for our
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
+          </Typography>
+          <Typography
+            style={{
+              marginBottom: '1rem'
+            }}
+          >
+            Your feedback helps us make more informed decisions for our
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
+          </Typography>
+          <Typography
+            style={{
+              marginBottom: '1rem'
+            }}
+          >
+            Your feedback helps us make more informed decisions for our
+            customers. As earth&apos;s most customer obsessed design system we
+            value customer feedback and use it to make flourish more delightful
+            for you.
           </Typography>
           <Typography
             style={{
