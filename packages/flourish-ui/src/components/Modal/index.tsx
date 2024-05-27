@@ -6,6 +6,22 @@ import { useClickOutsideEffect } from '../../hooks'
 import { classMerge } from '../../utils'
 import './Modal.scss'
 
+/**
+ * Disables background scrolling when modal is open
+ * by setting the <body> elements position to fixed
+ */
+const disableBodyScroll = () => {
+  document.body.style.position = 'fixed'
+}
+
+/**
+ * Enables background scrolling when modal is closed
+ * by setting the <body> elements position to empty string
+ */
+const enableBodyScroll = () => {
+  document.body.style.position = ''
+}
+
 interface ModalProps extends Testable, Customizable {
   /** The content of the component. */
   children: ReactNode
@@ -29,7 +45,7 @@ export const Modal = ({
   const modalRef = useRef<HTMLDialogElement>(null)
   const modalContentRef = useRef(null)
 
-  const handleClickOutside = (e) => {
+  const handleClickOutside = (e: MouseEvent) => {
     onClose(e)
     // @ts-ignore
     modalRef.current?.close()
@@ -40,7 +56,9 @@ export const Modal = ({
     // @ts-ignore
     show ? modalRef.current?.showModal() : modalRef.current?.close()
 
-    const closeModalViaEscapeKey = (e) => {
+    show ? disableBodyScroll() : enableBodyScroll()
+
+    const closeModalViaEscapeKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         // @ts-ignore
         onClose(e)

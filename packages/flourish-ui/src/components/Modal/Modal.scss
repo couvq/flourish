@@ -11,6 +11,18 @@
   border: none;
   padding: 0;
   border-radius: calc($f-border-rounded * 1px);
+
+  @media screen and (max-width: 1000px) {
+    position: fixed;
+    top: initial;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    min-width: -moz-available;
+    min-width: -webkit-fill-available;
+    min-width: fill-available;
+    border-radius: calc($f-border-rounded * 1px) calc($f-border-rounded * 1px) 0 0;
+  }
 }
 
 .f-modal-content {
@@ -26,7 +38,7 @@
 }
 
 .f-modal-dismiss-icon-btn {
-  position: fixed;
+  position: absolute;
   top: 15px;
   right: 15px;
 }
