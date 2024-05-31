@@ -4,10 +4,21 @@ import { Button, Modal, Typography } from 'flourish-ui'
 import { useState } from 'react'
 
 const ModalPage = () => {
+  const [showEmptyModal, setShowEmptyModal] = useState(false)
   const [showBasicModal, setShowBasicModal] = useState(false)
   const [showScrollableModal, setShowScrollableModal] = useState(false)
   return (
     <ExamplePage exampleName="Modal examples">
+      <ExampleGroup groupName="Empty Modal">
+        <Button onClick={() => setShowEmptyModal(true)}>Open</Button>
+        <Modal
+          show={showEmptyModal}
+          onClose={() => setShowEmptyModal(false)}
+          dismissAriaLabel="Close example modal"
+        >
+        </Modal>
+      </ExampleGroup>
+
       <ExampleGroup groupName="Basic Modal">
         <Button onClick={() => setShowBasicModal(true)}>Open</Button>
         <Modal
