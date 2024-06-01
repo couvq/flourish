@@ -9,7 +9,8 @@
     "storybook": "turbo run storybook",
     "run-playwright-tests": "turbo run run-playwright-tests",
     "build-dependency-graph": "turbo run build --graph",
-    "flourish-release": "turbo run flourish-release"
+    "flourish-release": "turbo run flourish-release",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -18,6 +19,7 @@
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
+    "husky": "^9.0.11",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
