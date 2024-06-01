@@ -1,5 +1,5 @@
-import React, { ReactNode, MouseEvent } from 'react'
-import { Customizable, Testable } from '../../../../common-props'
+import React, { MouseEvent } from 'react'
+import { ButtonProps, CommonButtonProps } from '../..'
 import {
   classMerge,
   createRipple,
@@ -9,17 +9,6 @@ import {
 import '../../Button.scss'
 import './PrimaryBtn.scss'
 
-interface PrimaryButtonProps extends Testable, Customizable {
-  /** The content of the component. */
-  children: ReactNode
-  /** Click event handler for the button. */
-  onClick?: (e: MouseEvent) => void
-  /** Adds an aria-label to the button to override the accessible name for screenreaders. */
-  label?: string
-  /** Whether or not the button is disabled */
-  disabled?: boolean
-}
-
 const PrimaryBtn = ({
   children,
   onClick = (e: MouseEvent) => {},
@@ -28,7 +17,7 @@ const PrimaryBtn = ({
   className,
   style,
   'data-testId': testId
-}: PrimaryButtonProps) => (
+}: CommonButtonProps & ButtonProps) => (
   <button
     className={classMerge('f-button', 'f-button-primary', className)}
     style={style}

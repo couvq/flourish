@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import React, { MouseEvent } from 'react'
-
 import { Button } from '../components/Button'
+
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -16,7 +15,7 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     children: { control: 'text' },
-    variant: { control: 'select', options: ['primary', 'secondary'] },
+    variant: { control: 'select', options: ['primary', 'secondary', 'icon'] },
     label: { control: 'text' },
     disabled: { control: 'boolean'},
     onClick: { control: 'text' }
@@ -38,5 +37,12 @@ export const secondary: Story = {
   args: {
     children: 'Button',
     variant: 'secondary'
+  }
+}
+
+export const icon: Story = {
+  args: {
+    children: 'Button',
+    variant: 'icon'
   }
 }

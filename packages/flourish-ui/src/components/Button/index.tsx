@@ -1,13 +1,10 @@
 import React, { MouseEvent, ReactNode } from 'react'
 import { Customizable, Testable } from '../../common-props'
+import IconBtn from './variants/IconBtn'
 import PrimaryBtn from './variants/PrimaryBtn'
 import SecondaryBtn from './variants/SecondaryBtn'
 
-interface CommonButtonProps extends Testable, Customizable {
-  /** The content of the component. */
-  children: ReactNode
-  /** The button variant to use. */
-  variant?: 'primary' | 'secondary'
+export interface CommonButtonProps extends Testable, Customizable {
   /** Click event handler for the button. */
   onClick?: (e: MouseEvent) => void
   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
@@ -16,7 +13,12 @@ interface CommonButtonProps extends Testable, Customizable {
   disabled?: boolean
 }
 
-type ButtonProps = CommonButtonProps
+export interface ButtonProps {
+  /** The button variant to use. */
+  variant?: 'primary' | 'secondary' | 'icon'
+  /** The content of the component. */
+  children: ReactNode
+}
 
 export const Button = ({
   children,
@@ -27,7 +29,7 @@ export const Button = ({
   className,
   style,
   'data-testId': testId
-}: ButtonProps) => {
+}: ButtonProps & CommonButtonProps) => {
   return (
     <>
       {variant === 'primary' ? (
@@ -54,6 +56,7 @@ export const Button = ({
           {children}
         </SecondaryBtn>
       ) : null}
+      {variant === 'icon' ? <IconBtn /> : null}
     </>
   )
 }

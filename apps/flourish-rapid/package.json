@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules dist",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "npm run lint && tsc && vite build",
     "lint": "eslint src --ext .ts,.tsx",
     "preview": "vite preview"
