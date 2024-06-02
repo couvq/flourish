@@ -1,6 +1,6 @@
 import React, { MouseEvent, ReactNode } from 'react'
 import { Customizable, Testable } from '../../common-props'
-import IconBtn from './variants/IconBtn'
+import IconBtn, { IconButtonProps } from './variants/IconBtn'
 import PrimaryBtn from './variants/PrimaryBtn'
 import SecondaryBtn from './variants/SecondaryBtn'
 
@@ -15,13 +15,18 @@ export interface CommonButtonProps extends Testable, Customizable {
 
 export interface ButtonProps {
   /** The button variant to use. */
-  variant?: 'primary' | 'secondary' | 'icon'
+  variant?: 'primary' | 'secondary'
   /** The content of the component. */
   children: ReactNode
+  /** The type of icon to display in the button. */
+  icon?: never
 }
+
+type ButtonConditionalProps = ButtonProps | IconButtonProps
 
 export const Button = ({
   children,
+  icon,
   variant = 'secondary',
   onClick,
   label,
@@ -29,7 +34,7 @@ export const Button = ({
   className,
   style,
   'data-testId': testId
-}: ButtonProps & CommonButtonProps) => {
+}: CommonButtonProps & ButtonConditionalProps) => {
   return (
     <>
       {variant === 'primary' ? (
@@ -56,7 +61,17 @@ export const Button = ({
           {children}
         </SecondaryBtn>
       ) : null}
-      {variant === 'icon' ? <IconBtn /> : null}
+      {variant === 'icon' ? (
+        <IconBtn
+          icon={icon}
+          onClick={onClick}
+          label={label}
+          disabled={disabled}
+          className={className}
+          style={style}
+          data-testId={testId}
+        />
+      ) : null}
     </>
   )
 }

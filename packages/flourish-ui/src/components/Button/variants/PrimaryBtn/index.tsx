@@ -1,5 +1,5 @@
-import React, { MouseEvent } from 'react'
-import { ButtonProps, CommonButtonProps } from '../..'
+import React, { MouseEvent, ReactNode } from 'react'
+import { CommonButtonProps } from '../..'
 import {
   classMerge,
   createRipple,
@@ -9,6 +9,11 @@ import {
 import '../../Button.scss'
 import './PrimaryBtn.scss'
 
+interface PrimaryBtnProps {
+   /** The content of the component. */
+   children: ReactNode
+}
+
 const PrimaryBtn = ({
   children,
   onClick = (e: MouseEvent) => {},
@@ -17,7 +22,7 @@ const PrimaryBtn = ({
   className,
   style,
   'data-testId': testId
-}: CommonButtonProps & ButtonProps) => (
+}: CommonButtonProps & PrimaryBtnProps) => (
   <button
     className={classMerge('f-button', 'f-button-primary', className)}
     style={style}

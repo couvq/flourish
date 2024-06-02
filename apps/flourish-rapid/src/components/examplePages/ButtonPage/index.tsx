@@ -64,6 +64,13 @@ const ButtonPage = () => {
           Button
         </Button>
       </ExampleGroup>
+      <ExampleGroup groupName="Icon button">
+        <Button
+          variant='icon'
+          icon='close'
+          data-testId="secondary-button-disabled"
+        />
+      </ExampleGroup>
     </ExamplePage>
   )
 }

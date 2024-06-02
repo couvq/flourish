@@ -18,7 +18,8 @@ const meta = {
     variant: { control: 'select', options: ['primary', 'secondary', 'icon'] },
     label: { control: 'text' },
     disabled: { control: 'boolean'},
-    onClick: { control: 'text' }
+    onClick: { control: 'text' },
+    icon: { control: 'select', options: ['close'] },
   }
 } satisfies Meta<typeof Button>
 
@@ -43,6 +44,7 @@ export const secondary: Story = {
 export const icon: Story = {
   args: {
     children: 'Button',
-    variant: 'icon'
+    variant: 'icon',
+    icon: 'close'
   }
 }

@@ -1,5 +1,5 @@
-import React, { MouseEvent } from 'react'
-import { ButtonProps, CommonButtonProps } from '../..'
+import React, { MouseEvent, ReactNode } from 'react'
+import { CommonButtonProps } from '../..'
 import {
   classMerge,
   createRipple,
@@ -7,6 +7,11 @@ import {
   toggleFocusGrowEffect
 } from '../../../../utils'
 import './SecondaryBtn.scss'
+
+interface SecondaryBtnProps {
+  /** The content of the component. */
+  children: ReactNode
+}
 
 const SecondaryBtn = ({
   children,
@@ -16,7 +21,7 @@ const SecondaryBtn = ({
   className,
   style,
   'data-testId': testId
-}: CommonButtonProps & ButtonProps) => {
+}: CommonButtonProps & SecondaryBtnProps) => {
   return (
     <button
       className={classMerge('f-button', 'f-button-secondary', className)}
