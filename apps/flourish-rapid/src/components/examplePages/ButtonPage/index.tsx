@@ -69,7 +69,7 @@ const ButtonPage = () => {
           variant='icon'
           icon='close'
           label='icon button label'
-          data-testId="secondary-button-disabled"
+          data-testId="icon-button"
         />
       </ExampleGroup>
     </ExamplePage>
