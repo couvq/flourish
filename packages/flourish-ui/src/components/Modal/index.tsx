@@ -1,9 +1,8 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { useClickOutsideEffect } from '../../hooks'
 import { classMerge } from '../../utils'
+import { Button } from '../Button'
 import './Modal.scss'
 
 /**
@@ -79,21 +78,20 @@ export const Modal = ({
       ref={modalRef}
       aria-modal="true"
     >
-      <div ref={modalContentRef} className="f-modal-content">
-        <button
-          // eslint-disable-next-line
-          autoFocus
+      <div className="f-modal-top">
+        <Button
+          variant="icon"
+          icon="close"
+          label={dismissAriaLabel}
           onClick={(e) => {
             // @ts-ignore
             modalRef.current?.close()
             // @ts-ignore
             onClose(e)
           }}
-          aria-label={dismissAriaLabel}
-          className="f-modal-dismiss-icon-btn"
-        >
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
+        />
+      </div>
+      <div ref={modalContentRef} className="f-modal-content">
         {children}
       </div>
     </dialog>

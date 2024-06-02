@@ -1,0 +1,54 @@
+@import '../../../../index.scss';
+
+.#{$prefix}button-icon {
+  color: $f-color-font-light;
+  font:
+    calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
+    sans-serif;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  span.focus-grow {
+    background-color: $f-color-bg-dark;
+  }
+
+  span.ripple {
+    background-color: $f-color-bg-dark; 
+  }
+}
+
+.#{$prefix}button-icon:hover {
+  cursor: pointer;
+  background-color: #0000000a;
+}
+
+.#{$prefix}button-icon:disabled {
+  cursor: default;
+  color: $f-color-font-disabled;
+  background-color: $f-color-disabled-light;
+}
+
+// dark mode styles
+.#{$prefix}dark-mode {
+  .#{$prefix}button-icon {
+    color: $f-color-font-dark;
+  }
+
+  .#{$prefix}button-icon:hover {
+    background-color: #ffffff14;
+  }
+
+  .#{$prefix}button-icon:disabled {
+    color: $f-color-font-disabled;
+    background-color: $f-color-disabled-dark;
+  }
+
+  span.focus-grow {
+    background-color: $f-color-bg-light;
+  }
+
+  span.ripple {
+    background-color: $f-color-bg-light; 
+  }
+}

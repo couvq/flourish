@@ -7,8 +7,6 @@ import SecondaryBtn from './variants/SecondaryBtn'
 export interface CommonButtonProps extends Testable, Customizable {
   /** Click event handler for the button. */
   onClick?: (e: MouseEvent) => void
-  /** Adds an aria-label to the button to override the accessible name for screenreaders. */
-  label?: string
   /** Whether or not the button is disabled */
   disabled?: boolean
 }
@@ -18,6 +16,8 @@ export interface ButtonProps {
   variant?: 'primary' | 'secondary'
   /** The content of the component. */
   children: ReactNode
+  /** Adds an aria-label to the button to override the accessible name for screenreaders. */
+  label?: string
   /** The type of icon to display in the button. */
   icon?: never
 }
@@ -29,7 +29,7 @@ export const Button = ({
   icon,
   variant = 'secondary',
   onClick,
-  label,
+  label = '',
   disabled,
   className,
   style,

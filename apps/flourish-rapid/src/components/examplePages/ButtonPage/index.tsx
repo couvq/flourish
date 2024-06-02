@@ -68,6 +68,7 @@ const ButtonPage = () => {
         <Button
           variant='icon'
           icon='close'
+          label='icon button label'
           data-testId="secondary-button-disabled"
         />
       </ExampleGroup>

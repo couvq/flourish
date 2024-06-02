@@ -23,12 +23,12 @@ export const removeFocusGrowEffect = (e: FocusEvent) => {
 }
 
 /** Toggles on the focus grow effect for focusable elements */
-export const toggleFocusGrowEffect = (e: FocusEvent) => {
+export const toggleFocusGrowEffect = (e: FocusEvent, maxWidthHeight: number = 0.7) => {
   const target = e.currentTarget
   const focusGrow = document.createElement('span')
   focusGrow.classList.add('focus-grow')
   focusGrow.style.width = focusGrow.style.height = `${
-    Math.max(target.clientWidth, target.clientHeight) * 0.7
+    Math.max(target.clientWidth, target.clientHeight) * maxWidthHeight
   }px`
 
   const focusGrowEffect = target.getElementsByClassName('focus-grow')[0]

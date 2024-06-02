@@ -23,12 +23,13 @@
     min-width: -moz-available;
     min-width: -webkit-fill-available;
     min-width: fill-available;
-    border-radius: calc($f-border-rounded * 1px) calc($f-border-rounded * 1px) 0 0;
+    border-radius: calc($f-border-rounded * 1px) calc($f-border-rounded * 1px) 0
+      0;
   }
 }
 
 .f-modal-content {
-  padding: 1.75rem;
+  padding: 0 1.75rem 1.75rem 1.75rem;
   width: 100%;
   height: 100%;
   border-radius: calc($f-border-rounded * 1px);
@@ -38,12 +39,22 @@
   background: $f-color-overlay-background;
 }
 
-.f-modal-dismiss-icon-btn {
+.f-modal-top {
+  width: 100%;
+  height: 1.75rem;
   position: sticky;
-  top: 15px;
-  float: right;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: $f-color-bg-light;
+  padding: 10px;
 }
 
 .#{$prefix}dark-mode .f-modal {
   background-color: $f-color-inverse-dark;
+
+  .f-modal-top {
+    background-color: $f-color-inverse-dark;
+  }
 }

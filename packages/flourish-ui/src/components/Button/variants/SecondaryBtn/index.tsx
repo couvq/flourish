@@ -11,6 +11,8 @@ import './SecondaryBtn.scss'
 interface SecondaryBtnProps {
   /** The content of the component. */
   children: ReactNode
+   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
+   label?: string
 }
 
 const SecondaryBtn = ({
