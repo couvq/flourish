@@ -55,7 +55,7 @@ const IconBtn = ({
       style={style}
       data-testId={testId}
       onMouseDown={(e) => e.preventDefault()}
-      onFocus={(e) => toggleFocusGrowEffect(e, 0.9)}
+      onFocus={toggleFocusGrowEffect}
       onBlur={removeFocusGrowEffect}
       onClick={(e: React.MouseEvent<Element, MouseEvent>) => {
         createRipple(e)
