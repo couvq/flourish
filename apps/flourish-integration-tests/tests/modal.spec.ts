@@ -4,6 +4,10 @@ import AxeBuilder from "@axe-core/playwright";
 import { keyToElement } from "./utils";
 
 const basicModalTriggerSelector = '[data-testId="basic-modal-trigger"]';
+const scrollableModalTriggerSelector =
+  '[data-testId="scrollable-modal-trigger"]';
+const scrollableModalSubmitFeedbackBtn =
+  '[data-testId="scrollable-modal-trigger"]';
 const basicModalSelector = '[data-testId="basic-modal"]';
 const basicModalDismissBtnSelector =
   '[data-testId="basic-modal-dismiss-button"]';
@@ -74,6 +78,18 @@ test.describe("<Modal /> integration tests", () => {
     });
     await page.screenshot();
     expect(page.locator(basicModalSelector)).not.toBeVisible();
+  });
+
+  test("Should be able to scroll to content in scrollable modal", async ({
+    page,
+  }) => {
+    await page.locator(scrollableModalTriggerSelector).click();
+    await page.screenshot();
+    await page
+      .locator(scrollableModalSubmitFeedbackBtn)
+      .scrollIntoViewIfNeeded();
+    await page.screenshot();
+    expect(page.locator(scrollableModalSubmitFeedbackBtn)).toBeInViewport();
   });
 
   test("Should be able to open basic modal using only keyboard and trigger dismiss icon btn using only keyboard, once closed focus should return to the trigger element", async ({

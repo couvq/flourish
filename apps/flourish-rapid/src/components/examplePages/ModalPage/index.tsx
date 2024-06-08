@@ -57,6 +57,7 @@ const ModalPage = () => {
           show={showScrollableModal}
           onClose={() => setShowScrollableModal(false)}
           dismissAriaLabel="Close example modal"
+          data-testId='scrollable-modal'
         >
           <Typography
             variant="h1"
@@ -146,7 +147,7 @@ const ModalPage = () => {
             value customer feedback and use it to make flourish more delightful
             for you.
           </Typography>
-          <Button onClick={() => console.log('thanks for the feedback!')}>
+          <Button data-testId='scrollable-modal-feedback-btn' onClick={() => console.log('thanks for the feedback!')}>
             Submit feedback
           </Button>
         </Modal>
