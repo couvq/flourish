@@ -27,7 +27,6 @@
 }
 
 .#{$prefix}button-secondary:disabled {
-  cursor: default;
   color: $f-color-disabled-light;
   background-color: $f-color-bg-light;
   box-shadow: 0px 0px 0px 2px $f-color-disabled-light inset;

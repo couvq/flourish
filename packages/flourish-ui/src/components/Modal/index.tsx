@@ -83,6 +83,7 @@ export const Modal = ({
           variant="icon"
           icon="close"
           label={dismissAriaLabel}
+          data-testId={`${testId}-dismiss-button`}
           onClick={(e) => {
             // @ts-ignore
             modalRef.current?.close()

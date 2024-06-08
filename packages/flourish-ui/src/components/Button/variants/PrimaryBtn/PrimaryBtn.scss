@@ -16,7 +16,6 @@
 }
 
 .#{$prefix}button-primary:disabled {
-  cursor: default;
   color: $f-color-font-disabled;
   background-color: $f-color-disabled-light;
 }

@@ -45,6 +45,14 @@ const ButtonPage = () => {
           </Typography>
         </Flex>
       </ExampleGroup>
+      <ExampleGroup groupName="Icon button">
+        <Button
+          variant='icon'
+          icon='close'
+          label='icon button label'
+          data-testId="icon-button"
+        />
+      </ExampleGroup>
       <ExampleGroup groupName="Primary button - disabled">
         <Button
           variant="primary"
@@ -64,12 +72,13 @@ const ButtonPage = () => {
           Button
         </Button>
       </ExampleGroup>
-      <ExampleGroup groupName="Icon button">
+      <ExampleGroup groupName="Icon button - disabled">
         <Button
           variant='icon'
           icon='close'
           label='icon button label'
           data-testId="icon-button"
+          disabled
         />
       </ExampleGroup>
     </ExamplePage>

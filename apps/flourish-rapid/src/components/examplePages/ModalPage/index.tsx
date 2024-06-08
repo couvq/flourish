@@ -9,8 +9,8 @@ const ModalPage = () => {
   const [showScrollableModal, setShowScrollableModal] = useState(false)
   return (
     <ExamplePage exampleName="Modal examples">
-      <ExampleGroup groupName="Empty Modal">
-        <Button onClick={() => setShowEmptyModal(true)}>Open</Button>
+      <ExampleGroup groupName="Empty modal">
+        <Button data-testId='empty-modal-trigger' onClick={() => setShowEmptyModal(true)}>Open</Button>
         <Modal
           show={showEmptyModal}
           onClose={() => setShowEmptyModal(false)}
@@ -19,12 +19,13 @@ const ModalPage = () => {
         </Modal>
       </ExampleGroup>
 
-      <ExampleGroup groupName="Basic Modal">
-        <Button onClick={() => setShowBasicModal(true)}>Open</Button>
+      <ExampleGroup groupName="Basic modal">
+        <Button data-testId='basic-modal-trigger' onClick={() => setShowBasicModal(true)}>Open</Button>
         <Modal
           show={showBasicModal}
           onClose={() => setShowBasicModal(false)}
           dismissAriaLabel="Close example modal"
+          data-testId='basic-modal'
         >
           <Typography
             variant="h1"
@@ -51,7 +52,7 @@ const ModalPage = () => {
       </ExampleGroup>
 
       <ExampleGroup groupName="Modal with scrollable content">
-        <Button onClick={() => setShowScrollableModal(true)}>open</Button>
+        <Button data-testId='scrollable-modal-trigger' onClick={() => setShowScrollableModal(true)}>open</Button>
         <Modal
           show={showScrollableModal}
           onClose={() => setShowScrollableModal(false)}
