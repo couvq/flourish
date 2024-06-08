@@ -60,16 +60,18 @@ test.describe("<Modal /> integration tests", () => {
     expect(page.locator(basicModalDismissBtnSelector)).toBeFocused();
   });
 
-  // TODO - click outside not closing modal in playwright even though it works in the browser
-  test.skip("Should be able to open basic modal by clicking modal trigger and close by clicking outside of modal", async ({
+  test("Should be able to open basic modal by clicking modal trigger and close by clicking outside of modal", async ({
     page,
   }) => {
     await openBasicModalViaClick(page);
     expect(page.locator(basicModalSelector)).toBeVisible();
-    await page
-      .locator('[class="f-typography-h1"]')
-      .filter({ hasText: "Modal examples" })
-      .click();
+    // click top left corner of screen (outside modal)
+    await page.click("body", {
+      position: {
+        x: 0,
+        y: 0,
+      },
+    });
     await page.screenshot();
     expect(page.locator(basicModalSelector)).not.toBeVisible();
   });
@@ -92,7 +94,7 @@ test.describe("<Modal /> integration tests", () => {
   }) => {
     await openBasicModalViaTabKey(page);
     expect(page.locator(basicModalSelector)).toBeVisible();
-    await page.keyboard.press('Escape');
+    await page.keyboard.press("Escape");
     await page.screenshot();
     expect(page.locator(basicModalSelector)).not.toBeVisible();
     expect(page.locator(basicModalTriggerSelector)).toBeFocused();
