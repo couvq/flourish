@@ -32,8 +32,7 @@ $modal-padding: 2.5rem;
 }
 
 .f-modal-content {
-  padding: 0 $modal-padding $modal-padding $modal-padding;
-  border-radius: calc($f-border-rounded * 1px);
+  padding: 0 $modal-padding calc($modal-padding - 0.5rem) $modal-padding;
   overflow: scroll;
   scroll-behavior: smooth;
   max-height: inherit;
