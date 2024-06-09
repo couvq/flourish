@@ -25,11 +25,13 @@ export interface IconButtonProps {
 interface IconBtnProps {
   /** The type of icon to display in the button. */
   icon?: 'close'
-  /** Adds an aria-label to the button to override the accessible name for screenreaders. */
+  /** Adds an aria-label to the button to override the accessible name for screenreaders.
+   * This is important for icon buttons as they don't contain text content for the accessible name.
+   */
   label: string
 }
 
-const getFontawesomeIconForIconType = (
+export const getFontawesomeIconForIconType = (
   iconType: IconBtnProps['icon']
 ): IconDefinition => {
   switch (iconType) {
