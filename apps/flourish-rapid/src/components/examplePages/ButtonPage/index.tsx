@@ -1,11 +1,24 @@
 import ExampleGroup from '@/components/common-components/ExampleGroup'
 import ExamplePage from '@/components/common-components/ExamplePage'
-import { Button, Flex, Typography } from 'flourish-ui'
+import { Button, Flex, Select, Typography } from 'flourish-ui'
 import { useState } from 'react'
 
 const ButtonPage = () => {
   const [primaryCount, setPrimaryCount] = useState(0)
   const [secondaryCount, setSecondaryCount] = useState(0)
+  const [selectedIcon, setSelectedIcon] = useState('close')
+  const icons = [
+    {
+      label: 'close',
+      value: 'close'
+    },
+    {
+      label: 'bars',
+      value: 'bars'
+    }
+  ]
+  console.log(selectedIcon)
+
   return (
     <ExamplePage exampleName="Button examples">
       <ExampleGroup groupName="Primary button">
@@ -46,10 +59,19 @@ const ButtonPage = () => {
         </Flex>
       </ExampleGroup>
       <ExampleGroup groupName="Icon button">
+        <Select
+          value={selectedIcon}
+          options={icons}
+          onSelect={(e, value: string) => {
+            e.preventDefault()
+            setSelectedIcon(value)
+          }}
+        />
         <Button
-          variant='icon'
-          icon='close'
-          label='icon button label'
+          variant="icon"
+          // @ts-ignore
+          icon={selectedIcon}
+          label="icon button label"
           data-testId="icon-button"
         />
       </ExampleGroup>
@@ -74,9 +96,9 @@ const ButtonPage = () => {
       </ExampleGroup>
       <ExampleGroup groupName="Icon button - disabled">
         <Button
-          variant='icon'
-          icon='close'
-          label='icon button label'
+          variant="icon"
+          icon="close"
+          label="icon button label"
           data-testId="icon-button"
           disabled
         />

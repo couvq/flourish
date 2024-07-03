@@ -5,6 +5,7 @@ import LinkPage from '@/components/examplePages/LinkPage'
 import ButtonPage from '@/components/examplePages/ButtonPage'
 import SelectPage from '@/components/examplePages/SelectPage'
 import ModalPage from '@/components/examplePages/ModalPage'
+import DrawerPage from '@/components/examplePages/DrawerPage'
 
 interface RouteEntry {
   path: string
@@ -47,5 +48,10 @@ export const routes: RouteEntry[] = [
     path: '/modal',
     label: 'Modal',
     element: <ModalPage />
+  },
+  {
+    path: '/drawer',
+    label: 'Drawer',
+    element: <DrawerPage />
   }
 ]

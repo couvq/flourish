@@ -8,6 +8,7 @@ const config = {
     'src/components/**/*.{js,jsx,ts,tsx}',
     '!src/components/Select/*.{js,jsx,ts,tsx}',
     '!src/components/Modal/*.{js,jsx,ts,tsx}',
+    '!src/**', // todo - only temporary
     'src/layouts/**/*.{js,jsx,ts,tsx}',
     '!src/utils/**/*.{js,jsx,ts,tsx}',
     '!**/node_modules/**',
