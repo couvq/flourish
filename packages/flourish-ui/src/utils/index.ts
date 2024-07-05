@@ -74,3 +74,17 @@ export const createRipple = (e: MouseEvent | KeyboardEvent) => {
     })
   }, 600)
 }
+
+/**
+ * Disables background scrolling by setting the <body> elements position to fixed
+ */
+ export const disableBodyScroll = () => {
+  document.body.style.position = 'fixed'
+}
+
+/**
+ * Enables background scrolling by setting the <body> elements position to empty string
+ */
+export const enableBodyScroll = () => {
+  document.body.style.position = ''
+}

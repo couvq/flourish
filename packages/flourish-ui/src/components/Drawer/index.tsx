@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
-import { classMerge } from '../../utils'
+import { useClickOutsideEffect } from '../../hooks'
+import { classMerge, disableBodyScroll, enableBodyScroll } from '../../utils'
 import { Button } from '../Button'
 import './Drawer.scss'
 
@@ -34,12 +35,20 @@ export const Drawer = ({
   'data-testId': testId
 }: DrawerProps) => {
   const drawerRef = useRef<HTMLDialogElement>(null)
+  const drawerContentRef = useRef(null)
+
+  const handleClickOutside = (e: MouseEvent) => {
+    onClose(e)
+    // @ts-ignore
+    drawerRef.current?.close()
+  }
+  useClickOutsideEffect(drawerContentRef, handleClickOutside, [])
 
   useEffect(() => {
     // @ts-ignore
     show ? drawerRef.current?.showModal() : drawerRef.current?.close()
 
-    // show ? disableBodyScroll() : enableBodyScroll()
+    show ? disableBodyScroll() : enableBodyScroll()
 
     const closeModalViaEscapeKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -79,7 +88,9 @@ export const Drawer = ({
           }}
         />
       </div>
-      <div className="f-drawer-content">{children}</div>
+      <div className="f-drawer-content" ref={drawerContentRef}>
+        {children}
+      </div>
     </dialog>
   )
 }

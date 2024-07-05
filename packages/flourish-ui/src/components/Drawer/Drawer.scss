@@ -34,8 +34,7 @@ $drawer-padding: 2.5rem;
   }
 
   .#{$prefix}drawer-content {
-    padding: $drawer-padding $drawer-padding calc($drawer-padding - 0.5rem)
-      $drawer-padding;
+    padding: 1rem $drawer-padding calc($drawer-padding - 0.5rem) $drawer-padding;
   }
 }
 

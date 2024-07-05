@@ -1,25 +1,9 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { useClickOutsideEffect } from '../../hooks'
-import { classMerge } from '../../utils'
+import { classMerge, disableBodyScroll, enableBodyScroll } from '../../utils'
 import { Button } from '../Button'
 import './Modal.scss'
-
-/**
- * Disables background scrolling when modal is open
- * by setting the <body> elements position to fixed
- */
-const disableBodyScroll = () => {
-  document.body.style.position = 'fixed'
-}
-
-/**
- * Enables background scrolling when modal is closed
- * by setting the <body> elements position to empty string
- */
-const enableBodyScroll = () => {
-  document.body.style.position = ''
-}
 
 interface ModalProps extends Testable, Customizable {
   /** The content of the component. */
