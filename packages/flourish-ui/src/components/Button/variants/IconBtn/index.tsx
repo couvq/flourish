@@ -1,6 +1,8 @@
 import {
   faXmark,
   faBars,
+  faLightbulb,
+  faSun,
   IconDefinition
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,7 +21,7 @@ export interface IconButtonProps {
   /** The button variant to use. */
   variant: 'icon'
   /** The type of icon to display in the button. */
-  icon: 'close' | 'bars'
+  icon: 'close' | 'bars' | 'light bulb' | 'sun'
   /** Adds an aria-label to the button to override the accessible name for screenreaders. */
   label: string
   /** The content of the component. */
@@ -28,7 +30,7 @@ export interface IconButtonProps {
 
 interface IconBtnProps {
   /** The type of icon to display in the button. */
-  icon?: 'close' | 'bars'
+  icon?: 'close' | 'bars' | 'light bulb' | 'sun'
   /** Adds an aria-label to the button to override the accessible name for screenreaders.
    * This is important for icon buttons as they don't contain text content for the accessible name.
    */
@@ -43,6 +45,10 @@ export const getFontawesomeIconForIconType = (
       return faXmark
     case 'bars':
       return faBars
+    case 'light bulb':
+      return faLightbulb
+    case 'sun':
+      return faSun
     default:
       return faXmark
   }
