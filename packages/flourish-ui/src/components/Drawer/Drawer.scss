@@ -3,6 +3,11 @@
 $drawer-padding: 2.5rem;
 $drawer-width: 25vw;
 
+/* Drawer open animation common properties */
+$open-animation-duration: 0.3s;
+$open-animation-timing-function: ease;
+$open-animation-delay: 0s;
+
 @keyframes drawer-open-left {
   from {
     transform: translateX(-#{$drawer-width});
@@ -13,8 +18,18 @@ $drawer-width: 25vw;
   }
 }
 
+@keyframes drawer-open-right {
+  from {
+    transform: translateX($drawer-width);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .#{$prefix}drawer {
-  position: absolute;
+  position: fixed;
   top: 0;
   background-color: $f-color-bg-light;
   border: none;
@@ -29,7 +44,7 @@ $drawer-width: 25vw;
   }
 
   @media (prefers-reduced-motion) {
-    animation: none!important;
+    animation: none !important;
   }
 
   &::backdrop {
@@ -57,13 +72,19 @@ $drawer-width: 25vw;
   left: 0;
 
   &[open] {
-    animation: 0.5s ease 0s drawer-open-left;
+    animation: $open-animation-duration $open-animation-timing-function
+      $open-animation-delay drawer-open-left;
   }
 }
 
 .#{$prefix}drawer-right {
   left: auto;
   right: 0;
+
+  &[open] {
+    animation: $open-animation-duration $open-animation-timing-function
+      $open-animation-delay drawer-open-right;
+  }
 }
 
 .#{$prefix}dark-mode .#{$prefix}drawer {
