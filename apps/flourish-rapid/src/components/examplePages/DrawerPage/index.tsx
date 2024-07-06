@@ -1,14 +1,30 @@
 import ExampleGroup from '@/components/common-components/ExampleGroup'
 import ExamplePage from '@/components/common-components/ExamplePage'
-import { Button, Drawer, Link, Typography } from 'flourish-ui'
+import { Button, Drawer, Link, Select, Typography } from 'flourish-ui'
 import { useState } from 'react'
 
 const DrawerPage = () => {
   const [show, setShow] = useState(false)
+  const [drawerOrigination, setDrawerOrigination] = useState('left')
+  const drawerOriginationOptions = [
+    {
+      label: 'left',
+      value: 'left'
+    },
+    {
+      label: 'right',
+      value: 'right'
+    }
+  ]
 
   return (
     <ExamplePage exampleName="Drawer examples">
       <ExampleGroup groupName="Basic drawer">
+        <Typography>Set origination point</Typography>
+        <Select value={drawerOrigination} options={drawerOriginationOptions} onSelect={(e, value) => {
+          e.preventDefault()
+          setDrawerOrigination(value)
+        }} />
         <Button
           variant="icon"
           icon="bars"
@@ -23,6 +39,8 @@ const DrawerPage = () => {
           show={show}
           // @ts-ignore
           onClose={(e) => setShow(false)}
+          // @ts-ignore
+          origination={drawerOrigination}
         >
           <Typography variant="h1">This is my drawer heading</Typography>
           <br />
