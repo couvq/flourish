@@ -18,6 +18,22 @@ $open-animation-delay: 0s;
   }
 }
 
+@keyframes drawer-close-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-#{$drawer-width});
+  }
+}
+
+.close-left {
+  animation: $open-animation-duration $open-animation-timing-function
+    $open-animation-delay drawer-close-left !important;
+  animation-fill-mode: forwards !important;
+}
+
 @keyframes drawer-open-right {
   from {
     transform: translateX($drawer-width);
@@ -26,6 +42,22 @@ $open-animation-delay: 0s;
   to {
     transform: translateX(0);
   }
+}
+
+@keyframes drawer-close-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX($drawer-width);
+  }
+}
+
+.close-right {
+  animation: $open-animation-duration $open-animation-timing-function
+    $open-animation-delay drawer-close-right !important;
+  animation-fill-mode: forwards !important;
 }
 
 .#{$prefix}drawer {

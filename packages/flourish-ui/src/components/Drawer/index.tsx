@@ -5,12 +5,6 @@ import { classMerge, disableBodyScroll, enableBodyScroll } from '../../utils'
 import { Button } from '../Button'
 import './Drawer.scss'
 
-const getOriginationPositionCSS = (
-  origination: DrawerProps['origination']
-): string => {
-  return origination === 'right' ? 'f-drawer-right' : 'f-drawer-left'
-}
-
 interface DrawerProps extends Testable, Customizable {
   /** The content of the component. */
   children: ReactNode
@@ -22,6 +16,38 @@ interface DrawerProps extends Testable, Customizable {
   onClose: (e: MouseEvent | KeyboardEvent) => void
   /** Label of the close icon button for assistive technologies. */
   dismissAriaLabel: string
+}
+
+const getOriginationPositionCSS = (
+  origination: DrawerProps['origination']
+): string => {
+  return origination === 'right' ? 'f-drawer-right' : 'f-drawer-left'
+}
+
+const getDrawerCloseCSS = (origination: DrawerProps['origination']): string => {
+  switch (origination) {
+    case 'left':
+      return 'close-left'
+    case 'right':
+      return 'close-right'
+    default:
+      return ''
+  }
+}
+
+const closeDrawer = (
+  drawerRef: React.RefObject<HTMLDialogElement>,
+  origination: DrawerProps['origination']
+) => {
+  console.log('new close function called...')
+  const closeClass = getDrawerCloseCSS(origination)
+  const drawer = document.querySelector('.f-drawer')
+  drawer?.classList.add(closeClass)
+  setTimeout(() => {
+    // @ts-ignore
+    drawerRef.current?.close()
+    drawer?.classList.remove(closeClass)
+  }, 300)
 }
 
 export const Drawer = ({
@@ -39,14 +65,12 @@ export const Drawer = ({
 
   const handleClickOutside = (e: MouseEvent) => {
     onClose(e)
-    // @ts-ignore
-    drawerRef.current?.close()
   }
   useClickOutsideEffect(drawerContentRef, handleClickOutside, [])
 
   useEffect(() => {
     // @ts-ignore
-    show ? drawerRef.current?.showModal() : drawerRef.current?.close()
+    show ? drawerRef.current?.showModal() : closeDrawer(drawerRef, origination)
 
     show ? disableBodyScroll() : enableBodyScroll()
 
@@ -81,8 +105,6 @@ export const Drawer = ({
           label={dismissAriaLabel}
           data-testId={`${testId}-dismiss-button`}
           onClick={(e) => {
-            // @ts-ignore
-            drawerRef.current?.close()
             // @ts-ignore
             onClose(e)
           }}
