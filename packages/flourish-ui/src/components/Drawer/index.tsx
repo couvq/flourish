@@ -52,14 +52,22 @@ const closeDrawer = (
   drawerRef: React.RefObject<HTMLDialogElement>,
   origination: DrawerProps['origination']
 ) => {
-  const closeClass = getDrawerCloseCSS(origination)
-  const drawer = document.querySelector('.f-drawer')
-  drawer?.classList.add(closeClass)
-  setTimeout(() => {
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion)'
+  ).matches
+  if (prefersReducedMotion) {
     // @ts-ignore
     drawerRef.current?.close()
-    drawer?.classList.remove(closeClass)
-  }, 300)
+  } else {
+    const closeClass = getDrawerCloseCSS(origination)
+    const drawer = document.querySelector('.f-drawer')
+    drawer?.classList.add(closeClass)
+    setTimeout(() => {
+      // @ts-ignore
+      drawerRef.current?.close()
+      drawer?.classList.remove(closeClass)
+    }, 300)
+  }
 }
 
 export const Drawer = ({
