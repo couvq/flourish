@@ -39,7 +39,6 @@ const closeDrawer = (
   drawerRef: React.RefObject<HTMLDialogElement>,
   origination: DrawerProps['origination']
 ) => {
-  console.log('new close function called...')
   const closeClass = getDrawerCloseCSS(origination)
   const drawer = document.querySelector('.f-drawer')
   drawer?.classList.add(closeClass)
@@ -76,6 +75,7 @@ export const Drawer = ({
 
     const closeModalViaEscapeKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        e.preventDefault()
         // @ts-ignore
         onClose(e)
       }
