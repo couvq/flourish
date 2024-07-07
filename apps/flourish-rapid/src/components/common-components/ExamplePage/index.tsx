@@ -1,4 +1,4 @@
-import { Typography } from 'flourish-ui'
+import { Flex, Typography } from 'flourish-ui'
 import { Link } from 'react-router-dom'
 import ThemeToggle from '../../ThemeToggle'
 import './ExamplePage.scss'
@@ -16,8 +16,10 @@ const ExamplePage = ({ children, exampleName }: ExamplePageProps) => {
           padding: '2rem'
         }}
       >
-        <Link to="/">Go back to components</Link>
-        <ThemeToggle />
+        <Flex direction='row' alignItems='center' justifyContent='center'>
+          <Link className='back-link' to="/">&#x25c0; Go back to components</Link>
+          <ThemeToggle />
+        </Flex>
         <Typography variant="h1">{exampleName}</Typography>
         {children}
       </div>

@@ -23,6 +23,10 @@ const ButtonPage = () => {
     {
       label: 'sun',
       value: 'sun'
+    },
+    {
+      label: 'moon',
+      value: 'moon'
     }
   ]
   console.log(selectedIcon)

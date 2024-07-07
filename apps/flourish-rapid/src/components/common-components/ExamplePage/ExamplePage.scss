@@ -2,12 +2,8 @@
 
 body.f-dark-mode {
     background: $f-color-bg-dark;
-
-    a {
-        color: $f-color-secondary-dark;
-    }
 }
 
-a {
-    color: $f-color-secondary-light;
+.back-link {
+    text-decoration: none;
 }
