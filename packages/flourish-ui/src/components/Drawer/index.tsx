@@ -5,6 +5,9 @@ import { classMerge, disableBodyScroll, enableBodyScroll } from '../../utils'
 import { Button } from '../Button'
 import './Drawer.scss'
 
+// should correspond with the media query set in scss file, this would be better as a token
+const mobileBreakpoint = '1000px'
+
 interface DrawerProps extends Testable, Customizable {
   /** The content of the component. */
   children: ReactNode
@@ -21,10 +24,20 @@ interface DrawerProps extends Testable, Customizable {
 const getOriginationPositionCSS = (
   origination: DrawerProps['origination']
 ): string => {
+  const isMobile = window.matchMedia(`(max-width: ${mobileBreakpoint})`).matches
+  if (isMobile) {
+    return ''
+  }
   return origination === 'right' ? 'f-drawer-right' : 'f-drawer-left'
 }
 
 const getDrawerCloseCSS = (origination: DrawerProps['origination']): string => {
+  const isMobile = window.matchMedia(`(max-width: ${mobileBreakpoint})`).matches
+
+  if (isMobile) {
+    return 'close-mobile'
+  }
+
   switch (origination) {
     case 'left':
       return 'close-left'

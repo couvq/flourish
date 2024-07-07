@@ -28,12 +28,6 @@ $open-animation-delay: 0s;
   }
 }
 
-.close-left {
-  animation: $open-animation-duration $open-animation-timing-function
-    $open-animation-delay drawer-close-left !important;
-  animation-fill-mode: forwards !important;
-}
-
 @keyframes drawer-open-right {
   from {
     transform: translateX($drawer-width);
@@ -52,6 +46,38 @@ $open-animation-delay: 0s;
   to {
     transform: translateX($drawer-width);
   }
+}
+
+@keyframes drawer-open-mobile {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes drawer-close-mobile {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.close-mobile {
+  animation: $open-animation-duration $open-animation-timing-function
+    $open-animation-delay drawer-close-mobile !important;
+  animation-fill-mode: forwards !important;
+}
+
+.close-left {
+  animation: $open-animation-duration $open-animation-timing-function
+    $open-animation-delay drawer-close-left !important;
+  animation-fill-mode: forwards !important;
 }
 
 .close-right {
@@ -73,6 +99,11 @@ $open-animation-delay: 0s;
   @media screen and (max-width: 1000px) {
     width: 100%;
     max-width: 100%;
+
+    &[open] {
+      animation: $open-animation-duration $open-animation-timing-function
+        $open-animation-delay drawer-open-mobile;
+    }
   }
 
   @media (prefers-reduced-motion) {
