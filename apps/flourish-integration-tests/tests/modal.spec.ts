@@ -40,7 +40,7 @@ test.describe("<Modal /> integration tests", () => {
   });
 
   test("has no axe-core a11y violations in dark mode", async ({ page }) => {
-    await page.locator("button").filter({ hasText: "Change theme" }).click();
+    await page.locator('[data-testId="theme-toggle"]').click();
     await openBasicModalViaClick(page);
     const a11yScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])

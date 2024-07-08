@@ -19,6 +19,7 @@ const ThemeToggle = () => {
       label="Change the theme"
       icon={theme}
       onClick={toggleTheme}
+      data-testId='theme-toggle'
     />
   )
 }
