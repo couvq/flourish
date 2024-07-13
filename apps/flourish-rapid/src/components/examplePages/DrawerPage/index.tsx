@@ -21,10 +21,14 @@ const DrawerPage = () => {
     <ExamplePage exampleName="Drawer examples">
       <ExampleGroup groupName="Basic drawer">
         <Typography>Set origination point</Typography>
-        <Select value={drawerOrigination} options={drawerOriginationOptions} onSelect={(e, value) => {
-          e.preventDefault()
-          setDrawerOrigination(value)
-        }} />
+        <Select
+          value={drawerOrigination}
+          options={drawerOriginationOptions}
+          onSelect={(e, value) => {
+            e.preventDefault()
+            setDrawerOrigination(value)
+          }}
+        />
         <Button
           variant="icon"
           icon="bars"
@@ -33,6 +37,7 @@ const DrawerPage = () => {
           onClick={(e) => {
             setShow(!show)
           }}
+          data-testId="basic-drawer-trigger"
         />
         <Drawer
           dismissAriaLabel="Close the drawer"
@@ -41,6 +46,7 @@ const DrawerPage = () => {
           onClose={(e) => setShow(false)}
           // @ts-ignore
           origination={drawerOrigination}
+          data-testId="basic-drawer"
         >
           <Typography variant="h1">This is my drawer heading</Typography>
           <br />

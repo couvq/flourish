@@ -21,11 +21,18 @@
 .rotate-caret-up {
   animation: rotate-caret-up 0.2s ease-in-out;
   animation-fill-mode: forwards;
+  @media (prefers-reduced-motion) {
+    animation: none;
+    transform: rotate(180deg);
+  }
 }
 
 .rotate-caret-down {
   animation: rotate-caret-down 0.2s ease-in-out;
   animation-fill-mode: forwards;
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
 }
 
 .#{$prefix}select {

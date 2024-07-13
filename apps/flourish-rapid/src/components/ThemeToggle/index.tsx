@@ -2,15 +2,26 @@ import { Button } from 'flourish-ui'
 import { useState } from 'react'
 
 enum Theme {
-  DARK = 'sun',
-  LIGHT = 'moon'
+  DARK = 'moon',
+  LIGHT = 'sun'
 }
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  // @ts-ignore
+  const [theme, setTheme] = useState<Theme>(
+    // @ts-ignore
+    localStorage.getItem('theme') ?? Theme.LIGHT
+  )
 
   const toggleTheme = () => {
-    theme === Theme.LIGHT ? setTheme(Theme.DARK) : setTheme(Theme.LIGHT)
+    // theme === Theme.LIGHT ? setTheme(Theme.DARK) : setTheme(Theme.LIGHT)
+    if (theme === Theme.LIGHT) {
+      setTheme(Theme.DARK)
+      localStorage.setItem('theme', Theme.DARK)
+    } else {
+      setTheme(Theme.LIGHT)
+      localStorage.setItem('theme', Theme.LIGHT)
+    }
     document.body.classList.toggle('f-dark-mode')
   }
   return (
@@ -19,7 +30,7 @@ const ThemeToggle = () => {
       label="Change the theme"
       icon={theme}
       onClick={toggleTheme}
-      data-testId='theme-toggle'
+      data-testId="theme-toggle"
     />
   )
 }
