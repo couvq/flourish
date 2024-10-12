@@ -35,6 +35,9 @@
     "build-storybook": "storybook build",
     "flourish-release": "npm version patch"
   },
+  "dependencies": {
+    "react-aria-components": "^1.4.0"
+  },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",

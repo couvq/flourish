@@ -1,11 +1,12 @@
-import FlexPage from '@/components/examplePages/FlexPage'
-import Links from '../components/Links'
-import TypographyPage from '../components/examplePages/TypographyPage'
-import LinkPage from '@/components/examplePages/LinkPage'
 import ButtonPage from '@/components/examplePages/ButtonPage'
-import SelectPage from '@/components/examplePages/SelectPage'
-import ModalPage from '@/components/examplePages/ModalPage'
 import DrawerPage from '@/components/examplePages/DrawerPage'
+import FlexPage from '@/components/examplePages/FlexPage'
+import LinkPage from '@/components/examplePages/LinkPage'
+import ModalPage from '@/components/examplePages/ModalPage'
+import SelectPage from '@/components/examplePages/SelectPage'
+import TextInputPage from '@/components/examplePages/TextInputPage'
+import TypographyPage from '../components/examplePages/TypographyPage'
+import Links from '../components/Links'
 
 interface RouteEntry {
   path: string
@@ -53,5 +54,10 @@ export const routes: RouteEntry[] = [
     path: '/drawer',
     label: 'Drawer',
     element: <DrawerPage />
+  },
+  {
+    path: '/textinput',
+    label: 'Textinput',
+    element: <TextInputPage />
   }
 ]
