@@ -4,7 +4,7 @@ import FlexPage from '@/components/examplePages/FlexPage'
 import LinkPage from '@/components/examplePages/LinkPage'
 import ModalPage from '@/components/examplePages/ModalPage'
 import SelectPage from '@/components/examplePages/SelectPage'
-import TextInputPage from '@/components/examplePages/TextInputPage'
+import TextFieldPage from '@/components/examplePages/TextFieldPage'
 import TypographyPage from '../components/examplePages/TypographyPage'
 import Links from '../components/Links'
 
@@ -56,8 +56,8 @@ export const routes: RouteEntry[] = [
     element: <DrawerPage />
   },
   {
-    path: '/textinput',
-    label: 'Textinput',
-    element: <TextInputPage />
+    path: '/text-field',
+    label: 'Text Field',
+    element: <TextFieldPage />
   }
 ]
