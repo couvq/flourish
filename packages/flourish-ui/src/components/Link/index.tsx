@@ -1,5 +1,4 @@
-import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ExternalLink } from 'lucide-react'
 import React, { ReactNode } from 'react'
 import { Customizable, Testable } from '../../common-props'
 import { classMerge } from '../../utils'
@@ -37,7 +36,7 @@ export const Link = ({
     >
       {children}
       <span className="f-icon-external">
-        <FontAwesomeIcon icon={faUpRightFromSquare} />
+        <ExternalLink width={20} height={20} />
       </span>
     </a>
   ) : (

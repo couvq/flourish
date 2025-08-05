@@ -1,13 +1,5 @@
-import {
-  faXmark,
-  faBars,
-  faLightbulb,
-  faSun,
-  IconDefinition,
-  faMoon
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import { X, Menu, Lightbulb, Sun, Moon } from 'lucide-react'
+import React, { ReactNode } from 'react'
 import { CommonButtonProps } from '../..'
 import {
   classMerge,
@@ -38,22 +30,22 @@ interface IconBtnProps {
   label: string
 }
 
-export const getFontawesomeIconForIconType = (
+export const getLucidIconComponent = (
   iconType: IconBtnProps['icon']
-): IconDefinition => {
+): ReactNode => {
   switch (iconType) {
     case 'close':
-      return faXmark
+      return <X />
     case 'bars':
-      return faBars
+      return <Menu />
     case 'light bulb':
-      return faLightbulb
+      return <Lightbulb />
     case 'sun':
-      return faSun
+      return <Sun />
     case 'moon':
-      return faMoon
+      return <Moon />
     default:
-      return faXmark
+      return <X />
   }
 }
 
@@ -66,6 +58,7 @@ const IconBtn = ({
   style,
   'data-testId': testId
 }: CommonButtonProps & IconBtnProps) => {
+  const lucidIconComponent = getLucidIconComponent(icon)
   return (
     <button
       className={classMerge('f-button', 'f-button-icon', className)}
@@ -81,7 +74,7 @@ const IconBtn = ({
       aria-label={label}
       disabled={disabled}
     >
-      <FontAwesomeIcon icon={getFontawesomeIconForIconType(icon)} />
+      {lucidIconComponent}
     </button>
   )
 }

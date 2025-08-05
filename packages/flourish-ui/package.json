@@ -36,6 +36,7 @@
     "flourish-release": "npm version patch"
   },
   "dependencies": {
+    "lucide-react": "^0.536.0",
     "react-aria-components": "^1.4.0"
   },
   "devDependencies": {
