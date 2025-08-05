@@ -22,7 +22,7 @@ jobs:
   integration-tests: 
     needs: prepare-flourish-rapid
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
