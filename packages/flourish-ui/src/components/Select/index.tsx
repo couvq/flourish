@@ -1,5 +1,4 @@
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ChevronDown } from 'lucide-react'
 import React, {
   FocusEvent,
   KeyboardEvent,
@@ -177,10 +176,9 @@ export const Select = ({
           }}
         >
           {value}
-          <FontAwesomeIcon
+          <ChevronDown
             data-testid={`${testId}-caret`}
             className="f-select-caret"
-            icon={faCaretDown}
           />
         </button>
         <div

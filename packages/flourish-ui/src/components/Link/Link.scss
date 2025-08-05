@@ -5,11 +5,14 @@ a {
   font:
     calc($f-typography-fs-p * 1px) $f-typography-font-secondary,
     serif;
+    display: flex;
+    align-items: center;
 }
 
 .#{$prefix}icon-external {
     color: $f-color-secondary-light;
     margin-left: toRem($f-spacing-3);
+    margin-top: toRem($f-spacing-3);
 }
 
 .#{$prefix}dark-mode {

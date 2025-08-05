@@ -94,7 +94,12 @@ test.describe("<Modal /> integration tests", () => {
 
   test("Should be able to open basic modal using only keyboard and trigger dismiss icon btn using only keyboard, once closed focus should return to the trigger element", async ({
     page,
+    browserName
   }) => {
+    test.skip(
+      browserName.toLowerCase() !== "chromium",
+      `Test only for chromium!`
+    );
     await openBasicModalViaTabKey(page);
     expect(page.locator(basicModalSelector)).toBeVisible();
     await keyToElement(page, basicModalDismissBtnSelector);
@@ -107,7 +112,12 @@ test.describe("<Modal /> integration tests", () => {
 
   test("Should be able to open basic modal using only keyboard and close modal by pressing escape key, once closed focus should return to the trigger element", async ({
     page,
+    browserName
   }) => {
+    test.skip(
+      browserName.toLowerCase() !== "chromium",
+      `Test only for chromium!`
+    );
     await openBasicModalViaTabKey(page);
     expect(page.locator(basicModalSelector)).toBeVisible();
     await page.keyboard.press("Escape");

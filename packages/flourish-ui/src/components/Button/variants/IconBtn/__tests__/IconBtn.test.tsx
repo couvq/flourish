@@ -1,8 +1,8 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '@testing-library/jest-dom'
-import { render, screen, fireEvent, createEvent } from '@testing-library/react'
+import { createEvent, fireEvent, render, screen } from '@testing-library/react'
+import { X } from 'lucide-react'
 import React from 'react'
-import IconBtn, { getFontawesomeIconForIconType } from '..'
+import IconBtn, { getLucidIconComponent } from '..'
 
 describe('<IconBtn />', () => {
   it('renders without error', () => {
@@ -10,9 +10,9 @@ describe('<IconBtn />', () => {
     expect(wrapper).not.toBeNull()
   })
 
-  it('getFontawesomeIconForIconType function works', () => {
-    const resultWithCloseInput = getFontawesomeIconForIconType('close')
-    expect(resultWithCloseInput).toEqual(faXmark)
+  it('getLucidIconComponent function works', () => {
+    const resultWithCloseInput = getLucidIconComponent('close')
+    expect(resultWithCloseInput).toEqual(<X />)
   })
 
   it('should fire click event provided to onClick prop when icon button is clicked', () => {
