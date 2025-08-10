@@ -9,6 +9,7 @@ import {
   ListBoxItemProps,
   Popover
 } from 'react-aria-components'
+import './Autocomplete.scss'
 
 interface AutocompleteProps<T extends object> extends ComboBoxProps<T> {
   /** Accessible label for the component */
