@@ -1,6 +1,6 @@
 import ExampleGroup from '@/components/common-components/ExampleGroup'
 import ExamplePage from '@/components/common-components/ExamplePage'
-import { Autocomplete, AutocompleteItem } from 'flourish-ui'
+import { Autocomplete, AutocompleteItem, Typography } from 'flourish-ui'
 import { useState } from 'react'
 
 const options = [
@@ -26,13 +26,14 @@ const AutocompletePage = () => {
   return (
     <ExamplePage exampleName="Autocomplete examples">
       <ExampleGroup groupName="Basic autocomplete">
-        Selected id is {majorId}
+        <Typography data-testId="basic-autocomplete-selected-id">Selected id is {majorId}</Typography>
         <Autocomplete
           label="Pick a major"
           onSelectionChange={onSelectionChange}
+          data-testId="basic-autocomplete"
         >
           {options.map((option) => (
-            <AutocompleteItem key={option.id} id={option.id}>
+            <AutocompleteItem key={option.id} id={option.id} data-testId={`basic-autocomplete-item-${option.id}`}>
               {option.name}
             </AutocompleteItem>
           ))}

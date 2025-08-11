@@ -1,0 +1,101 @@
+@import '../../index.scss';
+
+$autocomplete_width: 200px;
+
+.react-aria-ComboBox {
+  max-width: max-content;
+}
+
+.react-aria-Input {
+  width: $autocomplete_width;
+  padding: 5px calc($f-spacing-4 * 1px);
+  background-color: $f-color-bg-light;
+  border: 2px solid $f-color-primary-light;
+  border-radius: calc($f-border-soft-corner * 1px);
+  font:
+    calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
+    sans-serif;
+
+  &[data-focused] {
+    outline: none;
+  }
+
+  &[data-hovered] {
+    color: $f-color-primary-light-hover;
+    background-color: rgb(0, 77, 64, 0.1);
+    border: 2px solid $f-color-primary-light-hover;
+  }
+}
+
+.react-aria-ListBox {
+  width: $autocomplete_width;
+  z-index: 1000;
+  width: 200px;
+  max-height: 150px;
+  background-color: $f-color-bg-light;
+  border: 2px solid $f-color-primary-light;
+  border-radius: calc($f-border-soft-corner * 1px);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.react-aria-ListBoxItem {
+  cursor: pointer;
+  color: $f-color-primary-light;
+  font:
+    calc($f-typography-fs-h6 * 1px) $f-typography-font-primary,
+    sans-serif;
+  background-color: $f-color-bg-light;
+  padding: 5px calc($f-spacing-7 * 1px);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &[data-hovered] {
+    color: $f-color-primary-light-hover;
+    background-color: rgb(0, 77, 64, 0.1);
+  }
+
+  &[data-selected] {
+    color: $f-color-primary-light-hover;
+    background-color: rgb(0, 77, 64, 0.1);
+  }
+}
+
+.#{$prefix}dark-mode {
+  .react-aria-Input {
+    color: $f-color-primary-dark;
+    background-color: $f-color-bg-dark;
+    border: 2px solid $f-color-primary-dark;
+
+    &[data-hovered] {
+      color: $f-color-primary-dark-hover;
+      background-color: rgb(100, 255, 218, 0.1);
+      border: 2px solid $f-color-primary-dark-hover;
+    }
+  }
+
+  .react-aria-ListBox {
+    color: $f-color-primary-dark;
+    background-color: $f-color-bg-dark;
+    border: 2px solid $f-color-primary-dark;
+  }
+
+  .react-aria-ListBoxItem {
+    color: $f-color-primary-dark;
+    background-color: $f-color-bg-dark;
+
+    &[data-hovered] {
+      color: $f-color-primary-dark-hover;
+      background-color: rgb(100, 255, 218, 0.1);
+    }
+
+    &[data-selected] {
+      color: $f-color-primary-dark-hover;
+      background-color: rgb(100, 255, 218, 0.1);
+    }
+  }
+}

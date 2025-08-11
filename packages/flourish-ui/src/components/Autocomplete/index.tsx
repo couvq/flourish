@@ -3,32 +3,41 @@ import {
   ComboBox,
   ComboBoxProps,
   Input,
-  Label,
   ListBox,
   ListBoxItem,
   ListBoxItemProps,
   Popover
 } from 'react-aria-components'
+import { Testable } from '../../common-props'
 import './Autocomplete.scss'
 
-interface AutocompleteProps<T extends object> extends ComboBoxProps<T> {
+export interface AutocompleteProps<T extends object>
+  extends ComboBoxProps<T>,
+    Testable {
   /** Accessible label for the component */
   label: string
 }
 
-export const AutocompleteItem = (props: ListBoxItemProps) => {
-  return <ListBoxItem {...props} />
+export interface AutocompleteItemProps extends ListBoxItemProps, Testable {
+
+}
+
+export const AutocompleteItem = ({
+  'data-testId': testId,
+  ...props
+}: AutocompleteItemProps) => {
+  return <ListBoxItem {...props} data-testId={testId} />
 }
 
 export const Autocomplete = <T extends object>({
   label,
   children,
+  'data-testId': testId,
   ...props
 }: AutocompleteProps<T>) => {
   return (
-    <ComboBox {...props}>
-      <Label>{label}</Label>
-      <Input />
+    <ComboBox {...props} data-testId={testId}>
+      <Input aria-label={label} data-testId={`${testId}-trigger`} />
       <Popover>
         <ListBox>{children}</ListBox>
       </Popover>
