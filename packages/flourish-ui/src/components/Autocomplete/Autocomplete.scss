@@ -63,6 +63,11 @@ $autocomplete_width: 200px;
     color: $f-color-primary-light-hover;
     background-color: rgb(0, 77, 64, 0.1);
   }
+
+  &[data-focused] {
+    color: $f-color-primary-light-hover;
+    background-color: rgb(0, 77, 64, 0.1);
+  }
 }
 
 .#{$prefix}dark-mode {
@@ -94,6 +99,11 @@ $autocomplete_width: 200px;
     }
 
     &[data-selected] {
+      color: $f-color-primary-dark-hover;
+      background-color: rgb(100, 255, 218, 0.1);
+    }
+
+    &[data-focused] {
       color: $f-color-primary-dark-hover;
       background-color: rgb(100, 255, 218, 0.1);
     }
