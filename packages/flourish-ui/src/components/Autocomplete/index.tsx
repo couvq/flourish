@@ -12,15 +12,15 @@ import { Testable } from '../../common-props'
 import './Autocomplete.scss'
 
 export interface AutocompleteProps<T extends object>
-  extends ComboBoxProps<T>,
+  extends Pick<ComboBoxProps<T>, 'children' | 'onSelectionChange'>,
     Testable {
   /** Accessible label for the component */
   label: string
 }
 
-export interface AutocompleteItemProps extends ListBoxItemProps, Testable {
-
-}
+export interface AutocompleteItemProps
+  extends Pick<ListBoxItemProps, 'children' | 'id'>,
+    Testable {}
 
 export const AutocompleteItem = ({
   'data-testId': testId,
