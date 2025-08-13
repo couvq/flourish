@@ -82,6 +82,10 @@ $autocomplete_width: 200px;
 }
 
 .#{$prefix}dark-mode {
+  .#{$prefix}autocomplete-label {
+    color: $f-color-font-dark;
+  }
+
   .react-aria-Input {
     color: $f-color-primary-dark;
     background-color: $f-color-bg-dark;
