@@ -2,6 +2,17 @@
 
 $autocomplete_width: 200px;
 
+.#{$prefix}autocomplete-trigger-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{$prefix}autocomplete-label {
+  font:
+    calc($f-typography-fs-p * 1px) $f-typography-font-primary,
+    sans-serif;
+}
+
 .react-aria-ComboBox {
   max-width: max-content;
 }

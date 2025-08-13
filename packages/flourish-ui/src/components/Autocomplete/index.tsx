@@ -3,6 +3,7 @@ import {
   ComboBox,
   ComboBoxProps,
   Input,
+  Label,
   ListBox,
   ListBoxItem,
   ListBoxItemProps,
@@ -14,8 +15,10 @@ import './Autocomplete.scss'
 export interface AutocompleteProps<T extends object>
   extends Pick<ComboBoxProps<T>, 'children' | 'onSelectionChange'>,
     Testable {
-  /** Accessible label for the component */
+  /** Accessible label for the component. */
   label: string
+  /** Whether to display the label, if false will attach the label with aria-label. */
+  isLabelVisible?: boolean
 }
 
 export interface AutocompleteItemProps
@@ -31,13 +34,17 @@ export const AutocompleteItem = ({
 
 export const Autocomplete = <T extends object>({
   label,
+  isLabelVisible = true,
   children,
   'data-testId': testId,
   ...props
 }: AutocompleteProps<T>) => {
   return (
     <ComboBox {...props} data-testId={testId}>
-      <Input aria-label={label} data-testId={`${testId}-trigger`} />
+      <div className="f-autocomplete-trigger-container">
+        {isLabelVisible && <Label className="f-autocomplete-label">{label}</Label>}
+        <Input data-testId={`${testId}-trigger`} aria-label={label} />
+      </div>
       <Popover>
         <ListBox>{children}</ListBox>
       </Popover>
