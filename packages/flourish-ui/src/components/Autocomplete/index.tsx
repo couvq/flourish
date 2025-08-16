@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import {
   ComboBox,
   ComboBoxProps,
@@ -10,6 +10,7 @@ import {
   Popover
 } from 'react-aria-components'
 import { Testable } from '../../common-props'
+import { Button } from '../Button'
 import './Autocomplete.scss'
 
 export interface AutocompleteProps<T extends object>
@@ -39,11 +40,41 @@ export const Autocomplete = <T extends object>({
   'data-testId': testId,
   ...props
 }: AutocompleteProps<T>) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [inputValue, setInputValue] = useState('')
+
+  const onDelete = (e: React.MouseEvent<Element, MouseEvent>) => {
+    setInputValue('')
+    inputRef.current?.focus()
+  }
+
   return (
-    <ComboBox {...props} data-testId={testId}>
+    <ComboBox
+      {...props}
+      data-testId={testId}
+      inputValue={inputValue}
+      onInputChange={setInputValue}
+    >
       <div className="f-autocomplete-trigger-container">
-        {isLabelVisible && <Label className="f-autocomplete-label">{label}</Label>}
-        <Input data-testId={`${testId}-trigger`} aria-label={label} />
+        {isLabelVisible && (
+          <Label className="f-autocomplete-label">{label}</Label>
+        )}
+        <div className="f-searchbar">
+          <Input
+            ref={inputRef}
+            data-testId={`${testId}-trigger`}
+            aria-label={label}
+          />
+          {inputValue.length > 0 && (
+            <Button
+              className="f-searchbar-clear-btn"
+              label="Clear search..."
+              variant="icon"
+              icon="close"
+              onClick={onDelete}
+            />
+          )}
+        </div>
       </div>
       <Popover>
         <ListBox>{children}</ListBox>
