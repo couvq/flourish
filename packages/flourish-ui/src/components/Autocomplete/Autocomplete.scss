@@ -1,6 +1,6 @@
 @import '../../index.scss';
 
-$autocomplete_width: 200px;
+$autocomplete_width: 250px;
 
 .#{$prefix}autocomplete-trigger-container {
   display: flex;
@@ -13,13 +13,25 @@ $autocomplete_width: 200px;
     sans-serif;
 }
 
+.#{$prefix}searchbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.#{$prefix}searchbar-clear-btn {
+  position: absolute;
+  right: 0;
+}
+
 .react-aria-ComboBox {
   max-width: max-content;
 }
 
 .react-aria-Input {
   width: $autocomplete_width;
-  padding: 5px calc($f-spacing-4 * 1px);
+  padding: calc($f-spacing-5 * 1px);
+  padding-right: 32px;
   background-color: $f-color-bg-light;
   border: 2px solid $f-color-primary-light;
   border-radius: calc($f-border-soft-corner * 1px);
@@ -41,7 +53,6 @@ $autocomplete_width: 200px;
 .react-aria-ListBox {
   width: $autocomplete_width;
   z-index: 1000;
-  width: 200px;
   max-height: 150px;
   background-color: $f-color-bg-light;
   border: 2px solid $f-color-primary-light;
