@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react'
 import {
   ComboBox,
-  ComboBoxProps,
-  Input,
+  ComboBoxProps, Input,
   Label,
   ListBox,
   ListBoxItem,
@@ -20,6 +19,8 @@ export interface AutocompleteProps<T extends object>
   label: string
   /** Whether to display the label, if false will attach the label with aria-label. */
   isLabelVisible?: boolean
+  /** Accessible label for the component's clear button. */
+  dismissLabel: string
 }
 
 export interface AutocompleteItemProps
@@ -36,6 +37,7 @@ export const AutocompleteItem = ({
 export const Autocomplete = <T extends object>({
   label,
   isLabelVisible = true,
+  dismissLabel,
   children,
   'data-testId': testId,
   ...props
@@ -54,6 +56,7 @@ export const Autocomplete = <T extends object>({
       data-testId={testId}
       inputValue={inputValue}
       onInputChange={setInputValue}
+      isRequired
     >
       <div className="f-autocomplete-trigger-container">
         {isLabelVisible && (
@@ -68,7 +71,7 @@ export const Autocomplete = <T extends object>({
           {inputValue.length > 0 && (
             <Button
               className="f-searchbar-clear-btn"
-              label="Clear search..."
+              label={dismissLabel}
               variant="icon"
               icon="close"
               onClick={onDelete}
