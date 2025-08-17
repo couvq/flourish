@@ -56,7 +56,6 @@ export const Autocomplete = <T extends object>({
       data-testId={testId}
       inputValue={inputValue}
       onInputChange={setInputValue}
-      isRequired
     >
       <div className="f-autocomplete-trigger-container">
         {isLabelVisible && (
