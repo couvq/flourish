@@ -19,8 +19,8 @@ export interface AutocompleteProps<T extends object>
   label: string
   /** Whether to display the label, if false will attach the label with aria-label. */
   isLabelVisible?: boolean
-  /** Accessible label for the component's clear button. */
-  dismissLabel: string
+  /** Label of the clear icon button for assistive technologies. */
+  dismissAriaLabel: string
 }
 
 export interface AutocompleteItemProps
@@ -37,7 +37,7 @@ export const AutocompleteItem = ({
 export const Autocomplete = <T extends object>({
   label,
   isLabelVisible = true,
-  dismissLabel,
+  dismissAriaLabel,
   children,
   'data-testId': testId,
   ...props
@@ -70,7 +70,7 @@ export const Autocomplete = <T extends object>({
           {inputValue.length > 0 && (
             <Button
               className="f-searchbar-clear-btn"
-              label={dismissLabel}
+              label={dismissAriaLabel}
               variant="icon"
               icon="close"
               onClick={onDelete}

@@ -29,7 +29,7 @@ const AutocompletePage = () => {
         <Typography data-testId="basic-autocomplete-selected-id">Selected id is {majorId}</Typography>
         <Autocomplete
           label="Pick a major"
-          dismissLabel='Clear input'
+          dismissAriaLabel='Clear input'
           onSelectionChange={onSelectionChange}
           data-testId="basic-autocomplete"
         >
