@@ -1,0 +1,43 @@
+@import '../../index.scss';
+
+.react-aria-Breadcrumbs {
+  max-width: max-content;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.react-aria-Breadcrumb {
+  display: flex;
+  flex-direction: row;
+}
+
+.react-aria-Link {
+  font:
+    calc($f-typography-fs-p * 1px) $f-typography-font-secondary,
+    serif;
+  color: $f-color-secondary-light;
+}
+
+.react-aria-Link[data-current] {
+  color: $f-color-font-light;
+}
+
+.#{$prefix}breadcrumb-separator {
+  color: $f-color-font-light;
+}
+
+.#{$prefix}dark-mode {
+  .react-aria-Link {
+    color: $f-color-secondary-dark;
+  }
+
+  .react-aria-Link[data-current] {
+    color: $f-color-font-dark;
+  }
+
+  .#{$prefix}breadcrumb-separator {
+    color: $f-color-font-dark;
+  }
+}

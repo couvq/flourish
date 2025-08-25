@@ -1,4 +1,5 @@
 import AutocompletePage from '@/components/examplePages/AutocompletePage'
+import BreadcrumbsPage from '@/components/examplePages/BreadcrumbsPage'
 import ButtonPage from '@/components/examplePages/ButtonPage'
 import DrawerPage from '@/components/examplePages/DrawerPage'
 import FlexPage from '@/components/examplePages/FlexPage'
@@ -65,5 +66,10 @@ export const routes: RouteEntry[] = [
     path: '/autocomplete',
     label: 'Autocomplete',
     element: <AutocompletePage />
+  },
+  {
+    path: '/breadcrumbs',
+    label: 'Breadcrumbs',
+    element: <BreadcrumbsPage />
   }
 ]
