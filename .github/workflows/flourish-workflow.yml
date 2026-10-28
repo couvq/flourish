@@ -1,5 +1,8 @@
 name: Workflow for flourish design system
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [closed]
     branches:
